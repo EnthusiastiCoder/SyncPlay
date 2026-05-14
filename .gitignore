@@ -1,0 +1,30 @@
+venv/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+.venv/
+*.egg-info/
+dist/
+build/
+*.spec
+
+# Media and lyrics files (never committed: bring your own)
+*.mp3
+*.wav
+*.ogg
+*.flac
+*.m4a
+*.aac
+*.opus
+*.wma
+*.srt
+*.lrc
+*.wlrc
+diag_*.py
+
+# Local environment snapshots
+requirements-frozen-*.txt
