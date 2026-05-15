@@ -56,3 +56,5 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
             for line in wlrc.lines
         ]
     }
+    
+    wlrc_json = json.dumps(wlrc_dict, ensure_ascii=False)
