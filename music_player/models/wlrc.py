@@ -46,3 +46,11 @@ class WlrcMetadata:
     artist: str = ""
     audio_file: str = ""
     duration_ms: int = 0
+
+
+@dataclass
+class WlrcData:
+    """Complete word-level lyric data."""
+    version: int = 1
+    metadata: WlrcMetadata = field(default_factory=WlrcMetadata)
+    lines: list[WlrcLine] = field(default_factory=list)
