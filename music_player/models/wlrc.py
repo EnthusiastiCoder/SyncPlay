@@ -158,3 +158,10 @@ def _dict_to_wlrc(d: dict[str, Any]) -> WlrcData:
             end_ms=line_d["end_ms"],
             words=words,
         ))
+
+    data = WlrcData(
+        version=d.get("version", 1),
+        metadata=metadata,
+        lines=lines,
+    )
+    return data
