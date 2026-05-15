@@ -83,3 +83,6 @@ class WlrcData:
         # Find the rightmost line whose start_ms <= time_ms
         idx = bisect_right(self._line_starts, time_ms) - 1
         return idx
+
+    def get_display_lines(self, time_ms: int) -> tuple[Optional['WlrcLine'], Optional['WlrcLine'], Optional['WlrcLine']]:
+        """Get (previous, current, next) lines for display at a given time.
