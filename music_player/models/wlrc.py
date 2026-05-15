@@ -13,3 +13,9 @@ class WlrcWord:
     text: str
     start_ms: int
     end_ms: int
+
+    def __post_init__(self):
+        if self.start_ms < 0:
+            raise ValueError(f"start_ms must be >= 0, got {self.start_ms}")
+        if self.end_ms < self.start_ms:
+            raise ValueError(f"end_ms ({self.end_ms}) must be >= start_ms ({self.start_ms})")
