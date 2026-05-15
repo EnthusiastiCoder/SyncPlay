@@ -103,3 +103,31 @@ class WlrcData:
             next_line = self.lines[idx + 1] if idx < len(self.lines) - 1 else None
 
         return prev_line, current_line, next_line
+
+
+def _wlrc_to_dict(data: WlrcData) -> dict[str, Any]:
+    """Convert WlrcData to a JSON-serializable dictionary."""
+    return {
+        "version": data.version,
+        "metadata": {
+            "title": data.metadata.title,
+            "artist": data.metadata.artist,
+            "audio_file": data.metadata.audio_file,
+            "duration_ms": data.metadata.duration_ms,
+        },
+        "lines": [
+            {
+                "start_ms": line.start_ms,
+                "end_ms": line.end_ms,
+                "words": [
+                    {
+                        "text": word.text,
+                        "start_ms": word.start_ms,
+                        "end_ms": word.end_ms,
+                    }
+                    for word in line.words
+                ],
+            }
+            for line in data.lines
+        ],
+    }
