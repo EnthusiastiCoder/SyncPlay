@@ -25,3 +25,11 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
     
     if audio_path.suffix.lower() != '.mp3':
         raise ValueError("Only MP3 files are supported for embedding WLRC")
+    
+    # Load or create ID3 tags
+    try:
+        audio = MP3(str(audio_path), ID3=ID3)
+        if audio.tags is None:
+            audio.add_tags()
+    except Exception as e:
+        raise Exception(f"Failed to load MP3 file: {e}")
