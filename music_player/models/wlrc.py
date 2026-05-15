@@ -72,3 +72,10 @@ class WlrcData:
 
     def get_current_line_index(self, time_ms: int) -> int:
         """Get the index of the current line for a given playback time.
+
+        Returns the index of the line that should be displayed as "current".
+        Returns -1 if before the first line.
+        Returns len(lines)-1 if after the last line starts.
+        """
+        if not self.lines:
+            return -1
