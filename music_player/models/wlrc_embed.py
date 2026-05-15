@@ -16,3 +16,9 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
     Args:
         audio_path: Path to MP3 file
         wlrc: WLRC data to embed
+        
+    Raises:
+        ValueError: If file is not an MP3
+        Exception: If embedding fails
+    """
+    audio_path = Path(audio_path)
