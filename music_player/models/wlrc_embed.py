@@ -12,3 +12,7 @@ from music_player.models.wlrc import WlrcData
 
 def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
     """Embed WLRC data into MP3 file as ID3 TXXX tag.
+    
+    Args:
+        audio_path: Path to MP3 file
+        wlrc: WLRC data to embed
