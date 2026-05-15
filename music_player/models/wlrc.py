@@ -178,3 +178,12 @@ def save_wlrc(data: WlrcData, path: str) -> None:
 
 def load_wlrc(path: str) -> WlrcData:
     """Load WlrcData from a .wlrc JSON file.
+
+    Raises:
+        FileNotFoundError: If the file does not exist.
+        json.JSONDecodeError: If the file is not valid JSON.
+        KeyError/ValueError: If required fields are missing or invalid.
+    """
+    with open(path, "r", encoding="utf-8") as f:
+        d = json.load(f)
+    return _dict_to_wlrc(d)
