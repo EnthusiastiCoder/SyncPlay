@@ -37,3 +37,12 @@ class WlrcLine:
     def has_word_timing(self) -> bool:
         """Whether this line has word-level timing data."""
         return len(self.words) > 0
+
+
+@dataclass
+class WlrcMetadata:
+    """Metadata for a WLRC file."""
+    title: str = ""
+    artist: str = ""
+    audio_file: str = ""
+    duration_ms: int = 0
