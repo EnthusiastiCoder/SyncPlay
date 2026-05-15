@@ -174,3 +174,7 @@ def save_wlrc(data: WlrcData, path: str) -> None:
     p.parent.mkdir(parents=True, exist_ok=True)
     with open(p, "w", encoding="utf-8") as f:
         json.dump(d, f, indent=2, ensure_ascii=False)
+
+
+def load_wlrc(path: str) -> WlrcData:
+    """Load WlrcData from a .wlrc JSON file.
