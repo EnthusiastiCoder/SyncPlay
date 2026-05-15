@@ -58,3 +58,7 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
     }
     
     wlrc_json = json.dumps(wlrc_dict, ensure_ascii=False)
+    
+    # Create or update TXXX:WLRC tag
+    audio.tags.delall("TXXX:WLRC")  # Remove existing WLRC tag
+    audio.tags.add(TXXX(encoding=3, desc="WLRC", text=wlrc_json))
