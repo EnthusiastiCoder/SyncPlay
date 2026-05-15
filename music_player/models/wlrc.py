@@ -54,3 +54,6 @@ class WlrcData:
     version: int = 1
     metadata: WlrcMetadata = field(default_factory=WlrcMetadata)
     lines: list[WlrcLine] = field(default_factory=list)
+
+    # Cached line start times for binary search
+    _line_starts: list[int] = field(default_factory=list, repr=False, compare=False)
