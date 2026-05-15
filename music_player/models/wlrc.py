@@ -131,3 +131,14 @@ def _wlrc_to_dict(data: WlrcData) -> dict[str, Any]:
             for line in data.lines
         ],
     }
+
+
+def _dict_to_wlrc(d: dict[str, Any]) -> WlrcData:
+    """Convert a dictionary to WlrcData."""
+    meta_d = d.get("metadata", {})
+    metadata = WlrcMetadata(
+        title=meta_d.get("title", ""),
+        artist=meta_d.get("artist", ""),
+        audio_file=meta_d.get("audio_file", ""),
+        duration_ms=meta_d.get("duration_ms", 0),
+    )
