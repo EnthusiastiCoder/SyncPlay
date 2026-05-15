@@ -142,3 +142,19 @@ def _dict_to_wlrc(d: dict[str, Any]) -> WlrcData:
         audio_file=meta_d.get("audio_file", ""),
         duration_ms=meta_d.get("duration_ms", 0),
     )
+
+    lines = []
+    for line_d in d.get("lines", []):
+        words = [
+            WlrcWord(
+                text=w["text"],
+                start_ms=w["start_ms"],
+                end_ms=w["end_ms"],
+            )
+            for w in line_d.get("words", [])
+        ]
+        lines.append(WlrcLine(
+            start_ms=line_d["start_ms"],
+            end_ms=line_d["end_ms"],
+            words=words,
+        ))
