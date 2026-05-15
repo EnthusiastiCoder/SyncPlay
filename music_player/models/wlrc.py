@@ -60,3 +60,7 @@ class WlrcData:
 
     def __post_init__(self):
         self._rebuild_index()
+
+    def _rebuild_index(self) -> None:
+        """Rebuild the binary search index of line start times."""
+        self._line_starts = [line.start_ms for line in self.lines]
