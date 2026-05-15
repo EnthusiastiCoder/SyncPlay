@@ -1,0 +1,14 @@
+{
+    "played_color": "#00FF00",
+    "unplayed_color": "#FFFFFF",
+    "font_family": "Segoe UI",
+    "font_size_base": 28,
+    "font_ratio_side_lines": 0.75,
+    "overlay_x": 100,
+    "overlay_y": 800,
+    "overlay_width": 1200,
+    "whisper_model_size": "base",
+    "last_directory": "",
+    "recent_files": [],
+    "app_theme": "Catppuccin Dark"
+}
