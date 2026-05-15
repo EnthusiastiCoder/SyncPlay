@@ -3,3 +3,6 @@
 import json
 from pathlib import Path
 from typing import Optional
+
+from mutagen.mp3 import MP3
+from mutagen.id3 import ID3, TXXX
