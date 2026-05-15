@@ -79,3 +79,7 @@ class WlrcData:
         """
         if not self.lines:
             return -1
+
+        # Find the rightmost line whose start_ms <= time_ms
+        idx = bisect_right(self._line_starts, time_ms) - 1
+        return idx
