@@ -91,3 +91,13 @@ class WlrcData:
         Any element may be None if not available.
         """
         idx = self.get_current_line_index(time_ms)
+
+        if idx < 0:
+            # Before first line
+            prev_line = None
+            current_line = None
+            next_line = self.lines[0] if self.lines else None
+        else:
+            prev_line = self.lines[idx - 1] if idx > 0 else None
+            current_line = self.lines[idx]
+            next_line = self.lines[idx + 1] if idx < len(self.lines) - 1 else None
