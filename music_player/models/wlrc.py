@@ -165,3 +165,12 @@ def _dict_to_wlrc(d: dict[str, Any]) -> WlrcData:
         lines=lines,
     )
     return data
+
+
+def save_wlrc(data: WlrcData, path: str) -> None:
+    """Save WlrcData to a .wlrc JSON file."""
+    d = _wlrc_to_dict(data)
+    p = Path(path)
+    p.parent.mkdir(parents=True, exist_ok=True)
+    with open(p, "w", encoding="utf-8") as f:
+        json.dump(d, f, indent=2, ensure_ascii=False)
