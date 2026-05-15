@@ -86,3 +86,8 @@ class WlrcData:
 
     def get_display_lines(self, time_ms: int) -> tuple[Optional['WlrcLine'], Optional['WlrcLine'], Optional['WlrcLine']]:
         """Get (previous, current, next) lines for display at a given time.
+
+        Returns a tuple of (prev_line, current_line, next_line).
+        Any element may be None if not available.
+        """
+        idx = self.get_current_line_index(time_ms)
