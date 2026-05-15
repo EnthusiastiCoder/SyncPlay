@@ -27,3 +27,8 @@ class WlrcLine:
     start_ms: int
     end_ms: int
     words: list[WlrcWord] = field(default_factory=list)
+
+    @property
+    def text(self) -> str:
+        """Full line text reconstructed from words."""
+        return " ".join(w.text for w in self.words)
