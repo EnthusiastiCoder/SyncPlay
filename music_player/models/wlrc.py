@@ -32,3 +32,8 @@ class WlrcLine:
     def text(self) -> str:
         """Full line text reconstructed from words."""
         return " ".join(w.text for w in self.words)
+
+    @property
+    def has_word_timing(self) -> bool:
+        """Whether this line has word-level timing data."""
+        return len(self.words) > 0
