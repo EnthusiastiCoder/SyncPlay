@@ -64,3 +64,8 @@ class WlrcData:
     def _rebuild_index(self) -> None:
         """Rebuild the binary search index of line start times."""
         self._line_starts = [line.start_ms for line in self.lines]
+
+    def add_line(self, line: WlrcLine) -> None:
+        """Add a line and update the index."""
+        self.lines.append(line)
+        self._line_starts.append(line.start_ms)
