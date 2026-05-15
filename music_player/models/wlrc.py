@@ -69,3 +69,6 @@ class WlrcData:
         """Add a line and update the index."""
         self.lines.append(line)
         self._line_starts.append(line.start_ms)
+
+    def get_current_line_index(self, time_ms: int) -> int:
+        """Get the index of the current line for a given playback time.
