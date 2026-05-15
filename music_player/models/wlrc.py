@@ -57,3 +57,6 @@ class WlrcData:
 
     # Cached line start times for binary search
     _line_starts: list[int] = field(default_factory=list, repr=False, compare=False)
+
+    def __post_init__(self):
+        self._rebuild_index()
