@@ -101,3 +101,5 @@ class WlrcData:
             prev_line = self.lines[idx - 1] if idx > 0 else None
             current_line = self.lines[idx]
             next_line = self.lines[idx + 1] if idx < len(self.lines) - 1 else None
+
+        return prev_line, current_line, next_line
