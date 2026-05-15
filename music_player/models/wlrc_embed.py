@@ -33,3 +33,26 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
             audio.add_tags()
     except Exception as e:
         raise Exception(f"Failed to load MP3 file: {e}")
+    
+    # Convert WLRC to JSON
+    wlrc_dict = {
+        "metadata": {
+            "audio_file": wlrc.metadata.audio_file,
+            "duration_ms": wlrc.metadata.duration_ms,
+        },
+        "lines": [
+            {
+                "start_ms": line.start_ms,
+                "end_ms": line.end_ms,
+                "words": [
+                    {
+                        "text": word.text,
+                        "start_ms": word.start_ms,
+                        "end_ms": word.end_ms,
+                    }
+                    for word in line.words
+                ]
+            }
+            for line in wlrc.lines
+        ]
+    }
