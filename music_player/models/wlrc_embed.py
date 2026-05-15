@@ -62,3 +62,9 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
     # Create or update TXXX:WLRC tag
     audio.tags.delall("TXXX:WLRC")  # Remove existing WLRC tag
     audio.tags.add(TXXX(encoding=3, desc="WLRC", text=wlrc_json))
+    
+    # Save tags
+    try:
+        audio.save()
+    except Exception as e:
+        raise Exception(f"Failed to save MP3 tags: {e}")
