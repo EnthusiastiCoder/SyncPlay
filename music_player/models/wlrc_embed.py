@@ -75,3 +75,6 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
     
     Args:
         audio_path: Path to MP3 file
+        
+    Returns:
+        WlrcData if found, None otherwise
