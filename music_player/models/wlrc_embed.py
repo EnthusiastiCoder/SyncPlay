@@ -72,3 +72,6 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
 
 def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
     """Extract WLRC data from MP3 file ID3 TXXX tag.
+    
+    Args:
+        audio_path: Path to MP3 file
