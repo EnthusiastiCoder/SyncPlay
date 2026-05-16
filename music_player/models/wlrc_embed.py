@@ -68,3 +68,7 @@ def embed_wlrc_in_mp3(audio_path: str, wlrc: WlrcData) -> None:
         audio.save()
     except Exception as e:
         raise Exception(f"Failed to save MP3 tags: {e}")
+
+
+def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
+    """Extract WLRC data from MP3 file ID3 TXXX tag.
