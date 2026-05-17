@@ -112,3 +112,7 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
         wlrc_dict = json.loads(wlrc_json)
     except Exception:
         return None
+    
+    # Convert to WlrcData
+    try:
+        from music_player.models.wlrc import WlrcMetadata, WlrcLine, WlrcWord
