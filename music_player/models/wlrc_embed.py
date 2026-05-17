@@ -87,3 +87,11 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
     
     if audio_path.suffix.lower() != '.mp3':
         raise ValueError("Only MP3 files are supported for extracting WLRC")
+    
+    # Load ID3 tags
+    try:
+        audio = MP3(str(audio_path), ID3=ID3)
+        if audio.tags is None:
+            return None
+    except Exception:
+        return None
