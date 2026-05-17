@@ -102,3 +102,6 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
         if tag.desc == "WLRC":
             wlrc_tag = tag
             break
+    
+    if wlrc_tag is None:
+        return None
