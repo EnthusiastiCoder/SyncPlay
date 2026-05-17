@@ -105,3 +105,10 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
     
     if wlrc_tag is None:
         return None
+    
+    # Parse JSON
+    try:
+        wlrc_json = wlrc_tag.text[0] if isinstance(wlrc_tag.text, list) else wlrc_tag.text
+        wlrc_dict = json.loads(wlrc_json)
+    except Exception:
+        return None
