@@ -95,3 +95,10 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
             return None
     except Exception:
         return None
+    
+    # Find TXXX:WLRC tag
+    wlrc_tag = None
+    for tag in audio.tags.getall("TXXX"):
+        if tag.desc == "WLRC":
+            wlrc_tag = tag
+            break
