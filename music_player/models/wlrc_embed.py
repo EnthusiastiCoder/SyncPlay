@@ -116,3 +116,8 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
     # Convert to WlrcData
     try:
         from music_player.models.wlrc import WlrcMetadata, WlrcLine, WlrcWord
+        
+        metadata = WlrcMetadata(
+            audio_file=wlrc_dict["metadata"]["audio_file"],
+            duration_ms=wlrc_dict["metadata"]["duration_ms"],
+        )
