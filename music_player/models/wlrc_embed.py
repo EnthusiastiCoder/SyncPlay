@@ -160,3 +160,6 @@ def has_embedded_wlrc(audio_path: str) -> bool:
 
 def remove_wlrc_from_mp3(audio_path: str) -> None:
     """Remove WLRC data from MP3 file.
+    
+    Args:
+        audio_path: Path to MP3 file
