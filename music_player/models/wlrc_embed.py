@@ -169,3 +169,6 @@ def remove_wlrc_from_mp3(audio_path: str) -> None:
         Exception: If removal fails
     """
     audio_path = Path(audio_path)
+    
+    if audio_path.suffix.lower() != '.mp3':
+        raise ValueError("Only MP3 files are supported")
