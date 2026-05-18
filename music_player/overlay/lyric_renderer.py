@@ -19,3 +19,13 @@ class LyricRenderer:
 
     def __init__(self, config: ConfigManager):
         self._config = config
+    
+    def calculate_required_width(
+        self,
+        wlrc: Optional[WlrcData],
+        current_time_ms: int,
+        padding: int = 40
+    ) -> int:
+        """Calculate the minimum width needed to display all visible lines without truncation."""
+        if wlrc is None or not wlrc.lines:
+            return 400  # Default minimum width
