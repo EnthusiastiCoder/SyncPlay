@@ -121,3 +121,19 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
             audio_file=wlrc_dict["metadata"]["audio_file"],
             duration_ms=wlrc_dict["metadata"]["duration_ms"],
         )
+        
+        lines = []
+        for line_dict in wlrc_dict["lines"]:
+            words = [
+                WlrcWord(
+                    text=word_dict["text"],
+                    start_ms=word_dict["start_ms"],
+                    end_ms=word_dict["end_ms"],
+                )
+                for word_dict in line_dict["words"]
+            ]
+            lines.append(WlrcLine(
+                start_ms=line_dict["start_ms"],
+                end_ms=line_dict["end_ms"],
+                words=words,
+            ))
