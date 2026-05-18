@@ -141,3 +141,7 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
         return WlrcData(metadata=metadata, lines=lines)
     except Exception:
         return None
+
+
+def has_embedded_wlrc(audio_path: str) -> bool:
+    """Check if MP3 file has embedded WLRC data.
