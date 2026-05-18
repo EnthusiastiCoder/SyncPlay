@@ -148,3 +148,11 @@ def has_embedded_wlrc(audio_path: str) -> bool:
     
     Args:
         audio_path: Path to MP3 file
+        
+    Returns:
+        True if WLRC data is embedded, False otherwise
+    """
+    try:
+        return extract_wlrc_from_mp3(audio_path) is not None
+    except Exception:
+        return False
