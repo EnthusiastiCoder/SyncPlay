@@ -163,3 +163,9 @@ def remove_wlrc_from_mp3(audio_path: str) -> None:
     
     Args:
         audio_path: Path to MP3 file
+        
+    Raises:
+        ValueError: If file is not an MP3
+        Exception: If removal fails
+    """
+    audio_path = Path(audio_path)
