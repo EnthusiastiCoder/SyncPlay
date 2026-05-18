@@ -177,3 +177,8 @@ def remove_wlrc_from_mp3(audio_path: str) -> None:
         audio = MP3(str(audio_path), ID3=ID3)
         if audio.tags is None:
             return
+        
+        audio.tags.delall("TXXX:WLRC")
+        audio.save()
+    except Exception as e:
+        raise Exception(f"Failed to remove WLRC from MP3: {e}")
