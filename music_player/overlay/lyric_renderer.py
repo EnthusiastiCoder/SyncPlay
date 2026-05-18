@@ -31,3 +31,7 @@ class LyricRenderer:
             return 400  # Default minimum width
         
         prev_line, current_line, next_line = wlrc.get_display_lines(current_time_ms)
+        
+        font_family = self._config.get("font_family", "Segoe UI")
+        base_size = self._config.get("font_size_base", 28)
+        ratio = self._config.get("font_ratio_side_lines", 0.75)
