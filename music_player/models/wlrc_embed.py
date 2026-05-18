@@ -137,3 +137,7 @@ def extract_wlrc_from_mp3(audio_path: str) -> Optional[WlrcData]:
                 end_ms=line_dict["end_ms"],
                 words=words,
             ))
+        
+        return WlrcData(metadata=metadata, lines=lines)
+    except Exception:
+        return None
