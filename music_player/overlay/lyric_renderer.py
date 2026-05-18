@@ -11,3 +11,8 @@ from music_player.models.wlrc import WlrcData, WlrcLine
 
 class LyricRenderer:
     """Renders 3 lyric lines with word-level coloring via QPainter.
+
+    Supports two modes:
+    - Word-level: each word snaps to played color when playback reaches its start_ms.
+    - Line-level fallback: linear left-to-right interpolation when no word data.
+    """
