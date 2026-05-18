@@ -156,3 +156,7 @@ def has_embedded_wlrc(audio_path: str) -> bool:
         return extract_wlrc_from_mp3(audio_path) is not None
     except Exception:
         return False
+
+
+def remove_wlrc_from_mp3(audio_path: str) -> None:
+    """Remove WLRC data from MP3 file.
