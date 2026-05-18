@@ -16,3 +16,6 @@ class LyricRenderer:
     - Word-level: each word snaps to played color when playback reaches its start_ms.
     - Line-level fallback: linear left-to-right interpolation when no word data.
     """
+
+    def __init__(self, config: ConfigManager):
+        self._config = config
