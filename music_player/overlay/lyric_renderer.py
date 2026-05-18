@@ -29,3 +29,5 @@ class LyricRenderer:
         """Calculate the minimum width needed to display all visible lines without truncation."""
         if wlrc is None or not wlrc.lines:
             return 400  # Default minimum width
+        
+        prev_line, current_line, next_line = wlrc.get_display_lines(current_time_ms)
