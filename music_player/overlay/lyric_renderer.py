@@ -106,3 +106,18 @@ class LyricRenderer:
             painter, next_line, side_font, unplayed_color, unplayed_color,
             current_time_ms, w, y, fully_unplayed=True,
         )
+
+    def draw_line_at(
+        self,
+        painter: QPainter,
+        line: Optional[WlrcLine],
+        font_size: int,
+        y: int,
+        width: int,
+        opacity: float,
+        current_time_ms: int,
+        is_active: bool = False,
+        is_played: bool = True,
+        font_weight: Optional[int] = None,
+    ) -> None:
+        """Draw a single lyric line at explicit y, font size, opacity, and weight.
