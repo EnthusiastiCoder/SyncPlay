@@ -82,3 +82,6 @@ class LyricRenderer:
         unplayed_color.setAlphaF(unplayed_opacity)
 
         side_size = max(8, int(base_size * ratio))
+
+        base_font = QFont(font_family, base_size, QFont.Weight.Bold)
+        side_font = QFont(font_family, side_size)
