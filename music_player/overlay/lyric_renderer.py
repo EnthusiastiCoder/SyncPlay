@@ -94,3 +94,9 @@ class LyricRenderer:
             painter, prev_line, side_font, played_color, played_color,
             current_time_ms, w, y, fully_played=True,
         )
+
+        # Draw current line (word-level coloring)
+        y = self._draw_line(
+            painter, current_line, base_font, played_color, unplayed_color,
+            current_time_ms, w, y, fully_played=False,
+        )
