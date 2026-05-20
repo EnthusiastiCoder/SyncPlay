@@ -88,3 +88,9 @@ class LyricRenderer:
 
         w = rect.width()
         y = rect.y() + 10
+
+        # Draw previous line (fully played)
+        y = self._draw_line(
+            painter, prev_line, side_font, played_color, played_color,
+            current_time_ms, w, y, fully_played=True,
+        )
