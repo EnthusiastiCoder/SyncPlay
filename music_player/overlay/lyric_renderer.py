@@ -85,3 +85,6 @@ class LyricRenderer:
 
         base_font = QFont(font_family, base_size, QFont.Weight.Bold)
         side_font = QFont(font_family, side_size)
+
+        w = rect.width()
+        y = rect.y() + 10
