@@ -80,3 +80,5 @@ class LyricRenderer:
         unplayed_color = QColor(self._config.get("unplayed_color", "#FFFFFF"))
         unplayed_opacity = self._config.get("unplayed_opacity", 1.0)
         unplayed_color.setAlphaF(unplayed_opacity)
+
+        side_size = max(8, int(base_size * ratio))
