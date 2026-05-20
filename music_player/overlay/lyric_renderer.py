@@ -100,3 +100,9 @@ class LyricRenderer:
             painter, current_line, base_font, played_color, unplayed_color,
             current_time_ms, w, y, fully_played=False,
         )
+
+        # Draw next line (fully unplayed)
+        y = self._draw_line(
+            painter, next_line, side_font, unplayed_color, unplayed_color,
+            current_time_ms, w, y, fully_unplayed=True,
+        )
