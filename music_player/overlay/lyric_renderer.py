@@ -66,3 +66,5 @@ class LyricRenderer:
 
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         painter.setRenderHint(QPainter.RenderHint.TextAntialiasing)
+
+        prev_line, current_line, next_line = wlrc.get_display_lines(current_time_ms)
