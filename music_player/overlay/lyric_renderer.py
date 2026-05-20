@@ -50,3 +50,5 @@ class LyricRenderer:
                 text = line.text
                 line_width = metrics.horizontalAdvance(text)
                 max_width = max(max_width, line_width)
+        
+        return max(400, max_width + padding)
