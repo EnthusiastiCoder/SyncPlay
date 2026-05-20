@@ -72,3 +72,7 @@ class LyricRenderer:
         font_family = self._config.get("font_family", "Segoe UI")
         base_size = self._config.get("font_size_base", 28)
         ratio = self._config.get("font_ratio_side_lines", 0.75)
+        
+        played_color = QColor(self._config.get("played_color", "#00FF00"))
+        played_opacity = self._config.get("played_opacity", 1.0)
+        played_color.setAlphaF(played_opacity)
