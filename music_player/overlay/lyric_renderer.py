@@ -76,3 +76,7 @@ class LyricRenderer:
         played_color = QColor(self._config.get("played_color", "#00FF00"))
         played_opacity = self._config.get("played_opacity", 1.0)
         played_color.setAlphaF(played_opacity)
+        
+        unplayed_color = QColor(self._config.get("unplayed_color", "#FFFFFF"))
+        unplayed_opacity = self._config.get("unplayed_opacity", 1.0)
+        unplayed_color.setAlphaF(unplayed_opacity)
