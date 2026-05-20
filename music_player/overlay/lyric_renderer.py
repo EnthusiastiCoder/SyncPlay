@@ -52,3 +52,14 @@ class LyricRenderer:
                 max_width = max(max_width, line_width)
         
         return max(400, max_width + padding)
+
+    def render(
+        self,
+        painter: QPainter,
+        rect: QRect,
+        wlrc: Optional[WlrcData],
+        current_time_ms: int,
+    ) -> None:
+        """Draw prev/current/next lyric lines inside the given rect."""
+        if wlrc is None or not wlrc.lines:
+            return
