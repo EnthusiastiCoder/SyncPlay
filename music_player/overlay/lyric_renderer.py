@@ -63,3 +63,6 @@ class LyricRenderer:
         """Draw prev/current/next lyric lines inside the given rect."""
         if wlrc is None or not wlrc.lines:
             return
+
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.TextAntialiasing)
