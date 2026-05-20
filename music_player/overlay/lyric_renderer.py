@@ -37,3 +37,6 @@ class LyricRenderer:
         ratio = self._config.get("font_ratio_side_lines", 0.75)
         
         side_size = max(8, int(base_size * ratio))
+        
+        base_font = QFont(font_family, base_size, QFont.Weight.Bold)
+        side_font = QFont(font_family, side_size)
