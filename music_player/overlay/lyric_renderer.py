@@ -42,3 +42,11 @@ class LyricRenderer:
         side_font = QFont(font_family, side_size)
         
         max_width = 0
+        
+        # Check all three lines
+        for line, font in [(prev_line, side_font), (current_line, base_font), (next_line, side_font)]:
+            if line:
+                metrics = QFontMetrics(font)
+                text = line.text
+                line_width = metrics.horizontalAdvance(text)
+                max_width = max(max_width, line_width)
