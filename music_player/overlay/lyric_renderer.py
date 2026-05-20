@@ -127,3 +127,5 @@ class LyricRenderer:
         """
         if line is None or opacity <= 0.01:
             return
+
+        font_family = self._config.get("font_family", "Segoe UI")
