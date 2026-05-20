@@ -121,3 +121,9 @@ class LyricRenderer:
         font_weight: Optional[int] = None,
     ) -> None:
         """Draw a single lyric line at explicit y, font size, opacity, and weight.
+
+        Used by the overlay during animated line transitions.
+        font_weight overrides the default Bold/Normal selection when provided.
+        """
+        if line is None or opacity <= 0.01:
+            return
