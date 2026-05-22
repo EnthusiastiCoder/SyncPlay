@@ -178,3 +178,6 @@ class LyricRenderer:
         if line is None:
             fm = QFontMetrics(font)
             return y + fm.height() + 8
+
+        painter.setFont(font)
+        fm = QFontMetrics(font)
