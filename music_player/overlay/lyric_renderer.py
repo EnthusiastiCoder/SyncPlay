@@ -137,3 +137,10 @@ class LyricRenderer:
         unplayed_color = QColor(self._config.get("unplayed_color", "#FFFFFF"))
         u_base = self._config.get("unplayed_opacity", 1.0)
         unplayed_color.setAlphaF(min(1.0, u_base * opacity))
+
+        if font_weight is not None:
+            font = QFont(font_family, font_size)
+            font.setWeight(QFont.Weight(font_weight))
+        else:
+            font = QFont(font_family, font_size,
+                         QFont.Weight.Bold if is_active else QFont.Weight.Normal)
