@@ -133,3 +133,7 @@ class LyricRenderer:
         played_color = QColor(self._config.get("played_color", "#00FF00"))
         p_base = self._config.get("played_opacity", 1.0)
         played_color.setAlphaF(min(1.0, p_base * opacity))
+
+        unplayed_color = QColor(self._config.get("unplayed_color", "#FFFFFF"))
+        u_base = self._config.get("unplayed_opacity", 1.0)
+        unplayed_color.setAlphaF(min(1.0, u_base * opacity))
