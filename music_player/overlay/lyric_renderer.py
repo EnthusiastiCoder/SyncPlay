@@ -203,3 +203,27 @@ class LyricRenderer:
                 painter, line, fm, played_color, unplayed_color,
                 current_time_ms, width, y, fully_played, fully_unplayed,
             )
+
+    def _draw_word_level(
+        self,
+        painter: QPainter,
+        line: WlrcLine,
+        font: QFont,
+        fm: QFontMetrics,
+        played_color: QColor,
+        unplayed_color: QColor,
+        current_time_ms: int,
+        width: int,
+        y: int,
+    ) -> int:
+        """Draw a line with per-word coloring based on timestamps."""
+        # Calculate total width to center the line
+        word_texts = []
+        total_width = 0
+        space_width = fm.horizontalAdvance(" ")
+        for i, word in enumerate(line.words):
+            w = fm.horizontalAdvance(word.text)
+            word_texts.append((word, w))
+            total_width += w
+            if i < len(line.words) - 1:
+                total_width += space_width
