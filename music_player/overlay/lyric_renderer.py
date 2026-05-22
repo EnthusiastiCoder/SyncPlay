@@ -181,3 +181,25 @@ class LyricRenderer:
 
         painter.setFont(font)
         fm = QFontMetrics(font)
+
+        if line.has_word_timing and not fully_played and not fully_unplayed:
+            return self._draw_word_level(
+                painter, line, font, fm, played_color, unplayed_color,
+                current_time_ms, width, y,
+            )
+        elif line.has_word_timing:
+            # Fully played or fully unplayed — draw entire line in one color
+            color = played_color if fully_played else unplayed_color
+            text = line.text
+            text_width = fm.horizontalAdvance(text)
+            x = (width - text_width) // 2
+            y += fm.ascent()
+            painter.setPen(color)
+            painter.drawText(x, y, text)
+            return y + fm.descent() + 8
+        else:
+            # No word timing — linear interpolation fallback
+            return self._draw_linear_fallback(
+                painter, line, fm, played_color, unplayed_color,
+                current_time_ms, width, y, fully_played, fully_unplayed,
+            )
