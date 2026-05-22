@@ -249,3 +249,5 @@ class LyricRenderer:
                     painter.setPen(unplayed_color)
                 painter.drawText(x, y, " ")
                 x += space_width
+
+        return y + fm.descent() + 8
