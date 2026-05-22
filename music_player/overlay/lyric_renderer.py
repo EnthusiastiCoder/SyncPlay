@@ -288,3 +288,6 @@ class LyricRenderer:
             else:
                 elapsed = current_time_ms - line.start_ms
                 progress = max(0.0, min(1.0, elapsed / duration))
+
+            # Split point in pixels
+            split_x = int(text_width * progress)
