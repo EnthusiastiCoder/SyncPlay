@@ -227,3 +227,6 @@ class LyricRenderer:
             total_width += w
             if i < len(line.words) - 1:
                 total_width += space_width
+
+        x = (width - total_width) // 2
+        y += fm.ascent()
