@@ -237,3 +237,15 @@ class LyricRenderer:
                 painter.setPen(played_color)
             else:
                 painter.setPen(unplayed_color)
+
+            painter.drawText(x, y, word.text)
+            x += w
+            if i < len(word_texts) - 1:
+                # Draw space with same color as next word
+                next_word = word_texts[i + 1][0]
+                if current_time_ms >= next_word.start_ms:
+                    painter.setPen(played_color)
+                else:
+                    painter.setPen(unplayed_color)
+                painter.drawText(x, y, " ")
+                x += space_width
