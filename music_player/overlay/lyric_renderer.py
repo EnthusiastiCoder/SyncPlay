@@ -144,3 +144,19 @@ class LyricRenderer:
         else:
             font = QFont(font_family, font_size,
                          QFont.Weight.Bold if is_active else QFont.Weight.Normal)
+
+        if is_active:
+            self._draw_line(
+                painter, line, font, played_color, unplayed_color,
+                current_time_ms, width, y,
+            )
+        elif is_played:
+            self._draw_line(
+                painter, line, font, played_color, played_color,
+                current_time_ms, width, y, fully_played=True,
+            )
+        else:
+            self._draw_line(
+                painter, line, font, unplayed_color, unplayed_color,
+                current_time_ms, width, y, fully_unplayed=True,
+            )
