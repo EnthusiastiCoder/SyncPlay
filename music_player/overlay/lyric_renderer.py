@@ -160,3 +160,21 @@ class LyricRenderer:
                 painter, line, font, unplayed_color, unplayed_color,
                 current_time_ms, width, y, fully_unplayed=True,
             )
+
+    def _draw_line(
+        self,
+        painter: QPainter,
+        line: Optional[WlrcLine],
+        font: QFont,
+        played_color: QColor,
+        unplayed_color: QColor,
+        current_time_ms: int,
+        width: int,
+        y: int,
+        fully_played: bool = False,
+        fully_unplayed: bool = False,
+    ) -> int:
+        """Draw a single lyric line. Returns the new y offset after drawing."""
+        if line is None:
+            fm = QFontMetrics(font)
+            return y + fm.height() + 8
