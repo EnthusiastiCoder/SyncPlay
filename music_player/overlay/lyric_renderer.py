@@ -273,3 +273,18 @@ class LyricRenderer:
         text_width = fm.horizontalAdvance(text)
         x_start = (width - text_width) // 2
         y += fm.ascent()
+
+        if fully_played:
+            painter.setPen(played_color)
+            painter.drawText(x_start, y, text)
+        elif fully_unplayed:
+            painter.setPen(unplayed_color)
+            painter.drawText(x_start, y, text)
+        else:
+            # Calculate progress ratio
+            duration = line.end_ms - line.start_ms
+            if duration <= 0:
+                progress = 1.0
+            else:
+                elapsed = current_time_ms - line.start_ms
+                progress = max(0.0, min(1.0, elapsed / duration))
