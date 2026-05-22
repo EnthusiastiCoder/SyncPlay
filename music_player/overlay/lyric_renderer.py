@@ -230,3 +230,10 @@ class LyricRenderer:
 
         x = (width - total_width) // 2
         y += fm.ascent()
+
+        for i, (word, w) in enumerate(word_texts):
+            # Word is played if playback has reached its start
+            if current_time_ms >= word.start_ms:
+                painter.setPen(played_color)
+            else:
+                painter.setPen(unplayed_color)
