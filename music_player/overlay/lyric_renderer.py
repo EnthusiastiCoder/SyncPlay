@@ -129,3 +129,7 @@ class LyricRenderer:
             return
 
         font_family = self._config.get("font_family", "Segoe UI")
+
+        played_color = QColor(self._config.get("played_color", "#00FF00"))
+        p_base = self._config.get("played_opacity", 1.0)
+        played_color.setAlphaF(min(1.0, p_base * opacity))
