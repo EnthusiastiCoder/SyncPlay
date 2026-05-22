@@ -302,3 +302,5 @@ class LyricRenderer:
                     painter.setPen(unplayed_color)
                 painter.drawText(x, y, ch)
                 x += ch_w
+
+        return y + fm.descent() + 8
