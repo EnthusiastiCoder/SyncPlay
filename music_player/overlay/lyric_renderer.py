@@ -291,3 +291,14 @@ class LyricRenderer:
 
             # Split point in pixels
             split_x = int(text_width * progress)
+
+            # Draw played portion
+            x = x_start
+            for ch in text:
+                ch_w = fm.horizontalAdvance(ch)
+                if x - x_start + ch_w <= split_x:
+                    painter.setPen(played_color)
+                else:
+                    painter.setPen(unplayed_color)
+                painter.drawText(x, y, ch)
+                x += ch_w
