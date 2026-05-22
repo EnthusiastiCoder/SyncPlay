@@ -251,3 +251,21 @@ class LyricRenderer:
                 x += space_width
 
         return y + fm.descent() + 8
+
+    def _draw_linear_fallback(
+        self,
+        painter: QPainter,
+        line: WlrcLine,
+        fm: QFontMetrics,
+        played_color: QColor,
+        unplayed_color: QColor,
+        current_time_ms: int,
+        width: int,
+        y: int,
+        fully_played: bool,
+        fully_unplayed: bool,
+    ) -> int:
+        """Draw a line with linear left-to-right color interpolation."""
+        text = line.text
+        if not text:
+            return y + fm.height() + 8
