@@ -269,3 +269,7 @@ class LyricRenderer:
         text = line.text
         if not text:
             return y + fm.height() + 8
+
+        text_width = fm.horizontalAdvance(text)
+        x_start = (width - text_width) // 2
+        y += fm.ascent()
