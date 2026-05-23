@@ -103,3 +103,6 @@ class OverlayWindow(QWidget):
         self._anim_timer = QTimer(self)
         self._anim_timer.setInterval(16)  # ~60fps for smooth animation
         self._anim_timer.timeout.connect(self._on_anim_tick)
+
+        self._setup_window()
+        self._apply_config()
