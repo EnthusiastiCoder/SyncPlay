@@ -71,3 +71,8 @@ class OverlayWindow(QWidget):
         self._edit_idle_timer.setSingleShot(True)
         self._edit_idle_timer.setInterval(4000)  # 4 seconds
         self._edit_idle_timer.timeout.connect(self._on_edit_idle_timeout)
+        
+        # Fade animation
+        self._opacity_effect = QGraphicsOpacityEffect(self)
+        self.setGraphicsEffect(self._opacity_effect)
+        self._opacity_effect.setOpacity(1.0)
