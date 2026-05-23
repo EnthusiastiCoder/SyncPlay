@@ -122,3 +122,9 @@ class OverlayWindow(QWidget):
 
         # Remove click-through initially to allow interaction
         self.setMouseTracking(True)
+
+    def _apply_config(self) -> None:
+        """Apply position and size from config."""
+        x = self._config.get("overlay_x", -1)
+        y = self._config.get("overlay_y", -1)
+        h = self._config.get("overlay_height", 200)
