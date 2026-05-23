@@ -213,3 +213,8 @@ class OverlayWindow(QWidget):
         self._set_click_through()
         self.edit_mode_changed.emit(False)
         self.update()
+
+    def _on_edit_idle_timeout(self) -> None:
+        """Auto-lock overlay after 4 seconds of no interaction."""
+        if self._edit_mode and not self._drag_active and not self._resize_mode:
+            self.exit_edit_mode()
