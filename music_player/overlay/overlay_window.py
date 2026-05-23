@@ -19,3 +19,8 @@ WS_EX_LAYERED = 0x00080000
 WS_EX_TOOLWINDOW = 0x00000080
 
 user32 = ctypes.windll.user32
+
+
+class _AnimSlot:
+    """Animation slot for a transitioning lyric line."""
+    __slots__ = ('line', 'cy0', 'cy1', 'sz0', 'sz1', 'a0', 'a1', 'w0', 'w1', 'active', 'played')
