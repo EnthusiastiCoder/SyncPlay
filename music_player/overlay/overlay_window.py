@@ -181,3 +181,5 @@ class OverlayWindow(QWidget):
             user32.SetWindowLongW(hwnd, GWL_EXSTYLE, ex_style)
         except Exception:
             pass
+
+    # -- Toggle edit mode (replaces broken click-and-hold) --
