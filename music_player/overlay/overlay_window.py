@@ -106,3 +106,6 @@ class OverlayWindow(QWidget):
 
         self._setup_window()
         self._apply_config()
+
+        # React to config changes
+        self._config.config_changed.connect(self._on_config_changed)
