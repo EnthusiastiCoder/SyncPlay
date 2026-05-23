@@ -244,3 +244,6 @@ class OverlayWindow(QWidget):
         if not self._edit_mode:
             super().mousePressEvent(event)
             return
+        
+        # Reset idle timer on any interaction
+        self._edit_idle_timer.start()
