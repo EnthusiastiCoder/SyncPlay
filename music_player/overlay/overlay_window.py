@@ -190,3 +190,12 @@ class OverlayWindow(QWidget):
             self.exit_edit_mode()
         else:
             self.enter_edit_mode()
+
+    def enter_edit_mode(self) -> None:
+        """Enter edit mode — overlay becomes interactive for drag/resize."""
+        self._edit_mode = True
+        self._remove_click_through()
+        self.setCursor(Qt.CursorShape.SizeAllCursor)
+        self._edit_idle_timer.start()  # Start 4s auto-lock countdown
+        self.edit_mode_changed.emit(True)
+        self.update()
