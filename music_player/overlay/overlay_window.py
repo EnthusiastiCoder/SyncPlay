@@ -183,3 +183,10 @@ class OverlayWindow(QWidget):
             pass
 
     # -- Toggle edit mode (replaces broken click-and-hold) --
+
+    def toggle_edit_mode(self) -> None:
+        """Toggle between edit mode (draggable/resizable) and normal click-through mode."""
+        if self._edit_mode:
+            self.exit_edit_mode()
+        else:
+            self.enter_edit_mode()
