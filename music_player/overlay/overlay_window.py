@@ -45,3 +45,7 @@ class OverlayWindow(QWidget):
     settings_requested = pyqtSignal()
     hide_requested = pyqtSignal()
     edit_mode_changed = pyqtSignal(bool)  # True when entering edit mode
+
+    def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._config = config
