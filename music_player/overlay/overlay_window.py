@@ -80,3 +80,9 @@ class OverlayWindow(QWidget):
         self._fade_animation = QPropertyAnimation(self._opacity_effect, b"opacity")
         self._fade_animation.setDuration(500)  # 500ms fade
         self._fade_animation.setEasingCurve(QEasingCurve.Type.InOutQuad)
+        
+        # Auto-hide timer for pause state
+        self._pause_hide_timer = QTimer(self)
+        self._pause_hide_timer.setSingleShot(True)
+        self._pause_hide_timer.timeout.connect(self._fade_out)
+        self._pause_hide_timer.setInterval(5000)  # 5 seconds
