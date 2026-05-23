@@ -24,3 +24,16 @@ user32 = ctypes.windll.user32
 class _AnimSlot:
     """Animation slot for a transitioning lyric line."""
     __slots__ = ('line', 'cy0', 'cy1', 'sz0', 'sz1', 'a0', 'a1', 'w0', 'w1', 'active', 'played')
+
+    def __init__(self, line, cy0, cy1, sz0, sz1, a0, a1, w0, w1, active, played):
+        self.line = line        # WlrcLine or None
+        self.cy0 = float(cy0)  # start center-y
+        self.cy1 = float(cy1)  # end center-y
+        self.sz0 = float(sz0)  # start font size
+        self.sz1 = float(sz1)  # end font size
+        self.a0 = float(a0)    # start opacity
+        self.a1 = float(a1)    # end opacity
+        self.w0 = float(w0)    # start font weight (e.g. 400=Normal, 700=Bold)
+        self.w1 = float(w1)    # end font weight
+        self.active = active   # True = word-level coloring (current line)
+        self.played = played   # True = played color, False = unplayed
