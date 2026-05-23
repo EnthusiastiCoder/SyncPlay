@@ -76,3 +76,7 @@ class OverlayWindow(QWidget):
         self._opacity_effect = QGraphicsOpacityEffect(self)
         self.setGraphicsEffect(self._opacity_effect)
         self._opacity_effect.setOpacity(1.0)
+        
+        self._fade_animation = QPropertyAnimation(self._opacity_effect, b"opacity")
+        self._fade_animation.setDuration(500)  # 500ms fade
+        self._fade_animation.setEasingCurve(QEasingCurve.Type.InOutQuad)
