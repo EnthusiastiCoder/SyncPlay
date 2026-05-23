@@ -54,3 +54,8 @@ class OverlayWindow(QWidget):
         self._lines: list[tuple[str, bool]] = []  # (text, is_current)
         self._wlrc: Optional[WlrcData] = None
         self._current_time_ms: int = 0
+        
+        # Interaction state
+        self._edit_mode = False      # user-toggled edit mode
+        self._drag_active = False    # currently dragging
+        self._drag_start: Optional[QPoint] = None
