@@ -139,3 +139,7 @@ class OverlayWindow(QWidget):
                 y = geo.y() + (geo.height() - h) // 2
             else:
                 x, y = 400, 400
+        
+        # Width will be auto-calculated based on content
+        self.move(x, y)
+        self.setFixedHeight(h)
