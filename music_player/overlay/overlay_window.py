@@ -37,3 +37,7 @@ class _AnimSlot:
         self.w1 = float(w1)    # end font weight
         self.active = active   # True = word-level coloring (current line)
         self.played = played   # True = played color, False = unplayed
+
+
+class OverlayWindow(QWidget):
+    """Frameless, transparent, always-on-top overlay for lyrics."""
