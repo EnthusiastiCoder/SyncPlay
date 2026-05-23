@@ -157,3 +157,17 @@ class OverlayWindow(QWidget):
         super().showEvent(event)
         if not self._edit_mode:
             QTimer.singleShot(50, self._set_click_through)
+
+    def _set_click_through(self) -> None:
+        """Make the window click-through using Win32 API."""
+        if self._edit_mode:
+            return
+        hwnd = int(self.winId())
+        try:
+            ex_style = user32.GetWindowLongW(hwnd, GWL_EXSTYLE)
+            user32.SetWindowLongW(
+                hwnd, GWL_EXSTYLE,
+                ex_style | WS_EX_TRANSPARENT | WS_EX_LAYERED
+            )
+        except Exception:
+            pass  # Graceful fallback — overlay still works, just not click-through
