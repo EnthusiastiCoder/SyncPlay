@@ -59,3 +59,9 @@ class OverlayWindow(QWidget):
         self._edit_mode = False      # user-toggled edit mode
         self._drag_active = False    # currently dragging
         self._drag_start: Optional[QPoint] = None
+        
+        # Resize state
+        self._resize_mode = False
+        self._resize_start_height: int = 0
+        self._resize_start_y: int = 0
+        self._resize_grip_size = 20
