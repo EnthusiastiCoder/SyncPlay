@@ -143,3 +143,11 @@ class OverlayWindow(QWidget):
         # Width will be auto-calculated based on content
         self.move(x, y)
         self.setFixedHeight(h)
+
+    def _on_config_changed(self, key: str, value) -> None:
+        """React to live config changes."""
+        if key in ("overlay_x", "overlay_y", "overlay_height"):
+            self._apply_config()
+        if key in ("played_color", "unplayed_color", "font_family",
+                    "font_size_base", "font_ratio_side_lines"):
+            self.update()
