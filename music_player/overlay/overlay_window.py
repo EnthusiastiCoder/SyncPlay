@@ -234,3 +234,8 @@ class OverlayWindow(QWidget):
         self._config.set("overlay_height", self.height())
         self._config.config_changed.connect(self._on_config_changed)
         self._config.save()
+
+    def _is_in_resize_grip(self, pos: QPoint) -> bool:
+        """Check if position is in the resize grip area (bottom-right corner)."""
+        return (pos.x() >= self.width() - self._resize_grip_size and
+                pos.y() >= self.height() - self._resize_grip_size)
