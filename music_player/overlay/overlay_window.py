@@ -65,3 +65,9 @@ class OverlayWindow(QWidget):
         self._resize_start_height: int = 0
         self._resize_start_y: int = 0
         self._resize_grip_size = 20
+        
+        # Auto-lock timer: exit edit mode after 4s of no interaction
+        self._edit_idle_timer = QTimer(self)
+        self._edit_idle_timer.setSingleShot(True)
+        self._edit_idle_timer.setInterval(4000)  # 4 seconds
+        self._edit_idle_timer.timeout.connect(self._on_edit_idle_timeout)
