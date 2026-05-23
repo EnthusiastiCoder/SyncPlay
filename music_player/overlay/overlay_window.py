@@ -218,3 +218,12 @@ class OverlayWindow(QWidget):
         """Auto-lock overlay after 4 seconds of no interaction."""
         if self._edit_mode and not self._drag_active and not self._resize_mode:
             self.exit_edit_mode()
+
+    def _save_position(self) -> None:
+        """Save overlay position to config."""
+        saved_x, saved_y = self.x(), self.y()
+        self._config.config_changed.disconnect(self._on_config_changed)
+        self._config.set("overlay_x", saved_x)
+        self._config.set("overlay_y", saved_y)
+        self._config.config_changed.connect(self._on_config_changed)
+        self._config.save()
