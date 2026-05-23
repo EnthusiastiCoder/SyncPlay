@@ -89,3 +89,8 @@ class OverlayWindow(QWidget):
 
         # Lyric renderer
         self._renderer = LyricRenderer(config)
+
+        # Refresh timer for smooth updates (30 Hz)
+        self._refresh_timer = QTimer(self)
+        self._refresh_timer.setInterval(33)
+        self._refresh_timer.timeout.connect(self.update)
