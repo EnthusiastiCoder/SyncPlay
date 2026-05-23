@@ -227,3 +227,10 @@ class OverlayWindow(QWidget):
         self._config.set("overlay_y", saved_y)
         self._config.config_changed.connect(self._on_config_changed)
         self._config.save()
+
+    def _save_height(self) -> None:
+        """Save overlay height to config."""
+        self._config.config_changed.disconnect(self._on_config_changed)
+        self._config.set("overlay_height", self.height())
+        self._config.config_changed.connect(self._on_config_changed)
+        self._config.save()
