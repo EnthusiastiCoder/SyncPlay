@@ -128,3 +128,14 @@ class OverlayWindow(QWidget):
         x = self._config.get("overlay_x", -1)
         y = self._config.get("overlay_y", -1)
         h = self._config.get("overlay_height", 200)
+        
+        # Center on screen if position is unset (-1)
+        if x < 0 or y < 0:
+            from PyQt6.QtWidgets import QApplication
+            screen = QApplication.primaryScreen()
+            if screen:
+                geo = screen.availableGeometry()
+                x = geo.x() + (geo.width() - 400) // 2
+                y = geo.y() + (geo.height() - h) // 2
+            else:
+                x, y = 400, 400
