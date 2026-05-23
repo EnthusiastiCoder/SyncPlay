@@ -199,3 +199,17 @@ class OverlayWindow(QWidget):
         self._edit_idle_timer.start()  # Start 4s auto-lock countdown
         self.edit_mode_changed.emit(True)
         self.update()
+
+    def exit_edit_mode(self) -> None:
+        """Exit edit mode — save position and re-enable click-through."""
+        self._edit_idle_timer.stop()
+        self._edit_mode = False
+        self._drag_active = False
+        self._resize_mode = False
+        self._drag_start = None
+        self._save_position()
+        self._save_height()
+        self.setCursor(Qt.CursorShape.ArrowCursor)
+        self._set_click_through()
+        self.edit_mode_changed.emit(False)
+        self.update()
