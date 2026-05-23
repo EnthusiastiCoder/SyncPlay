@@ -94,3 +94,12 @@ class OverlayWindow(QWidget):
         self._refresh_timer = QTimer(self)
         self._refresh_timer.setInterval(33)
         self._refresh_timer.timeout.connect(self.update)
+
+        # Line transition animation
+        self._ANIM_DURATION_MS = 300
+        self._last_line_index: int = -1
+        self._anim_slots: list[_AnimSlot] = []
+        self._anim_elapsed = QElapsedTimer()
+        self._anim_timer = QTimer(self)
+        self._anim_timer.setInterval(16)  # ~60fps for smooth animation
+        self._anim_timer.timeout.connect(self._on_anim_tick)
