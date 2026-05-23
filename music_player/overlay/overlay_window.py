@@ -250,3 +250,12 @@ class OverlayWindow(QWidget):
         
         if event.button() == Qt.MouseButton.LeftButton:
             pos = event.pos()
+            
+            # Check if clicking resize grip
+            if self._is_in_resize_grip(pos):
+                self._resize_mode = True
+                self._resize_start_height = self.height()
+                self._resize_start_y = event.globalPosition().toPoint().y()
+                self.setCursor(Qt.CursorShape.SizeFDiagCursor)
+                event.accept()
+                return
