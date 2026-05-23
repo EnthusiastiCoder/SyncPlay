@@ -109,3 +109,13 @@ class OverlayWindow(QWidget):
 
         # React to config changes
         self._config.config_changed.connect(self._on_config_changed)
+
+    def _setup_window(self) -> None:
+        """Configure window flags for overlay behavior."""
+        self.setWindowFlags(
+            Qt.WindowType.FramelessWindowHint
+            | Qt.WindowType.WindowStaysOnTopHint
+            | Qt.WindowType.Tool  # hides from taskbar
+        )
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
+        self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating)
