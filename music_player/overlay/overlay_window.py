@@ -119,3 +119,6 @@ class OverlayWindow(QWidget):
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setAttribute(Qt.WidgetAttribute.WA_ShowWithoutActivating)
+
+        # Remove click-through initially to allow interaction
+        self.setMouseTracking(True)
