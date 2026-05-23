@@ -86,3 +86,6 @@ class OverlayWindow(QWidget):
         self._pause_hide_timer.setSingleShot(True)
         self._pause_hide_timer.timeout.connect(self._fade_out)
         self._pause_hide_timer.setInterval(5000)  # 5 seconds
+
+        # Lyric renderer
+        self._renderer = LyricRenderer(config)
