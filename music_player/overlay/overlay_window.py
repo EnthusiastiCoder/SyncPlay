@@ -171,3 +171,13 @@ class OverlayWindow(QWidget):
             )
         except Exception:
             pass  # Graceful fallback — overlay still works, just not click-through
+
+    def _remove_click_through(self) -> None:
+        """Remove click-through to allow dragging."""
+        hwnd = int(self.winId())
+        try:
+            ex_style = user32.GetWindowLongW(hwnd, GWL_EXSTYLE)
+            ex_style = ex_style & ~WS_EX_TRANSPARENT
+            user32.SetWindowLongW(hwnd, GWL_EXSTYLE, ex_style)
+        except Exception:
+            pass
