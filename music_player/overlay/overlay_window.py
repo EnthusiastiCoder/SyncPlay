@@ -247,3 +247,6 @@ class OverlayWindow(QWidget):
         
         # Reset idle timer on any interaction
         self._edit_idle_timer.start()
+        
+        if event.button() == Qt.MouseButton.LeftButton:
+            pos = event.pos()
