@@ -151,3 +151,9 @@ class OverlayWindow(QWidget):
         if key in ("played_color", "unplayed_color", "font_family",
                     "font_size_base", "font_ratio_side_lines"):
             self.update()
+
+    def showEvent(self, event) -> None:
+        """Apply click-through after the window is shown and has a valid HWND."""
+        super().showEvent(event)
+        if not self._edit_mode:
+            QTimer.singleShot(50, self._set_click_through)
