@@ -239,3 +239,8 @@ class OverlayWindow(QWidget):
         """Check if position is in the resize grip area (bottom-right corner)."""
         return (pos.x() >= self.width() - self._resize_grip_size and
                 pos.y() >= self.height() - self._resize_grip_size)
+
+    def mousePressEvent(self, event) -> None:
+        if not self._edit_mode:
+            super().mousePressEvent(event)
+            return
