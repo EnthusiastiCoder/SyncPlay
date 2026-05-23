@@ -41,3 +41,7 @@ class _AnimSlot:
 
 class OverlayWindow(QWidget):
     """Frameless, transparent, always-on-top overlay for lyrics."""
+
+    settings_requested = pyqtSignal()
+    hide_requested = pyqtSignal()
+    edit_mode_changed = pyqtSignal(bool)  # True when entering edit mode
