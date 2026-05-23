@@ -49,3 +49,8 @@ class OverlayWindow(QWidget):
     def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
         super().__init__(parent)
         self._config = config
+
+        # Display state
+        self._lines: list[tuple[str, bool]] = []  # (text, is_current)
+        self._wlrc: Optional[WlrcData] = None
+        self._current_time_ms: int = 0
