@@ -259,3 +259,15 @@ class OverlayWindow(QWidget):
                 self.setCursor(Qt.CursorShape.SizeFDiagCursor)
                 event.accept()
                 return
+            
+            # Start dragging
+            self._drag_active = True
+            self._drag_start = event.globalPosition().toPoint() - self.pos()
+            self.setCursor(Qt.CursorShape.SizeAllCursor)
+            event.accept()
+        elif event.button() == Qt.MouseButton.RightButton:
+            # Right-click exits edit mode
+            self.exit_edit_mode()
+            event.accept()
+        else:
+            super().mousePressEvent(event)
