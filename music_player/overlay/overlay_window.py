@@ -278,3 +278,10 @@ class OverlayWindow(QWidget):
             return
         
         pos = event.pos()
+        
+        # Update cursor based on position
+        if not self._drag_active and not self._resize_mode:
+            if self._is_in_resize_grip(pos):
+                self.setCursor(Qt.CursorShape.SizeFDiagCursor)
+            else:
+                self.setCursor(Qt.CursorShape.SizeAllCursor)
