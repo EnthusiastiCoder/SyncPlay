@@ -293,3 +293,9 @@ class OverlayWindow(QWidget):
             self.setFixedHeight(new_height)
             event.accept()
             return
+        
+        # Handle drag
+        if self._drag_active and self._drag_start is not None:
+            self.move(event.globalPosition().toPoint() - self._drag_start)
+            event.accept()
+            return
