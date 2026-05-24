@@ -356,3 +356,9 @@ class OverlayWindow(QWidget):
                 self._lines.append((curr.text, True))
             if nxt:
                 self._lines.append((nxt.text, False))
+            
+            # Detect line change and trigger transition animation
+            new_idx = self._wlrc.get_current_line_index(time_ms)
+            if new_idx != self._last_line_index:
+                self._start_line_transition(new_idx)
+                self._last_line_index = new_idx
