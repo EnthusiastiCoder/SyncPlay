@@ -334,3 +334,12 @@ class OverlayWindow(QWidget):
             super().keyPressEvent(event)
 
     # -- WLRC data and timing --
+
+    def set_wlrc(self, wlrc: Optional[WlrcData]) -> None:
+        """Set the word-level lyric data for rendering."""
+        self._wlrc = wlrc
+        self._lines = []
+        self._last_line_index = -1
+        self._anim_slots = []
+        self._anim_timer.stop()
+        self.update()
