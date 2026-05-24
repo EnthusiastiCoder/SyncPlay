@@ -322,3 +322,5 @@ class OverlayWindow(QWidget):
             self.setCursor(Qt.CursorShape.SizeAllCursor)
             event.accept()
             return
+        
+        super().mouseReleaseEvent(event)
