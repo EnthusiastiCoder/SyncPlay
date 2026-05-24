@@ -343,3 +343,16 @@ class OverlayWindow(QWidget):
         self._anim_slots = []
         self._anim_timer.stop()
         self.update()
+    
+    def update_time(self, time_ms: int) -> None:
+        """Update current playback time and refresh display."""
+        self._current_time_ms = time_ms
+        if self._wlrc is not None:
+            self._lines = []
+            prev, curr, nxt = self._wlrc.get_display_lines(time_ms)
+            if prev:
+                self._lines.append((prev.text, False))
+            if curr:
+                self._lines.append((curr.text, True))
+            if nxt:
+                self._lines.append((nxt.text, False))
