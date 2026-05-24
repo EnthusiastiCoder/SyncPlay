@@ -276,3 +276,5 @@ class OverlayWindow(QWidget):
         if not self._edit_mode:
             super().mouseMoveEvent(event)
             return
+        
+        pos = event.pos()
