@@ -324,3 +324,11 @@ class OverlayWindow(QWidget):
             return
         
         super().mouseReleaseEvent(event)
+
+    def keyPressEvent(self, event) -> None:
+        """Escape exits edit mode."""
+        if self._edit_mode and event.key() == Qt.Key.Key_Escape:
+            self.exit_edit_mode()
+            event.accept()
+        else:
+            super().keyPressEvent(event)
