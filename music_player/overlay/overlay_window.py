@@ -362,3 +362,6 @@ class OverlayWindow(QWidget):
             if new_idx != self._last_line_index:
                 self._start_line_transition(new_idx)
                 self._last_line_index = new_idx
+            
+            # Auto-resize width to fit content
+            self._auto_resize_width()
