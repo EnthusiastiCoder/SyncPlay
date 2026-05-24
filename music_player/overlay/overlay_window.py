@@ -301,3 +301,8 @@ class OverlayWindow(QWidget):
             return
         
         super().mouseMoveEvent(event)
+
+    def mouseReleaseEvent(self, event) -> None:
+        if not self._edit_mode:
+            super().mouseReleaseEvent(event)
+            return
