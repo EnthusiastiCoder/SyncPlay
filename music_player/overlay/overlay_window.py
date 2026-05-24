@@ -309,3 +309,9 @@ class OverlayWindow(QWidget):
         
         # Reset idle timer after interaction ends
         self._edit_idle_timer.start()
+        
+        if self._resize_mode:
+            self._resize_mode = False
+            self.setCursor(Qt.CursorShape.SizeAllCursor)
+            event.accept()
+            return
