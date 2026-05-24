@@ -285,3 +285,11 @@ class OverlayWindow(QWidget):
                 self.setCursor(Qt.CursorShape.SizeFDiagCursor)
             else:
                 self.setCursor(Qt.CursorShape.SizeAllCursor)
+        
+        # Handle resize
+        if self._resize_mode:
+            delta_y = event.globalPosition().toPoint().y() - self._resize_start_y
+            new_height = max(100, self._resize_start_height + delta_y)
+            self.setFixedHeight(new_height)
+            event.accept()
+            return
