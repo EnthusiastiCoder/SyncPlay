@@ -299,3 +299,5 @@ class OverlayWindow(QWidget):
             self.move(event.globalPosition().toPoint() - self._drag_start)
             event.accept()
             return
+        
+        super().mouseMoveEvent(event)
