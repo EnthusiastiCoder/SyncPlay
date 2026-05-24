@@ -332,3 +332,5 @@ class OverlayWindow(QWidget):
             event.accept()
         else:
             super().keyPressEvent(event)
+
+    # -- WLRC data and timing --
