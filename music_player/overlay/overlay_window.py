@@ -315,3 +315,10 @@ class OverlayWindow(QWidget):
             self.setCursor(Qt.CursorShape.SizeAllCursor)
             event.accept()
             return
+        
+        if self._drag_active:
+            self._drag_active = False
+            self._drag_start = None
+            self.setCursor(Qt.CursorShape.SizeAllCursor)
+            event.accept()
+            return
