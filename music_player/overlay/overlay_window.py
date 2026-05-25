@@ -373,3 +373,8 @@ class OverlayWindow(QWidget):
         """Automatically resize overlay width to fit content."""
         if self._wlrc is None:
             return
+        
+        required_width = self._renderer.calculate_required_width(
+            self._wlrc,
+            self._current_time_ms
+        )
