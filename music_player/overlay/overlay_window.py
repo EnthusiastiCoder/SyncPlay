@@ -406,3 +406,13 @@ class OverlayWindow(QWidget):
         total = side_h + base_h + side_h
         h = self.height()
         start = (h - total) / 2.0
+
+        return {
+            'prev': start + side_h / 2.0,
+            'curr': start + side_h + base_h / 2.0,
+            'next': start + side_h + base_h + side_h / 2.0,
+            'exit': start - side_h / 2.0,
+            'enter': start + total + side_h / 2.0,
+            'base_size': base_size,
+            'side_size': side_size,
+        }
