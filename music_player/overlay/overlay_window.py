@@ -438,3 +438,5 @@ class OverlayWindow(QWidget):
 
         old_prev, old_curr, old_next = self._lines_at_index(old_idx, lines)
         new_prev, new_curr, new_next = self._lines_at_index(new_idx, lines)
+
+        self._anim_slots = []
