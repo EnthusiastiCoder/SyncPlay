@@ -435,3 +435,6 @@ class OverlayWindow(QWidget):
         base_sz = centers['base_size']
         side_sz = centers['side_size']
         lines = self._wlrc.lines if self._wlrc else []
+
+        old_prev, old_curr, old_next = self._lines_at_index(old_idx, lines)
+        new_prev, new_curr, new_next = self._lines_at_index(new_idx, lines)
