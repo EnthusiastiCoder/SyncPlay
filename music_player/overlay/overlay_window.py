@@ -416,3 +416,14 @@ class OverlayWindow(QWidget):
             'base_size': base_size,
             'side_size': side_size,
         }
+
+    @staticmethod
+    def _lines_at_index(idx, lines):
+        """Get (prev, curr, next) WlrcLine objects for a given line index."""
+        n = len(lines)
+        if idx < 0:
+            return None, None, lines[0] if lines else None
+        prev = lines[idx - 1] if idx > 0 else None
+        curr = lines[idx] if idx < n else None
+        nxt = lines[idx + 1] if idx < n - 1 else None
+        return prev, curr, nxt
