@@ -399,3 +399,6 @@ class OverlayWindow(QWidget):
 
         base_font = QFont(font_family, base_size, QFont.Weight.Bold)
         side_font = QFont(font_family, side_size)
+
+        base_h = QFontMetrics(base_font).height() + 8
+        side_h = QFontMetrics(side_font).height() + 8
