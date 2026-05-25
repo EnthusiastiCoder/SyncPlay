@@ -368,3 +368,8 @@ class OverlayWindow(QWidget):
         
         # Trigger repaint so word-level coloring updates
         self.update()
+    
+    def _auto_resize_width(self) -> None:
+        """Automatically resize overlay width to fit content."""
+        if self._wlrc is None:
+            return
