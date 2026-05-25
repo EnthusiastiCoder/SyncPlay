@@ -427,3 +427,11 @@ class OverlayWindow(QWidget):
         curr = lines[idx] if idx < n else None
         nxt = lines[idx + 1] if idx < n - 1 else None
         return prev, curr, nxt
+
+    def _start_line_transition(self, new_idx):
+        """Build animation slots for the line transition."""
+        old_idx = self._last_line_index
+        centers = self._calc_stable_centers()
+        base_sz = centers['base_size']
+        side_sz = centers['side_size']
+        lines = self._wlrc.lines if self._wlrc else []
