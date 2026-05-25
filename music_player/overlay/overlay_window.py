@@ -389,3 +389,10 @@ class OverlayWindow(QWidget):
                 self.setGeometry(new_x, self.y(), required_width, self.height())
     
     # -- Line transition animation --
+
+    def _calc_stable_centers(self):
+        """Calculate vertical center-y positions for the 3-line layout."""
+        font_family = self._config.get("font_family", "Segoe UI")
+        base_size = self._config.get("font_size_base", 28)
+        ratio = self._config.get("font_ratio_side_lines", 0.75)
+        side_size = max(8, int(base_size * ratio))
