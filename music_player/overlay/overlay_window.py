@@ -387,3 +387,5 @@ class OverlayWindow(QWidget):
                 center_x = self.x() + current_width // 2
                 new_x = center_x - required_width // 2
                 self.setGeometry(new_x, self.y(), required_width, self.height())
+    
+    # -- Line transition animation --
