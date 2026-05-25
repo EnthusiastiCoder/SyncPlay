@@ -378,3 +378,12 @@ class OverlayWindow(QWidget):
             self._wlrc,
             self._current_time_ms
         )
+        
+        # Only resize if not in edit mode
+        if not self._edit_mode:
+            current_width = self.width()
+            if abs(current_width - required_width) > 10:  # Avoid jitter
+                # Keep the overlay centered on its current x position
+                center_x = self.x() + current_width // 2
+                new_x = center_x - required_width // 2
+                self.setGeometry(new_x, self.y(), required_width, self.height())
