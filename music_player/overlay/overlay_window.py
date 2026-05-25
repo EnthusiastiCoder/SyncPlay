@@ -443,3 +443,78 @@ class OverlayWindow(QWidget):
 
         W_BOLD = 700
         W_NORM = 400
+
+        if new_idx == old_idx + 1:
+            # Normal forward by 1 — smooth transition
+            if old_prev is not None:
+                self._anim_slots.append(_AnimSlot(
+                    old_prev,
+                    centers['prev'], centers['exit'],
+                    side_sz, side_sz, 1.0, 0.0,
+                    W_NORM, W_NORM,
+                    False, True))
+            if old_curr is not None:
+                self._anim_slots.append(_AnimSlot(
+                    old_curr,
+                    centers['curr'], centers['prev'],
+                    base_sz, side_sz, 1.0, 1.0,
+                    W_BOLD, W_NORM,
+                    False, True))
+            if new_curr is not None:
+                self._anim_slots.append(_AnimSlot(
+                    new_curr,
+                    centers['next'], centers['curr'],
+                    side_sz, base_sz, 1.0, 1.0,
+                    W_NORM, W_BOLD,
+                    True, False))
+            if new_next is not None:
+                self._anim_slots.append(_AnimSlot(
+                    new_next,
+                    centers['enter'], centers['next'],
+                    side_sz, side_sz, 0.0, 1.0,
+                    W_NORM, W_NORM,
+                    False, False))
+        else:
+            # Jump/seek — cross-fade old out, new in
+            if old_prev is not None:
+                self._anim_slots.append(_AnimSlot(
+                    old_prev,
+                    centers['prev'], centers['prev'],
+                    side_sz, side_sz, 1.0, 0.0,
+                    W_NORM, W_NORM,
+                    False, True))
+            if old_curr is not None:
+                self._anim_slots.append(_AnimSlot(
+                    old_curr,
+                    centers['curr'], centers['curr'],
+                    base_sz, base_sz, 1.0, 0.0,
+                    W_BOLD, W_NORM,
+                    False, True))
+            if old_next is not None:
+                self._anim_slots.append(_AnimSlot(
+                    old_next,
+                    centers['next'], centers['next'],
+                    side_sz, side_sz, 1.0, 0.0,
+                    W_NORM, W_NORM,
+                    False, False))
+            if new_prev is not None:
+                self._anim_slots.append(_AnimSlot(
+                    new_prev,
+                    centers['prev'], centers['prev'],
+                    side_sz, side_sz, 0.0, 1.0,
+                    W_NORM, W_NORM,
+                    False, True))
+            if new_curr is not None:
+                self._anim_slots.append(_AnimSlot(
+                    new_curr,
+                    centers['curr'], centers['curr'],
+                    base_sz, base_sz, 0.0, 1.0,
+                    W_NORM, W_BOLD,
+                    True, False))
+            if new_next is not None:
+                self._anim_slots.append(_AnimSlot(
+                    new_next,
+                    centers['next'], centers['next'],
+                    side_sz, side_sz, 0.0, 1.0,
+                    W_NORM, W_NORM,
+                    False, False))
