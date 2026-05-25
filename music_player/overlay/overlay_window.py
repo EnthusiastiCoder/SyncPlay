@@ -440,3 +440,6 @@ class OverlayWindow(QWidget):
         new_prev, new_curr, new_next = self._lines_at_index(new_idx, lines)
 
         self._anim_slots = []
+
+        W_BOLD = 700
+        W_NORM = 400
