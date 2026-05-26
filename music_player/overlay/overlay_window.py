@@ -565,3 +565,10 @@ class OverlayWindow(QWidget):
         """Draw lyric lines in the stable state (no transition)."""
         if self._wlrc is None:
             return
+
+        prev, curr, nxt = self._wlrc.get_display_lines(self._current_time_ms)
+        centers = self._calc_stable_centers()
+        font_family = self._config.get("font_family", "Segoe UI")
+        base_sz = centers['base_size']
+        side_sz = centers['side_size']
+        w = self.width()
