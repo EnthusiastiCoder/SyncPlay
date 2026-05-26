@@ -535,3 +535,10 @@ class OverlayWindow(QWidget):
     def _ease_in_out(t: float) -> float:
         """Linear easing for smooth, uniform animation."""
         return t
+
+    def _paint_animated(self, painter: QPainter) -> None:
+        """Draw lyric lines during a transition animation."""
+        raw_t = min(1.0, self._anim_elapsed.elapsed() / self._ANIM_DURATION_MS)
+        t = self._ease_in_out(raw_t)
+        font_family = self._config.get("font_family", "Segoe UI")
+        w = self.width()
