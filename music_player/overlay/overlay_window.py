@@ -522,3 +522,11 @@ class OverlayWindow(QWidget):
         self._anim_elapsed.start()
         if not self._anim_timer.isActive():
             self._anim_timer.start()
+
+    def _on_anim_tick(self):
+        """Advance animation timer and trigger repaint."""
+        elapsed = self._anim_elapsed.elapsed()
+        if elapsed >= self._ANIM_DURATION_MS:
+            self._anim_timer.stop()
+            self._anim_slots = []
+        self.update()
