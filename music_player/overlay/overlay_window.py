@@ -542,3 +542,9 @@ class OverlayWindow(QWidget):
         t = self._ease_in_out(raw_t)
         font_family = self._config.get("font_family", "Segoe UI")
         w = self.width()
+
+        for slot in self._anim_slots:
+            center_y = slot.cy0 + (slot.cy1 - slot.cy0) * t
+            font_size = slot.sz0 + (slot.sz1 - slot.sz0) * t
+            opacity = slot.a0 + (slot.a1 - slot.a0) * t
+            font_weight = int(slot.w0 + (slot.w1 - slot.w0) * t)
