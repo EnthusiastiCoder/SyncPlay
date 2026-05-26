@@ -628,3 +628,5 @@ class OverlayWindow(QWidget):
         self._fade_animation.setStartValue(self._opacity_effect.opacity())
         self._fade_animation.setEndValue(1.0)
         self._fade_animation.start()
+
+    # -- Painting --
