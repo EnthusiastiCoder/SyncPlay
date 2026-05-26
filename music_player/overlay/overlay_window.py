@@ -630,3 +630,9 @@ class OverlayWindow(QWidget):
         self._fade_animation.start()
 
     # -- Painting --
+
+    def paintEvent(self, event) -> None:
+        """Draw the lyric lines on the transparent background."""
+        painter = QPainter(self)
+        painter.setRenderHint(QPainter.RenderHint.Antialiasing)
+        painter.setRenderHint(QPainter.RenderHint.TextAntialiasing)
