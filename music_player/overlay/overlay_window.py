@@ -682,3 +682,9 @@ class OverlayWindow(QWidget):
 
         w = self.width()
         y_offset = 10
+
+        for i, (text, is_current) in enumerate(self._lines):
+            if not text:
+                font_size = side_size if not is_current else base_size
+                y_offset += font_size + 8
+                continue
