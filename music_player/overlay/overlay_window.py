@@ -572,3 +572,19 @@ class OverlayWindow(QWidget):
         base_sz = centers['base_size']
         side_sz = centers['side_size']
         w = self.width()
+
+        for line, size, active, played, pos_key in [
+            (prev, side_sz, False, True, 'prev'),
+            (curr, base_sz, True, False, 'curr'),
+            (nxt, side_sz, False, False, 'next'),
+        ]:
+            if line is None:
+                continue
+            font = QFont(font_family, size,
+                         QFont.Weight.Bold if active else QFont.Weight.Normal)
+            fm = QFontMetrics(font)
+            y_top = int(centers[pos_key] - (fm.height() + 8) / 2.0)
+            self._renderer.draw_line_at(
+                painter, line, size, y_top, w, 1.0,
+                self._current_time_ms, active, played,
+            )
