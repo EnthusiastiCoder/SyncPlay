@@ -636,3 +636,11 @@ class OverlayWindow(QWidget):
         painter = QPainter(self)
         painter.setRenderHint(QPainter.RenderHint.Antialiasing)
         painter.setRenderHint(QPainter.RenderHint.TextAntialiasing)
+
+        # Draw edit-mode indicator
+        if self._edit_mode:
+            painter.setPen(QColor(100, 200, 255, 150))
+            painter.setBrush(QColor(100, 200, 255, 20))
+            painter.drawRoundedRect(self.rect().adjusted(1, 1, -1, -1), 8, 8)
+            painter.setPen(QColor(255, 255, 255, 180))
+            painter.drawText(self.rect().adjusted(8, 4, -8, 0), Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop, "Drag to move | Right-click or Esc to lock")
