@@ -614,3 +614,10 @@ class OverlayWindow(QWidget):
         """Called when playback is stopped - show overlay with upcoming lyrics."""
         self._pause_hide_timer.stop()
         self._fade_in()
+    
+    def _fade_out(self) -> None:
+        """Fade overlay to transparent."""
+        self._fade_animation.stop()
+        self._fade_animation.setStartValue(self._opacity_effect.opacity())
+        self._fade_animation.setEndValue(0.0)
+        self._fade_animation.start()
