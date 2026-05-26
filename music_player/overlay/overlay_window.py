@@ -600,3 +600,7 @@ class OverlayWindow(QWidget):
         self.update()
     
     # -- Playback state handlers --
+    
+    def on_playback_paused(self) -> None:
+        """Called when playback is paused - start auto-hide timer."""
+        self._pause_hide_timer.start()
