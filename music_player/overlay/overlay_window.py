@@ -621,3 +621,10 @@ class OverlayWindow(QWidget):
         self._fade_animation.setStartValue(self._opacity_effect.opacity())
         self._fade_animation.setEndValue(0.0)
         self._fade_animation.start()
+    
+    def _fade_in(self) -> None:
+        """Fade overlay to fully visible."""
+        self._fade_animation.stop()
+        self._fade_animation.setStartValue(self._opacity_effect.opacity())
+        self._fade_animation.setEndValue(1.0)
+        self._fade_animation.start()
