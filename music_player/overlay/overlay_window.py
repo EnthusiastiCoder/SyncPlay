@@ -604,3 +604,8 @@ class OverlayWindow(QWidget):
     def on_playback_paused(self) -> None:
         """Called when playback is paused - start auto-hide timer."""
         self._pause_hide_timer.start()
+    
+    def on_playback_resumed(self) -> None:
+        """Called when playback is resumed - cancel auto-hide and fade in."""
+        self._pause_hide_timer.stop()
+        self._fade_in()
