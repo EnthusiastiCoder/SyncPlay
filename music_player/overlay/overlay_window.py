@@ -644,3 +644,9 @@ class OverlayWindow(QWidget):
             painter.drawRoundedRect(self.rect().adjusted(1, 1, -1, -1), 8, 8)
             painter.setPen(QColor(255, 255, 255, 180))
             painter.drawText(self.rect().adjusted(8, 4, -8, 0), Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignTop, "Drag to move | Right-click or Esc to lock")
+        
+        # Draw resize grip indicator (bottom-right corner) only in edit mode
+        if self._edit_mode and not self._resize_mode:
+            grip_rect = self.rect()
+            grip_x = grip_rect.width() - self._resize_grip_size
+            grip_y = grip_rect.height() - self._resize_grip_size
