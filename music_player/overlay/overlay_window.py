@@ -650,3 +650,11 @@ class OverlayWindow(QWidget):
             grip_rect = self.rect()
             grip_x = grip_rect.width() - self._resize_grip_size
             grip_y = grip_rect.height() - self._resize_grip_size
+            
+            painter.setPen(QColor(255, 255, 255, 80))
+            for i in range(3):
+                offset = i * 4
+                painter.drawLine(
+                    grip_x + offset + 10, grip_y + self._resize_grip_size - 2,
+                    grip_x + self._resize_grip_size - 2, grip_y + offset + 10
+                )
