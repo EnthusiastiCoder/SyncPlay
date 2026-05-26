@@ -695,3 +695,12 @@ class OverlayWindow(QWidget):
             else:
                 font = QFont(font_family, side_size)
                 color = unplayed_color
+
+            painter.setFont(font)
+            painter.setPen(color)
+            fm = QFontMetrics(font)
+            text_rect = fm.boundingRect(text)
+            x = (w - text_rect.width()) // 2
+            y_offset += fm.ascent()
+            painter.drawText(x, y_offset, text)
+            y_offset += fm.descent() + 8
