@@ -598,3 +598,5 @@ class OverlayWindow(QWidget):
             (next_text, False),
         ]
         self.update()
+    
+    # -- Playback state handlers --
