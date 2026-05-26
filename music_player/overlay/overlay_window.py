@@ -530,3 +530,8 @@ class OverlayWindow(QWidget):
             self._anim_timer.stop()
             self._anim_slots = []
         self.update()
+
+    @staticmethod
+    def _ease_in_out(t: float) -> float:
+        """Linear easing for smooth, uniform animation."""
+        return t
