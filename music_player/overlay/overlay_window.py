@@ -667,3 +667,8 @@ class OverlayWindow(QWidget):
                 self._paint_stable(painter)
             painter.end()
             return
+
+        # Fallback: simple text lines
+        if not self._lines:
+            painter.end()
+            return
