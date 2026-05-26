@@ -679,3 +679,6 @@ class OverlayWindow(QWidget):
         played_color = QColor(self._config.get("played_color", "#00FF00"))
         unplayed_color = QColor(self._config.get("unplayed_color", "#FFFFFF"))
         side_size = int(base_size * ratio)
+
+        w = self.width()
+        y_offset = 10
