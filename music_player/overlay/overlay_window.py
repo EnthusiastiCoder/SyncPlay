@@ -658,3 +658,12 @@ class OverlayWindow(QWidget):
                     grip_x + offset + 10, grip_y + self._resize_grip_size - 2,
                     grip_x + self._resize_grip_size - 2, grip_y + offset + 10
                 )
+
+        # Use animated or stable rendering if WLRC data is loaded
+        if self._wlrc is not None:
+            if self._anim_slots:
+                self._paint_animated(painter)
+            else:
+                self._paint_stable(painter)
+            painter.end()
+            return
