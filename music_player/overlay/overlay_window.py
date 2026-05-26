@@ -704,3 +704,5 @@ class OverlayWindow(QWidget):
             y_offset += fm.ascent()
             painter.drawText(x, y_offset, text)
             y_offset += fm.descent() + 8
+
+        painter.end()
