@@ -588,3 +588,13 @@ class OverlayWindow(QWidget):
                 painter, line, size, y_top, w, 1.0,
                 self._current_time_ms, active, played,
             )
+
+    def set_display_text(self, prev_text: str, current_text: str, next_text: str) -> None:
+        """Set display text for simple text mode (fallback when no WLRC)."""
+        self._wlrc = None
+        self._lines = [
+            (prev_text, False),
+            (current_text, True),
+            (next_text, False),
+        ]
+        self.update()
