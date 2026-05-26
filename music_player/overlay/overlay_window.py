@@ -688,3 +688,10 @@ class OverlayWindow(QWidget):
                 font_size = side_size if not is_current else base_size
                 y_offset += font_size + 8
                 continue
+
+            if is_current:
+                font = QFont(font_family, base_size, QFont.Weight.Bold)
+                color = played_color
+            else:
+                font = QFont(font_family, side_size)
+                color = unplayed_color
