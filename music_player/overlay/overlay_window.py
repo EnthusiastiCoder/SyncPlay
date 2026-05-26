@@ -560,3 +560,8 @@ class OverlayWindow(QWidget):
                 self._current_time_ms, slot.active, slot.played,
                 font_weight=font_weight,
             )
+
+    def _paint_stable(self, painter: QPainter) -> None:
+        """Draw lyric lines in the stable state (no transition)."""
+        if self._wlrc is None:
+            return
