@@ -518,3 +518,7 @@ class OverlayWindow(QWidget):
                     side_sz, side_sz, 0.0, 1.0,
                     W_NORM, W_NORM,
                     False, False))
+
+        self._anim_elapsed.start()
+        if not self._anim_timer.isActive():
+            self._anim_timer.start()
