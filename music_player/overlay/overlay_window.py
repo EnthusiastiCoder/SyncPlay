@@ -548,3 +548,9 @@ class OverlayWindow(QWidget):
             font_size = slot.sz0 + (slot.sz1 - slot.sz0) * t
             opacity = slot.a0 + (slot.a1 - slot.a0) * t
             font_weight = int(slot.w0 + (slot.w1 - slot.w0) * t)
+
+            fs = max(8, int(font_size))
+            font = QFont(font_family, fs)
+            font.setWeight(QFont.Weight(font_weight))
+            fm = QFontMetrics(font)
+            y_top = int(center_y - (fm.height() + 8) / 2.0)
