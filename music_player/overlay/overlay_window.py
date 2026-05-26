@@ -554,3 +554,9 @@ class OverlayWindow(QWidget):
             font.setWeight(QFont.Weight(font_weight))
             fm = QFontMetrics(font)
             y_top = int(center_y - (fm.height() + 8) / 2.0)
+
+            self._renderer.draw_line_at(
+                painter, slot.line, fs, y_top, w, opacity,
+                self._current_time_ms, slot.active, slot.played,
+                font_weight=font_weight,
+            )
