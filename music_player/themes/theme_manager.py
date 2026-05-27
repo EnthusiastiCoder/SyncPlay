@@ -103,3 +103,9 @@ class ThemeManager:
         """
         if config_dir is None:
             config_dir = Path.home() / "AppData" / "Roaming" / "SyncPlay"
+        
+        self._config_dir = Path(config_dir)
+        self._config_dir.mkdir(parents=True, exist_ok=True)
+        self._themes_file = self._config_dir / "custom_themes.json"
+        self._custom_themes: list[Theme] = []
+        self._load_custom_themes()
