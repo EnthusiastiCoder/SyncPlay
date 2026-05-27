@@ -121,3 +121,12 @@ class ThemeManager:
                 self._custom_themes = [Theme.from_dict(t) for t in data]
         except Exception:
             self._custom_themes = []
+    
+    def _save_custom_themes(self) -> None:
+        """Save custom themes to disk."""
+        try:
+            data = [t.to_dict() for t in self._custom_themes]
+            with open(self._themes_file, "w", encoding="utf-8") as f:
+                json.dump(data, f, indent=2)
+        except Exception:
+            pass
