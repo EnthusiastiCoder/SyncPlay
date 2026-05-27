@@ -114,3 +114,10 @@ class ThemeManager:
         """Load custom themes from disk."""
         if not self._themes_file.exists():
             return
+        
+        try:
+            with open(self._themes_file, "r", encoding="utf-8") as f:
+                data = json.load(f)
+                self._custom_themes = [Theme.from_dict(t) for t in data]
+        except Exception:
+            self._custom_themes = []
