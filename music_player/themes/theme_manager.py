@@ -26,3 +26,15 @@ class Theme:
             "unplayed_opacity": self.unplayed_opacity,
             "is_builtin": self.is_builtin,
         }
+    
+    @staticmethod
+    def from_dict(data: dict) -> "Theme":
+        """Create theme from dictionary."""
+        return Theme(
+            name=data["name"],
+            played_color=data["played_color"],
+            played_opacity=data["played_opacity"],
+            unplayed_color=data["unplayed_color"],
+            unplayed_opacity=data["unplayed_opacity"],
+            is_builtin=data.get("is_builtin", False),
+        )
