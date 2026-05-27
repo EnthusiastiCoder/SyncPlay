@@ -94,3 +94,6 @@ class ThemeManager:
             is_builtin=True,
         ),
     ]
+    
+    def __init__(self, config_dir: Optional[Path] = None):
+        """Initialize theme manager.
