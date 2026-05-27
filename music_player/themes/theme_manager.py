@@ -134,3 +134,10 @@ class ThemeManager:
     def get_all_themes(self) -> list[Theme]:
         """Get all themes (built-in + custom)."""
         return self.BUILTIN_THEMES + self._custom_themes
+    
+    def get_theme_by_name(self, name: str) -> Optional[Theme]:
+        """Get a theme by name."""
+        for theme in self.get_all_themes():
+            if theme.name == name:
+                return theme
+        return None
