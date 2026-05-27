@@ -141,3 +141,6 @@ class ThemeManager:
             if theme.name == name:
                 return theme
         return None
+    
+    def save_custom_theme(self, theme: Theme) -> None:
+        """Save a custom theme.
