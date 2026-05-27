@@ -150,3 +150,8 @@ class ThemeManager:
         """
         if theme.is_builtin:
             raise ValueError("Cannot save built-in theme")
+        
+        # Remove existing theme with same name
+        self._custom_themes = [t for t in self._custom_themes if t.name != theme.name]
+        self._custom_themes.append(theme)
+        self._save_custom_themes()
