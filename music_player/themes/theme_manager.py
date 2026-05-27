@@ -97,3 +97,9 @@ class ThemeManager:
     
     def __init__(self, config_dir: Optional[Path] = None):
         """Initialize theme manager.
+        
+        Args:
+            config_dir: Directory to store custom themes. If None, uses default.
+        """
+        if config_dir is None:
+            config_dir = Path.home() / "AppData" / "Roaming" / "SyncPlay"
