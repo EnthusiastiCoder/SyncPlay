@@ -130,3 +130,7 @@ class ThemeManager:
                 json.dump(data, f, indent=2)
         except Exception:
             pass
+    
+    def get_all_themes(self) -> list[Theme]:
+        """Get all themes (built-in + custom)."""
+        return self.BUILTIN_THEMES + self._custom_themes
