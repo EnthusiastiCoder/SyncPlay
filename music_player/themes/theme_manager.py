@@ -109,3 +109,8 @@ class ThemeManager:
         self._themes_file = self._config_dir / "custom_themes.json"
         self._custom_themes: list[Theme] = []
         self._load_custom_themes()
+    
+    def _load_custom_themes(self) -> None:
+        """Load custom themes from disk."""
+        if not self._themes_file.exists():
+            return
