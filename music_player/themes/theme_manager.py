@@ -38,3 +38,7 @@ class Theme:
             unplayed_opacity=data["unplayed_opacity"],
             is_builtin=data.get("is_builtin", False),
         )
+
+
+class ThemeManager:
+    """Manages built-in and custom themes."""
