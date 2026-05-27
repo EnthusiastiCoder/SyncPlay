@@ -144,3 +144,9 @@ class ThemeManager:
     
     def save_custom_theme(self, theme: Theme) -> None:
         """Save a custom theme.
+        
+        Args:
+            theme: Theme to save. Must not be a built-in theme.
+        """
+        if theme.is_builtin:
+            raise ValueError("Cannot save built-in theme")
