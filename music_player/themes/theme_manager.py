@@ -169,3 +169,6 @@ class ThemeManager:
         for builtin in self.BUILTIN_THEMES:
             if builtin.name == name:
                 return False
+        
+        original_count = len(self._custom_themes)
+        self._custom_themes = [t for t in self._custom_themes if t.name != name]
