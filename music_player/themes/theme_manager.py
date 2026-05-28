@@ -176,3 +176,5 @@ class ThemeManager:
         if len(self._custom_themes) < original_count:
             self._save_custom_themes()
             return True
+        
+        return False
