@@ -86,3 +86,8 @@ class ThemeCard(QWidget):
     def set_selected(self, selected: bool):
         self._is_selected = selected
         self._update_style()
+    
+    def mousePressEvent(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.clicked.emit(self._theme.name)
+        super().mousePressEvent(event)
