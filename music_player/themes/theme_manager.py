@@ -155,3 +155,6 @@ class ThemeManager:
         self._custom_themes = [t for t in self._custom_themes if t.name != theme.name]
         self._custom_themes.append(theme)
         self._save_custom_themes()
+    
+    def delete_custom_theme(self, name: str) -> bool:
+        """Delete a custom theme by name.
