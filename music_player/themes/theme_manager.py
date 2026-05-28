@@ -178,3 +178,7 @@ class ThemeManager:
             return True
         
         return False
+    
+    def get_custom_themes(self) -> list[Theme]:
+        """Get only custom themes."""
+        return self._custom_themes.copy()
