@@ -60,3 +60,25 @@ class ThemeCard(QWidget):
         
         self.setFixedSize(180, 120)
         self._update_style()
+    
+    def _update_style(self):
+        if self._is_selected:
+            self.setStyleSheet("""
+                ThemeCard {
+                    background-color: #45475a;
+                    border: 2px solid #89b4fa;
+                    border-radius: 8px;
+                }
+            """)
+        else:
+            self.setStyleSheet("""
+                ThemeCard {
+                    background-color: #313244;
+                    border: 1px solid #45475a;
+                    border-radius: 8px;
+                }
+                ThemeCard:hover {
+                    background-color: #383a4a;
+                    border-color: #585b70;
+                }
+            """)
