@@ -21,3 +21,9 @@ class ThemeCard(QWidget):
     """A clickable card representing a theme preset."""
     
     clicked = pyqtSignal(str)  # theme name
+    
+    def __init__(self, theme: Theme, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._theme = theme
+        self._is_selected = False
+        self._setup_ui()
