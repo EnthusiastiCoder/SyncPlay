@@ -15,3 +15,7 @@ from music_player.themes.theme_manager import Theme, ThemeManager
 from music_player.themes.app_theme_manager import AppThemeManager
 from music_player.themes.collapsible_section import CollapsibleSection
 from music_player.player.settings_dialog import ColorPickerButton
+
+
+class ThemeCard(QWidget):
+    """A clickable card representing a theme preset."""
