@@ -31,3 +31,9 @@ class ThemeCard(QWidget):
     def _setup_ui(self):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(8, 8, 8, 8)
+        
+        # Theme name
+        name_label = QLabel(self._theme.name)
+        name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        name_label.setStyleSheet("font-weight: bold; font-size: 11pt;")
+        layout.addWidget(name_label)
