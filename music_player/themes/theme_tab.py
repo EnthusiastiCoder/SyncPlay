@@ -50,3 +50,10 @@ class ThemeCard(QWidget):
             }}
         """)
         layout.addWidget(preview)
+        
+        # Opacity info
+        opacity_text = f"Played: {int(self._theme.played_opacity * 100)}% | Unplayed: {int(self._theme.unplayed_opacity * 100)}%"
+        opacity_label = QLabel(opacity_text)
+        opacity_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        opacity_label.setStyleSheet("font-size: 9pt; color: #888;")
+        layout.addWidget(opacity_label)
