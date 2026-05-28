@@ -27,3 +27,7 @@ class ThemeCard(QWidget):
         self._theme = theme
         self._is_selected = False
         self._setup_ui()
+    
+    def _setup_ui(self):
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(8, 8, 8, 8)
