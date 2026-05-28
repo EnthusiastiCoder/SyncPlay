@@ -161,3 +161,11 @@ class ThemeManager:
         
         Args:
             name: Name of theme to delete.
+            
+        Returns:
+            True if theme was deleted, False if not found or is built-in.
+        """
+        # Check if it's a built-in theme
+        for builtin in self.BUILTIN_THEMES:
+            if builtin.name == name:
+                return False
