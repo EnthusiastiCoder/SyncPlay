@@ -158,3 +158,6 @@ class ThemeManager:
     
     def delete_custom_theme(self, name: str) -> bool:
         """Delete a custom theme by name.
+        
+        Args:
+            name: Name of theme to delete.
