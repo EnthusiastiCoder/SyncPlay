@@ -37,3 +37,16 @@ class ThemeCard(QWidget):
         name_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         name_label.setStyleSheet("font-weight: bold; font-size: 11pt;")
         layout.addWidget(name_label)
+        
+        # Color preview
+        preview = QWidget()
+        preview.setFixedHeight(60)
+        preview.setStyleSheet(f"""
+            QWidget {{
+                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,
+                    stop:0 {self._theme.played_color},
+                    stop:1 {self._theme.unplayed_color});
+                border-radius: 6px;
+            }}
+        """)
+        layout.addWidget(preview)
