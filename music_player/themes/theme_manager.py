@@ -172,3 +172,7 @@ class ThemeManager:
         
         original_count = len(self._custom_themes)
         self._custom_themes = [t for t in self._custom_themes if t.name != name]
+        
+        if len(self._custom_themes) < original_count:
+            self._save_custom_themes()
+            return True
