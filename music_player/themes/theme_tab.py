@@ -82,3 +82,7 @@ class ThemeCard(QWidget):
                     border-color: #585b70;
                 }
             """)
+    
+    def set_selected(self, selected: bool):
+        self._is_selected = selected
+        self._update_style()
