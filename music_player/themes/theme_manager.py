@@ -182,3 +182,7 @@ class ThemeManager:
     def get_custom_themes(self) -> list[Theme]:
         """Get only custom themes."""
         return self._custom_themes.copy()
+    
+    def get_builtin_themes(self) -> list[Theme]:
+        """Get only built-in themes."""
+        return self.BUILTIN_THEMES.copy()
