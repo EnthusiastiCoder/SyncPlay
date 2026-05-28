@@ -57,3 +57,6 @@ class ThemeCard(QWidget):
         opacity_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         opacity_label.setStyleSheet("font-size: 9pt; color: #888;")
         layout.addWidget(opacity_label)
+        
+        self.setFixedSize(180, 120)
+        self._update_style()
