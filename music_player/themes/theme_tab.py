@@ -19,3 +19,5 @@ from music_player.player.settings_dialog import ColorPickerButton
 
 class ThemeCard(QWidget):
     """A clickable card representing a theme preset."""
+    
+    clicked = pyqtSignal(str)  # theme name
