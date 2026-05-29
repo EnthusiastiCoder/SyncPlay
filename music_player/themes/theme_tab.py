@@ -183,3 +183,7 @@ class ThemeTab(QWidget):
         cards_scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         cards_scroll.setMaximumHeight(280)
         cards_scroll.setMinimumHeight(180)
+
+        cards_widget = QWidget()
+        cards_grid = QGridLayout(cards_widget)
+        cards_grid.setSpacing(10)
