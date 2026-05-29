@@ -331,3 +331,9 @@ class ThemeTab(QWidget):
         theme = self._theme_manager.get_theme_by_name(theme_name)
         if theme:
             self._select_theme(theme)
+    
+    def _select_theme(self, theme: Theme):
+        """Select a theme and update UI."""
+        # Update card selection
+        for name, card in self._theme_cards.items():
+            card.set_selected(name == theme.name)
