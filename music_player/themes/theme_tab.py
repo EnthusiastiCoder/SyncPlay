@@ -118,3 +118,6 @@ class ThemeTab(QWidget):
         scroll.setWidgetResizable(True)
         scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
         outer_layout.addWidget(scroll)
+
+        container = QWidget()
+        scroll.setWidget(container)
