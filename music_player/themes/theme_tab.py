@@ -325,3 +325,9 @@ class ThemeTab(QWidget):
             self._unplayed_color_btn.color_hex = self._config.get("unplayed_color", "#FFFFFF")
             self._played_opacity_slider.setValue(int(self._config.get("played_opacity", 1.0) * 100))
             self._unplayed_opacity_slider.setValue(int(self._config.get("unplayed_opacity", 1.0) * 100))
+    
+    def _on_theme_selected(self, theme_name: str):
+        """Handle theme card click."""
+        theme = self._theme_manager.get_theme_by_name(theme_name)
+        if theme:
+            self._select_theme(theme)
