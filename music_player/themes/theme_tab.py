@@ -187,3 +187,15 @@ class ThemeTab(QWidget):
         cards_widget = QWidget()
         cards_grid = QGridLayout(cards_widget)
         cards_grid.setSpacing(10)
+
+        themes = self._theme_manager.get_all_themes()
+        row, col = 0, 0
+        for theme in themes:
+            card = ThemeCard(theme)
+            card.clicked.connect(self._on_theme_selected)
+            self._theme_cards[theme.name] = card
+            cards_grid.addWidget(card, row, col)
+            col += 1
+            if col >= 3:
+                col = 0
+                row += 1
