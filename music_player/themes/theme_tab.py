@@ -108,3 +108,8 @@ class ThemeTab(QWidget):
         
         self._build_ui()
         self._load_current_theme()
+    
+    def _build_ui(self):
+        # Outer scroll area so the whole tab scrolls if needed
+        outer_layout = QVBoxLayout(self)
+        outer_layout.setContentsMargins(0, 0, 0, 0)
