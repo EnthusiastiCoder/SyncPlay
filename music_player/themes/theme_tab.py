@@ -167,3 +167,8 @@ class ThemeTab(QWidget):
         # ── Section 2: Overlay Theme ──────────────────────────────────────
         self._overlay_section = CollapsibleSection("Overlay Theme")
         self._overlay_section.set_expanded(True)
+
+        overlay_inner = QWidget()
+        overlay_layout = QVBoxLayout(overlay_inner)
+        overlay_layout.setContentsMargins(0, 0, 0, 0)
+        overlay_layout.setSpacing(10)
