@@ -91,3 +91,7 @@ class ThemeCard(QWidget):
         if event.button() == Qt.MouseButton.LeftButton:
             self.clicked.emit(self._theme.name)
         super().mousePressEvent(event)
+
+
+class ThemeTab(QWidget):
+    """Tab for theme selection and customization."""
