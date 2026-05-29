@@ -172,3 +172,8 @@ class ThemeTab(QWidget):
         overlay_layout = QVBoxLayout(overlay_inner)
         overlay_layout.setContentsMargins(0, 0, 0, 0)
         overlay_layout.setSpacing(10)
+
+        # Preset theme cards
+        cards_label = QLabel("Preset Overlay Themes")
+        cards_label.setStyleSheet("font-weight: bold; font-size: 10pt;")
+        overlay_layout.addWidget(cards_label)
