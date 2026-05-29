@@ -339,3 +339,10 @@ class ThemeTab(QWidget):
             card.set_selected(name == theme.name)
         
         self._current_theme_name = theme.name
+        
+        # Update custom theme controls
+        self._custom_name_edit.setText(theme.name)
+        self._played_color_btn.color_hex = theme.played_color
+        self._unplayed_color_btn.color_hex = theme.unplayed_color
+        self._played_opacity_slider.setValue(int(theme.played_opacity * 100))
+        self._unplayed_opacity_slider.setValue(int(theme.unplayed_opacity * 100))
