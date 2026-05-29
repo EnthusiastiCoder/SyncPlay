@@ -125,3 +125,7 @@ class ThemeTab(QWidget):
         main_layout = QVBoxLayout(container)
         main_layout.setContentsMargins(16, 16, 16, 16)
         main_layout.setSpacing(12)
+
+        # ── Section 1: App Theme ──────────────────────────────────────────
+        self._app_section = CollapsibleSection("App Theme")
+        self._app_section.set_expanded(True)
