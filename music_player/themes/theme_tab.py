@@ -311,3 +311,8 @@ class ThemeTab(QWidget):
             self._app_theme_manager.apply_theme(theme)
             self._config.set("app_theme", name)
             self._config.save()
+
+    def _load_current_theme(self):
+        """Load and select the current theme from config."""
+        theme_name = self._config.get("current_theme", "Classic Green")
+        theme = self._theme_manager.get_theme_by_name(theme_name)
