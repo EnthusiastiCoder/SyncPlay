@@ -105,3 +105,6 @@ class ThemeTab(QWidget):
         self._app_theme_manager = AppThemeManager()
         self._theme_cards: dict[str, ThemeCard] = {}
         self._current_theme_name: Optional[str] = None
+        
+        self._build_ui()
+        self._load_current_theme()
