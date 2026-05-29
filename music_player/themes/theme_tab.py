@@ -146,3 +146,10 @@ class ThemeTab(QWidget):
         if idx >= 0:
             self._app_theme_combo.setCurrentIndex(idx)
         app_row.addWidget(self._app_theme_combo)
+
+        self._btn_apply_app_theme = QPushButton("Apply App Theme")
+        self._btn_apply_app_theme.setFixedWidth(140)
+        self._btn_apply_app_theme.clicked.connect(self._apply_app_theme)
+        app_row.addWidget(self._btn_apply_app_theme)
+        app_row.addStretch()
+        app_inner_layout.addLayout(app_row)
