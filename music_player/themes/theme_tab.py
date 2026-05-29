@@ -337,3 +337,5 @@ class ThemeTab(QWidget):
         # Update card selection
         for name, card in self._theme_cards.items():
             card.set_selected(name == theme.name)
+        
+        self._current_theme_name = theme.name
