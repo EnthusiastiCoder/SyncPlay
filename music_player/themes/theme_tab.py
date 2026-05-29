@@ -293,3 +293,12 @@ class ThemeTab(QWidget):
         )
         self._text_size_slider.valueChanged.connect(self._on_text_size_changed)
         self._app_theme_combo.currentIndexChanged.connect(self._update_app_accent_preview)
+    
+    def _update_app_accent_preview(self):
+        """Update the accent color preview strip based on the selected app theme."""
+        name = self._app_theme_combo.currentData()
+        theme = self._app_theme_manager.get_theme_by_name(name)
+        if theme:
+            self._app_accent_preview.setStyleSheet(
+                f"background-color: {theme.accent_color}; border-radius: 4px;"
+            )
