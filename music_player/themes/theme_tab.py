@@ -97,3 +97,11 @@ class ThemeTab(QWidget):
     """Tab for theme selection and customization."""
     
     theme_changed = pyqtSignal(Theme)
+    
+    def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._config = config
+        self._theme_manager = ThemeManager()
+        self._app_theme_manager = AppThemeManager()
+        self._theme_cards: dict[str, ThemeCard] = {}
+        self._current_theme_name: Optional[str] = None
