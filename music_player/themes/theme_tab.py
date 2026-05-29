@@ -268,3 +268,7 @@ class ThemeTab(QWidget):
         self._save_custom_btn = QPushButton("Save Custom Theme")
         self._save_custom_btn.clicked.connect(self._save_custom_theme)
         button_layout.addWidget(self._save_custom_btn)
+
+        self._delete_custom_btn = QPushButton("Delete Custom Theme")
+        self._delete_custom_btn.clicked.connect(self._delete_custom_theme)
+        button_layout.addWidget(self._delete_custom_btn)
