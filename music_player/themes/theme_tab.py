@@ -283,3 +283,13 @@ class ThemeTab(QWidget):
         main_layout.addWidget(self._overlay_section)
 
         main_layout.addStretch()
+
+        # Connect signals
+        self._played_opacity_slider.valueChanged.connect(
+            lambda v: self._played_opacity_label.setText(f"{v}%")
+        )
+        self._unplayed_opacity_slider.valueChanged.connect(
+            lambda v: self._unplayed_opacity_label.setText(f"{v}%")
+        )
+        self._text_size_slider.valueChanged.connect(self._on_text_size_changed)
+        self._app_theme_combo.currentIndexChanged.connect(self._update_app_accent_preview)
