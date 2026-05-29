@@ -202,3 +202,8 @@ class ThemeTab(QWidget):
 
         cards_scroll.setWidget(cards_widget)
         overlay_layout.addWidget(cards_scroll)
+
+        # Custom overlay theme controls
+        custom_label = QLabel("Custom Overlay Colors")
+        custom_label.setStyleSheet("font-weight: bold; font-size: 10pt;")
+        overlay_layout.addWidget(custom_label)
