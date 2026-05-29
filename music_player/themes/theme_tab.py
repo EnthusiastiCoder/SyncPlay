@@ -302,3 +302,12 @@ class ThemeTab(QWidget):
             self._app_accent_preview.setStyleSheet(
                 f"background-color: {theme.accent_color}; border-radius: 4px;"
             )
+
+    def _apply_app_theme(self):
+        """Apply the selected app theme immediately."""
+        name = self._app_theme_combo.currentData()
+        theme = self._app_theme_manager.get_theme_by_name(name)
+        if theme:
+            self._app_theme_manager.apply_theme(theme)
+            self._config.set("app_theme", name)
+            self._config.save()
