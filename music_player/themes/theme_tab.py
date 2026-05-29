@@ -163,3 +163,7 @@ class ThemeTab(QWidget):
 
         self._app_section.add_widget(app_inner)
         main_layout.addWidget(self._app_section)
+
+        # ── Section 2: Overlay Theme ──────────────────────────────────────
+        self._overlay_section = CollapsibleSection("Overlay Theme")
+        self._overlay_section.set_expanded(True)
