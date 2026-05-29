@@ -207,3 +207,10 @@ class ThemeTab(QWidget):
         custom_label = QLabel("Custom Overlay Colors")
         custom_label.setStyleSheet("font-weight: bold; font-size: 10pt;")
         overlay_layout.addWidget(custom_label)
+
+        name_layout = QHBoxLayout()
+        name_layout.addWidget(QLabel("Theme Name:"))
+        self._custom_name_edit = QLineEdit()
+        self._custom_name_edit.setPlaceholderText("My Custom Theme")
+        name_layout.addWidget(self._custom_name_edit)
+        overlay_layout.addLayout(name_layout)
