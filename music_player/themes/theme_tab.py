@@ -262,3 +262,9 @@ class ThemeTab(QWidget):
         text_row.addWidget(self._text_size_label)
         text_row.addStretch()
         overlay_layout.addLayout(text_row)
+
+        # Action buttons
+        button_layout = QHBoxLayout()
+        self._save_custom_btn = QPushButton("Save Custom Theme")
+        self._save_custom_btn.clicked.connect(self._save_custom_theme)
+        button_layout.addWidget(self._save_custom_btn)
