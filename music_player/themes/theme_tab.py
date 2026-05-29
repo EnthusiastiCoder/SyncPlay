@@ -177,3 +177,9 @@ class ThemeTab(QWidget):
         cards_label = QLabel("Preset Overlay Themes")
         cards_label.setStyleSheet("font-weight: bold; font-size: 10pt;")
         overlay_layout.addWidget(cards_label)
+
+        cards_scroll = QScrollArea()
+        cards_scroll.setWidgetResizable(True)
+        cards_scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
+        cards_scroll.setMaximumHeight(280)
+        cards_scroll.setMinimumHeight(180)
