@@ -95,3 +95,5 @@ class ThemeCard(QWidget):
 
 class ThemeTab(QWidget):
     """Tab for theme selection and customization."""
+    
+    theme_changed = pyqtSignal(Theme)
