@@ -281,3 +281,5 @@ class ThemeTab(QWidget):
 
         self._overlay_section.add_widget(overlay_inner)
         main_layout.addWidget(self._overlay_section)
+
+        main_layout.addStretch()
