@@ -199,3 +199,6 @@ class ThemeTab(QWidget):
             if col >= 3:
                 col = 0
                 row += 1
+
+        cards_scroll.setWidget(cards_widget)
+        overlay_layout.addWidget(cards_scroll)
