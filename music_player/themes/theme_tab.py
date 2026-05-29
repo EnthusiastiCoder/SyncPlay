@@ -160,3 +160,6 @@ class ThemeTab(QWidget):
         self._app_accent_preview.setStyleSheet("border-radius: 4px;")
         self._update_app_accent_preview()
         app_inner_layout.addWidget(self._app_accent_preview)
+
+        self._app_section.add_widget(app_inner)
+        main_layout.addWidget(self._app_section)
