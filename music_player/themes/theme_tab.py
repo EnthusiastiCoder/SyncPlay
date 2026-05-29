@@ -272,3 +272,9 @@ class ThemeTab(QWidget):
         self._delete_custom_btn = QPushButton("Delete Custom Theme")
         self._delete_custom_btn.clicked.connect(self._delete_custom_theme)
         button_layout.addWidget(self._delete_custom_btn)
+
+        self._apply_btn = QPushButton("Apply Overlay Theme")
+        self._apply_btn.clicked.connect(self._apply_current_theme)
+        button_layout.addWidget(self._apply_btn)
+        button_layout.addStretch()
+        overlay_layout.addLayout(button_layout)
