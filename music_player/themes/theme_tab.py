@@ -153,3 +153,10 @@ class ThemeTab(QWidget):
         app_row.addWidget(self._btn_apply_app_theme)
         app_row.addStretch()
         app_inner_layout.addLayout(app_row)
+
+        # Accent color preview strip
+        self._app_accent_preview = QWidget()
+        self._app_accent_preview.setFixedHeight(8)
+        self._app_accent_preview.setStyleSheet("border-radius: 4px;")
+        self._update_app_accent_preview()
+        app_inner_layout.addWidget(self._app_accent_preview)
