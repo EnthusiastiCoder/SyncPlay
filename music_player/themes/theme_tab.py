@@ -121,3 +121,7 @@ class ThemeTab(QWidget):
 
         container = QWidget()
         scroll.setWidget(container)
+
+        main_layout = QVBoxLayout(container)
+        main_layout.setContentsMargins(16, 16, 16, 16)
+        main_layout.setSpacing(12)
