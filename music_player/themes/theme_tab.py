@@ -134,3 +134,15 @@ class ThemeTab(QWidget):
         app_inner_layout = QVBoxLayout(app_inner)
         app_inner_layout.setContentsMargins(0, 0, 0, 0)
         app_inner_layout.setSpacing(10)
+
+        # App theme combo + preview
+        app_row = QHBoxLayout()
+        app_row.addWidget(QLabel("Theme:"))
+        self._app_theme_combo = QComboBox()
+        for t in self._app_theme_manager.get_all_themes():
+            self._app_theme_combo.addItem(t.name, t.name)
+        saved_app = self._config.get("app_theme", "Catppuccin Dark")
+        idx = self._app_theme_combo.findData(saved_app)
+        if idx >= 0:
+            self._app_theme_combo.setCurrentIndex(idx)
+        app_row.addWidget(self._app_theme_combo)
