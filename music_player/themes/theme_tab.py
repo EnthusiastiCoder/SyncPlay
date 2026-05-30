@@ -391,3 +391,8 @@ class ThemeTab(QWidget):
             QMessageBox.information(self, "Theme Saved", f"Theme '{name}' updated.")
         
         self._select_theme(theme)
+    
+    def _delete_custom_theme(self):
+        """Delete the currently selected custom theme."""
+        if not self._current_theme_name:
+            return
