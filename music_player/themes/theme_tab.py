@@ -346,3 +346,6 @@ class ThemeTab(QWidget):
         self._unplayed_color_btn.color_hex = theme.unplayed_color
         self._played_opacity_slider.setValue(int(theme.played_opacity * 100))
         self._unplayed_opacity_slider.setValue(int(theme.unplayed_opacity * 100))
+        
+        # Enable/disable delete button
+        self._delete_custom_btn.setEnabled(not theme.is_builtin)
