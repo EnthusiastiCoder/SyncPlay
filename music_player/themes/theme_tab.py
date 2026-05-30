@@ -435,3 +435,11 @@ class ThemeTab(QWidget):
             unplayed_opacity=self._unplayed_opacity_slider.value() / 100.0,
             is_builtin=False,
         )
+        
+        # Update config
+        self._config.set("played_color", theme.played_color)
+        self._config.set("played_opacity", theme.played_opacity)
+        self._config.set("unplayed_color", theme.unplayed_color)
+        self._config.set("unplayed_opacity", theme.unplayed_opacity)
+        self._config.set("current_theme", theme.name)
+        self._config.save()
