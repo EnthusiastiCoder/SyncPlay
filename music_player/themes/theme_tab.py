@@ -418,3 +418,9 @@ class ThemeTab(QWidget):
                 default = self._theme_manager.get_theme_by_name("Classic Green")
                 if default:
                     self._select_theme(default)
+    
+    def _on_text_size_changed(self, value: int):
+        """Update config when text size slider changes."""
+        self._text_size_label.setText(f"{value} pt")
+        self._config.set("font_size_base", value)
+        self._config.save()
