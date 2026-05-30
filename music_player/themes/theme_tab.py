@@ -407,3 +407,14 @@ class ThemeTab(QWidget):
             f"Are you sure you want to delete the theme '{theme.name}'?",
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
+        
+        if reply == QMessageBox.StandardButton.Yes:
+            if self._theme_manager.delete_custom_theme(theme.name):
+                if theme.name in self._theme_cards:
+                    self._theme_cards[theme.name].deleteLater()
+                    del self._theme_cards[theme.name]
+                QMessageBox.information(self, "Theme Deleted", f"Theme '{theme.name}' deleted.")
+                # Select default theme
+                default = self._theme_manager.get_theme_by_name("Classic Green")
+                if default:
+                    self._select_theme(default)
