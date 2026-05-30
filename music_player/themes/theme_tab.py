@@ -424,3 +424,14 @@ class ThemeTab(QWidget):
         self._text_size_label.setText(f"{value} pt")
         self._config.set("font_size_base", value)
         self._config.save()
+
+    def _apply_current_theme(self):
+        """Apply the current theme to the config."""
+        theme = Theme(
+            name=self._custom_name_edit.text().strip() or "Custom",
+            played_color=self._played_color_btn.color_hex,
+            played_opacity=self._played_opacity_slider.value() / 100.0,
+            unplayed_color=self._unplayed_color_btn.color_hex,
+            unplayed_opacity=self._unplayed_opacity_slider.value() / 100.0,
+            is_builtin=False,
+        )
