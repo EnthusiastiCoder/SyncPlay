@@ -356,3 +356,12 @@ class ThemeTab(QWidget):
         if not name:
             QMessageBox.warning(self, "Invalid Name", "Please enter a theme name.")
             return
+        
+        # Check if it's a built-in theme name
+        for builtin in self._theme_manager.get_builtin_themes():
+            if builtin.name == name:
+                QMessageBox.warning(
+                    self, "Invalid Name",
+                    "Cannot overwrite built-in theme. Please choose a different name."
+                )
+                return
