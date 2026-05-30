@@ -349,3 +349,10 @@ class ThemeTab(QWidget):
         
         # Enable/disable delete button
         self._delete_custom_btn.setEnabled(not theme.is_builtin)
+    
+    def _save_custom_theme(self):
+        """Save current settings as a custom theme."""
+        name = self._custom_name_edit.text().strip()
+        if not name:
+            QMessageBox.warning(self, "Invalid Name", "Please enter a theme name.")
+            return
