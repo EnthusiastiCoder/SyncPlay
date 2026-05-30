@@ -389,3 +389,5 @@ class ThemeTab(QWidget):
             )
         else:
             QMessageBox.information(self, "Theme Saved", f"Theme '{name}' updated.")
+        
+        self._select_theme(theme)
