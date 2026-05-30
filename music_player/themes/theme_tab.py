@@ -374,3 +374,5 @@ class ThemeTab(QWidget):
             unplayed_opacity=self._unplayed_opacity_slider.value() / 100.0,
             is_builtin=False,
         )
+        
+        self._theme_manager.save_custom_theme(theme)
