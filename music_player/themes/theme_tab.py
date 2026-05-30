@@ -396,3 +396,8 @@ class ThemeTab(QWidget):
         """Delete the currently selected custom theme."""
         if not self._current_theme_name:
             return
+        
+        theme = self._theme_manager.get_theme_by_name(self._current_theme_name)
+        if not theme or theme.is_builtin:
+            QMessageBox.warning(self, "Cannot Delete", "Cannot delete built-in themes.")
+            return
