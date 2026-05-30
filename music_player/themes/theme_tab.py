@@ -376,3 +376,16 @@ class ThemeTab(QWidget):
         )
         
         self._theme_manager.save_custom_theme(theme)
+        
+        # Add card if new theme
+        if name not in self._theme_cards:
+            card = ThemeCard(theme)
+            card.clicked.connect(self._on_theme_selected)
+            self._theme_cards[name] = card
+            # Refresh the UI (simplified - just show message)
+            QMessageBox.information(
+                self, "Theme Saved",
+                f"Custom theme '{name}' saved. Restart to see it in the preset list."
+            )
+        else:
+            QMessageBox.information(self, "Theme Saved", f"Theme '{name}' updated.")
