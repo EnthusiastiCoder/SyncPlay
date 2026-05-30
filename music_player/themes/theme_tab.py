@@ -401,3 +401,9 @@ class ThemeTab(QWidget):
         if not theme or theme.is_builtin:
             QMessageBox.warning(self, "Cannot Delete", "Cannot delete built-in themes.")
             return
+        
+        reply = QMessageBox.question(
+            self, "Delete Theme",
+            f"Are you sure you want to delete the theme '{theme.name}'?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
+        )
