@@ -443,3 +443,6 @@ class ThemeTab(QWidget):
         self._config.set("unplayed_opacity", theme.unplayed_opacity)
         self._config.set("current_theme", theme.name)
         self._config.save()
+        
+        self.theme_changed.emit(theme)
+        QMessageBox.information(self, "Theme Applied", "Theme applied successfully!")
