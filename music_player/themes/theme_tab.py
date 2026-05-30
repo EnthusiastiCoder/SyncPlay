@@ -365,3 +365,12 @@ class ThemeTab(QWidget):
                     "Cannot overwrite built-in theme. Please choose a different name."
                 )
                 return
+        
+        theme = Theme(
+            name=name,
+            played_color=self._played_color_btn.color_hex,
+            played_opacity=self._played_opacity_slider.value() / 100.0,
+            unplayed_color=self._unplayed_color_btn.color_hex,
+            unplayed_opacity=self._unplayed_opacity_slider.value() / 100.0,
+            is_builtin=False,
+        )
