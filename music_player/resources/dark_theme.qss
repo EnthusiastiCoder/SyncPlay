@@ -328,3 +328,10 @@ QTableWidget QTableCornerButton::section {
     background-color: #313244;
     border: 1px solid #45475a;
 }
+
+/* Status Bar */
+QStatusBar {
+    background-color: #1e1e2e;
+    color: #6c7086;
+    font-size: 9pt;
+}
