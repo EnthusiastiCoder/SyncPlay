@@ -323,3 +323,8 @@ QHeaderView::section {
     padding: 4px 8px;
     font-weight: 600;
 }
+
+QTableWidget QTableCornerButton::section {
+    background-color: #313244;
+    border: 1px solid #45475a;
+}
