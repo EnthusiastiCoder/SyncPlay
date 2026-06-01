@@ -340,3 +340,7 @@ QStatusBar {
 QSplitter::handle {
     background-color: #45475a;
 }
+
+QSplitter::handle:horizontal {
+    width: 3px;
+}
