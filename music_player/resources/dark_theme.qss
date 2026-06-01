@@ -296,3 +296,12 @@ QMessageBox {
 QMessageBox QLabel {
     color: #cdd6f4;
 }
+
+/* Tooltips */
+QToolTip {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
