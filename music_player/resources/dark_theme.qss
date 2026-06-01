@@ -125,3 +125,14 @@ QListWidget::item:hover {
 QListWidget::item:alternate {
     background-color: #1a1a28;
 }
+
+/* Text Edit */
+QTextEdit, QLineEdit, QSpinBox, QDoubleSpinBox {
+    background-color: #181825;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    border-radius: 6px;
+    padding: 6px;
+    selection-background-color: #89b4fa;
+    selection-color: #1e1e2e;
+}
