@@ -26,3 +26,8 @@ QTabBar::tab {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
 }
+
+QTabBar::tab:selected {
+    background-color: #ffffff;
+    color: #4a7ce0;
+}
