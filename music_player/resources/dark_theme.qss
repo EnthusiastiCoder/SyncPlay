@@ -335,3 +335,8 @@ QStatusBar {
     color: #6c7086;
     font-size: 9pt;
 }
+
+/* Splitter */
+QSplitter::handle {
+    background-color: #45475a;
+}
