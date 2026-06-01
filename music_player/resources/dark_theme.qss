@@ -275,3 +275,9 @@ QMenu::item:selected {
     background-color: #45475a;
     color: #89b4fa;
 }
+
+QMenu::separator {
+    height: 1px;
+    background: #45475a;
+    margin: 4px 8px;
+}
