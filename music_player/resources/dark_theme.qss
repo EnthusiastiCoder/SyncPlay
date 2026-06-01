@@ -315,3 +315,11 @@ QTableWidget {
     selection-background-color: #45475a;
     selection-color: #89b4fa;
 }
+
+QHeaderView::section {
+    background-color: #313244;
+    color: #cdd6f4;
+    border: 1px solid #45475a;
+    padding: 4px 8px;
+    font-weight: 600;
+}
