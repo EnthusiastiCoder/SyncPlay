@@ -215,3 +215,10 @@ QProgressBar::chunk {
     background-color: #89b4fa;
     border-radius: 5px;
 }
+
+/* Scroll Bar */
+QScrollBar:vertical {
+    background: #181825;
+    width: 12px;
+    border-radius: 6px;
+}
