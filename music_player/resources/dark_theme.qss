@@ -194,3 +194,10 @@ QGroupBox {
     padding-top: 12px;
     font-weight: 600;
 }
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top left;
+    padding: 4px 8px;
+    color: #89b4fa;
+}
