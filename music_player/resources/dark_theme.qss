@@ -265,3 +265,8 @@ QMenu {
     border-radius: 6px;
     padding: 4px;
 }
+
+QMenu::item {
+    padding: 6px 24px 6px 12px;
+    border-radius: 4px;
+}
