@@ -67,3 +67,10 @@ QPushButton:disabled {
     color: #6c7086;
     border-color: #3a3a4a;
 }
+
+/* Sliders */
+QSlider::groove:horizontal {
+    background: #313244;
+    height: 6px;
+    border-radius: 3px;
+}
