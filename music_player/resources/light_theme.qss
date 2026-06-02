@@ -116,3 +116,13 @@ QListWidget::item:selected {
 QListWidget::item:hover {
     background-color: #f0f4ff;
 }
+
+QTextEdit, QLineEdit, QSpinBox, QDoubleSpinBox {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 6px;
+    selection-background-color: #4a7ce0;
+    selection-color: #ffffff;
+}
