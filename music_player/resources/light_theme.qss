@@ -93,3 +93,11 @@ QLabel {
     background-color: transparent;
     color: #2d2d2d;
 }
+
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    padding: 4px;
+    outline: none;
+}
