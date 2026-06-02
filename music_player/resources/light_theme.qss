@@ -294,3 +294,10 @@ QTableWidget {
     border: 1px solid #d0d0d0;
     gridline-color: #e8e8e8;
 }
+
+QHeaderView::section {
+    background-color: #e8e8e8;
+    color: #2d2d2d;
+    border: 1px solid #d0d0d0;
+    padding: 4px 8px;
+}
