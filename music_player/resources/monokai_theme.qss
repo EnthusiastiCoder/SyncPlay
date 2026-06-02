@@ -17,3 +17,12 @@ QTabWidget::pane {
     background-color: #1e1f1c;
     border-radius: 8px;
 }
+
+QTabBar::tab {
+    background-color: #3e3d32;
+    color: #f8f8f2;
+    padding: 8px 16px;
+    margin-right: 2px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
