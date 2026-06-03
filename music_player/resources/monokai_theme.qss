@@ -112,3 +112,7 @@ QListWidget::item:selected {
     background-color: #49483e;
     color: #a6e22e;
 }
+
+QListWidget::item:hover {
+    background-color: #3e3d32;
+}
