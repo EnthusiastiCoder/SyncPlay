@@ -189,3 +189,11 @@ QGroupBox::title {
     padding: 4px 8px;
     color: #a6e22e;
 }
+
+QProgressBar {
+    background-color: #3e3d32;
+    border: 1px solid #49483e;
+    border-radius: 6px;
+    text-align: center;
+    color: #f8f8f2;
+}
