@@ -151,3 +151,7 @@ QComboBox::drop-down {
     border-bottom-right-radius: 6px;
     background-color: #44443a;
 }
+
+QComboBox::drop-down:hover {
+    background-color: #49483e;
+}
