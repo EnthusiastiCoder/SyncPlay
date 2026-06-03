@@ -164,3 +164,12 @@ QComboBox::down-arrow {
     border-right: 3px solid transparent;
     border-top: 5px solid #a6e22e;
 }
+
+QComboBox QAbstractItemView {
+    background-color: #3e3d32;
+    color: #f8f8f2;
+    border: 1px solid #49483e;
+    selection-background-color: #49483e;
+    selection-color: #a6e22e;
+    border-radius: 6px;
+}
