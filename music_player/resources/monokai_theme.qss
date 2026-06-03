@@ -88,3 +88,8 @@ QSlider::sub-page:horizontal {
     background: #a6e22e;
     border-radius: 3px;
 }
+
+QLabel {
+    background-color: transparent;
+    color: #f8f8f2;
+}
