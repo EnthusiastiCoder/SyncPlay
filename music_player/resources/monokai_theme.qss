@@ -242,3 +242,11 @@ QScrollBar::handle:horizontal:hover {
 QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
     width: 0px;
 }
+
+QMenu {
+    background-color: #3e3d32;
+    color: #f8f8f2;
+    border: 1px solid #49483e;
+    border-radius: 6px;
+    padding: 4px;
+}
