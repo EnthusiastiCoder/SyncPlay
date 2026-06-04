@@ -173,3 +173,12 @@ QComboBox QAbstractItemView {
     selection-color: #268bd2;
     border-radius: 6px;
 }
+
+QGroupBox {
+    background-color: #00212b;
+    border: 1px solid #073642;
+    border-radius: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    font-weight: 600;
+}
