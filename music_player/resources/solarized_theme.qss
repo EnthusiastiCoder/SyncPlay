@@ -238,3 +238,7 @@ QScrollBar::handle:horizontal {
 QScrollBar::handle:horizontal:hover {
     background: #0d4a5a;
 }
+
+QScrollBar::add-line:horizontal, QScrollBar::sub-line:horizontal {
+    width: 0px;
+}
