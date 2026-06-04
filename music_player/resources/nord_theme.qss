@@ -4,3 +4,10 @@ QMainWindow {
     background-color: #2e3440;
     color: #eceff4;
 }
+
+QWidget {
+    background-color: #2e3440;
+    color: #eceff4;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 10pt;
+}
