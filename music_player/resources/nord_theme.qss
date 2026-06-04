@@ -138,3 +138,7 @@ QComboBox {
     border-radius: 6px;
     padding: 6px 12px;
 }
+
+QComboBox:hover {
+    border-color: #5e6d82;
+}
