@@ -35,3 +35,12 @@ QTabBar::tab:selected {
 QTabBar::tab:hover {
     background-color: #434c5e;
 }
+
+QPushButton {
+    background-color: #3b4252;
+    color: #eceff4;
+    border: 1px solid #4c566a;
+    border-radius: 6px;
+    padding: 6px 12px;
+    font-weight: 500;
+}
