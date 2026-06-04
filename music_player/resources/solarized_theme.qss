@@ -83,3 +83,8 @@ QSlider::handle:horizontal {
 QSlider::handle:horizontal:hover {
     background: #3a9fe0;
 }
+
+QSlider::sub-page:horizontal {
+    background: #268bd2;
+    border-radius: 3px;
+}
