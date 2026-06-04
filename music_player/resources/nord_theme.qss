@@ -228,3 +228,9 @@ QScrollBar:horizontal {
     height: 12px;
     border-radius: 6px;
 }
+
+QScrollBar::handle:horizontal {
+    background: #4c566a;
+    border-radius: 6px;
+    min-width: 20px;
+}
