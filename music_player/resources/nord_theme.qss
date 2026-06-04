@@ -126,3 +126,7 @@ QTextEdit, QLineEdit, QSpinBox, QDoubleSpinBox {
     selection-background-color: #4c566a;
     selection-color: #88c0d0;
 }
+
+QTextEdit:focus, QLineEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus {
+    border-color: #88c0d0;
+}
