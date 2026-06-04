@@ -130,3 +130,11 @@ QTextEdit, QLineEdit, QSpinBox, QDoubleSpinBox {
 QTextEdit:focus, QLineEdit:focus, QSpinBox:focus, QDoubleSpinBox:focus {
     border-color: #88c0d0;
 }
+
+QComboBox {
+    background-color: #3b4252;
+    color: #eceff4;
+    border: 1px solid #4c566a;
+    border-radius: 6px;
+    padding: 6px 12px;
+}
