@@ -11,3 +11,9 @@ QWidget {
     font-family: "Segoe UI", Arial, sans-serif;
     font-size: 10pt;
 }
+
+QTabWidget::pane {
+    border: 1px solid #073642;
+    background-color: #00212b;
+    border-radius: 8px;
+}
