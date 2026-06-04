@@ -142,3 +142,12 @@ QComboBox {
 QComboBox:hover {
     border-color: #5e6d82;
 }
+
+QComboBox::drop-down {
+    border: none;
+    border-left: 1px solid #4c566a;
+    width: 24px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background-color: #434c5e;
+}
