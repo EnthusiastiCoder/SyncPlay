@@ -1,1 +1,6 @@
 /* SyncPlay Nord Theme */
+
+QMainWindow {
+    background-color: #2e3440;
+    color: #eceff4;
+}
