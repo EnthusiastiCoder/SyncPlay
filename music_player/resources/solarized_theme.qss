@@ -107,3 +107,8 @@ QListWidget::item {
     border-radius: 4px;
     color: #839496;
 }
+
+QListWidget::item:selected {
+    background-color: #0d4a5a;
+    color: #268bd2;
+}
