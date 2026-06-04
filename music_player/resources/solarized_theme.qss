@@ -1,1 +1,6 @@
 /* SyncPlay Solarized Dark Theme */
+
+QMainWindow {
+    background-color: #002b36;
+    color: #839496;
+}
