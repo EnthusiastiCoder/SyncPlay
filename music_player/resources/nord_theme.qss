@@ -266,3 +266,8 @@ QMenu::separator {
     background: #4c566a;
     margin: 4px 8px;
 }
+
+QDialog {
+    background-color: #2e3440;
+    color: #eceff4;
+}
