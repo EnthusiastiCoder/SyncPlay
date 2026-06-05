@@ -91,3 +91,6 @@ class SettingsDialog(QDialog):
         # -- Fonts --
         font_group = QGroupBox("Font")
         font_form = QFormLayout(font_group)
+
+        self._font_combo = QFontComboBox()
+        font_form.addRow("Font family:", self._font_combo)
