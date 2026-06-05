@@ -9,3 +9,6 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QColor
+
+from music_player.config import ConfigManager
+from music_player.alignment.model_manager import ModelManager, MODEL_INFO
