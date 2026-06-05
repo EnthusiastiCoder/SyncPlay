@@ -128,3 +128,7 @@ class SettingsDialog(QDialog):
         pos_form.addRow("Height:", self._overlay_h_spin)
 
         layout.addWidget(pos_group)
+
+        # -- Whisper model management --
+        model_group = QGroupBox("Whisper Models")
+        model_layout = QVBoxLayout(model_group)
