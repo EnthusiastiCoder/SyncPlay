@@ -287,3 +287,10 @@ QToolTip {
     border-radius: 4px;
     padding: 4px 8px;
 }
+
+QTableWidget {
+    background-color: #00212b;
+    color: #839496;
+    border: 1px solid #073642;
+    gridline-color: #073642;
+}
