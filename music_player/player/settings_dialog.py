@@ -65,3 +65,13 @@ class SettingsDialog(QDialog):
         # -- Colors --
         color_group = QGroupBox("Lyric Colors")
         color_form = QFormLayout(color_group)
+
+        played_layout = QHBoxLayout()
+        self._played_color_btn = ColorPickerButton()
+        self._played_color_edit = QLineEdit()
+        self._played_color_edit.setFixedWidth(80)
+        self._played_color_edit.setPlaceholderText("#00FF00")
+        played_layout.addWidget(self._played_color_btn)
+        played_layout.addWidget(self._played_color_edit)
+        played_layout.addStretch()
+        color_form.addRow("Played color:", played_layout)
