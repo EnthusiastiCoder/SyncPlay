@@ -48,3 +48,12 @@ class ColorPickerButton(QPushButton):
 
 class SettingsDialog(QDialog):
     """Application settings dialog."""
+
+    def __init__(self, config: ConfigManager, parent=None):
+        super().__init__(parent)
+        self._config = config
+        self._model_manager = ModelManager()
+        self.setWindowTitle("Settings")
+        self.setMinimumWidth(480)
+        self._build_ui()
+        self._load_from_config()
