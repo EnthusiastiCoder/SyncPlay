@@ -85,3 +85,5 @@ class SettingsDialog(QDialog):
         unplayed_layout.addWidget(self._unplayed_color_edit)
         unplayed_layout.addStretch()
         color_form.addRow("Unplayed color:", unplayed_layout)
+
+        layout.addWidget(color_group)
