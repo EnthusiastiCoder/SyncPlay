@@ -29,3 +29,9 @@ class ColorPickerButton(QPushButton):
             f"background-color: {self._color}; border: 1px solid #888; border-radius: 3px;"
         )
         self.setText("")
+
+    def _pick_color(self) -> None:
+        color = QColorDialog.getColor(QColor(self._color), self, "Pick Color")
+        if color.isValid():
+            self._color = color.name()
+            self._update_style()
