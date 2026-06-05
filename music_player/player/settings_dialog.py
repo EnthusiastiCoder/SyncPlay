@@ -87,3 +87,7 @@ class SettingsDialog(QDialog):
         color_form.addRow("Unplayed color:", unplayed_layout)
 
         layout.addWidget(color_group)
+
+        # -- Fonts --
+        font_group = QGroupBox("Font")
+        font_form = QFormLayout(font_group)
