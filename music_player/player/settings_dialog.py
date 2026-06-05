@@ -23,3 +23,9 @@ class ColorPickerButton(QPushButton):
         self.setFixedSize(60, 28)
         self._update_style()
         self.clicked.connect(self._pick_color)
+
+    def _update_style(self) -> None:
+        self.setStyleSheet(
+            f"background-color: {self._color}; border: 1px solid #888; border-radius: 3px;"
+        )
+        self.setText("")
