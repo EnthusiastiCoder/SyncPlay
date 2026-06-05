@@ -121,3 +121,8 @@ class SettingsDialog(QDialog):
         self._overlay_y_spin.setRange(-5000, 10000)
         self._overlay_y_spin.setSuffix(" px")
         pos_form.addRow("Y:", self._overlay_y_spin)
+
+        self._overlay_h_spin = QSpinBox()
+        self._overlay_h_spin.setRange(100, 1000)
+        self._overlay_h_spin.setSuffix(" px")
+        pos_form.addRow("Height:", self._overlay_h_spin)
