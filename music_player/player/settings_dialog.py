@@ -160,3 +160,9 @@ class SettingsDialog(QDialog):
         btn_layout.addWidget(self._btn_ok)
         btn_layout.addWidget(self._btn_cancel)
         layout.addLayout(btn_layout)
+
+        # Connect
+        self._btn_apply.clicked.connect(self._apply)
+        self._btn_ok.clicked.connect(self._ok)
+        self._btn_cancel.clicked.connect(self.reject)
+        self._btn_delete_model.clicked.connect(self._delete_model)
