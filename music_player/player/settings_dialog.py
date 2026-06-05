@@ -149,3 +149,14 @@ class SettingsDialog(QDialog):
         model_layout.addLayout(model_btn_layout)
 
         layout.addWidget(model_group)
+
+        # -- Dialog buttons --
+        btn_layout = QHBoxLayout()
+        btn_layout.addStretch()
+        self._btn_apply = QPushButton("Apply")
+        self._btn_ok = QPushButton("OK")
+        self._btn_cancel = QPushButton("Cancel")
+        btn_layout.addWidget(self._btn_apply)
+        btn_layout.addWidget(self._btn_ok)
+        btn_layout.addWidget(self._btn_cancel)
+        layout.addLayout(btn_layout)
