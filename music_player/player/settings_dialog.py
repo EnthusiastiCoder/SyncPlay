@@ -136,3 +136,14 @@ class SettingsDialog(QDialog):
         self._model_list_label = QLabel("")
         self._model_list_label.setWordWrap(True)
         model_layout.addWidget(self._model_list_label)
+
+        model_btn_layout = QHBoxLayout()
+        self._model_combo = QComboBox()
+        for name in ModelManager.available_models():
+            info = MODEL_INFO.get(name, {})
+            self._model_combo.addItem(f"{name} (~{info.get('size_mb', '?')} MB)", name)
+        self._btn_delete_model = QPushButton("Delete Cached Model")
+        model_btn_layout.addWidget(self._model_combo)
+        model_btn_layout.addWidget(self._btn_delete_model)
+        model_btn_layout.addStretch()
+        model_layout.addLayout(model_btn_layout)
