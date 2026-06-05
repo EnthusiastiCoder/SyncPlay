@@ -44,3 +44,7 @@ class ColorPickerButton(QPushButton):
     def color_hex(self, value: str) -> None:
         self._color = value
         self._update_style()
+
+
+class SettingsDialog(QDialog):
+    """Application settings dialog."""
