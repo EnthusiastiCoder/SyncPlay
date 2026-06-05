@@ -75,3 +75,13 @@ class SettingsDialog(QDialog):
         played_layout.addWidget(self._played_color_edit)
         played_layout.addStretch()
         color_form.addRow("Played color:", played_layout)
+
+        unplayed_layout = QHBoxLayout()
+        self._unplayed_color_btn = ColorPickerButton()
+        self._unplayed_color_edit = QLineEdit()
+        self._unplayed_color_edit.setFixedWidth(80)
+        self._unplayed_color_edit.setPlaceholderText("#FFFFFF")
+        unplayed_layout.addWidget(self._unplayed_color_btn)
+        unplayed_layout.addWidget(self._unplayed_color_edit)
+        unplayed_layout.addStretch()
+        color_form.addRow("Unplayed color:", unplayed_layout)
