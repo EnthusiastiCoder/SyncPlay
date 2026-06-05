@@ -105,3 +105,5 @@ class SettingsDialog(QDialog):
         self._side_ratio_spin.setSingleStep(0.05)
         self._side_ratio_spin.setDecimals(2)
         font_form.addRow("Side line ratio:", self._side_ratio_spin)
+
+        layout.addWidget(font_group)
