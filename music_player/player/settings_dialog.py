@@ -199,3 +199,10 @@ class SettingsDialog(QDialog):
         self._played_color_edit.setText(played)
         self._unplayed_color_btn.color_hex = unplayed
         self._unplayed_color_edit.setText(unplayed)
+
+        font_family = self._config.get("font_family", "Segoe UI")
+        self._font_combo.setCurrentFont(self._font_combo.currentFont())
+        # Find and set the font
+        idx = self._font_combo.findText(font_family)
+        if idx >= 0:
+            self._font_combo.setCurrentIndex(idx)
