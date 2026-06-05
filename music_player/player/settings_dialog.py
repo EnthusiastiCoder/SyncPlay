@@ -209,3 +209,7 @@ class SettingsDialog(QDialog):
 
         self._font_size_spin.setValue(self._config.get("font_size_base", 28))
         self._side_ratio_spin.setValue(self._config.get("font_ratio_side_lines", 0.75))
+
+        self._overlay_x_spin.setValue(self._config.get("overlay_x", 100))
+        self._overlay_y_spin.setValue(self._config.get("overlay_y", 800))
+        self._overlay_h_spin.setValue(self._config.get("overlay_height", 200))
