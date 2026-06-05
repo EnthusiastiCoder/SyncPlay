@@ -99,3 +99,9 @@ class SettingsDialog(QDialog):
         self._font_size_spin.setRange(8, 120)
         self._font_size_spin.setSuffix(" pt")
         font_form.addRow("Base font size:", self._font_size_spin)
+
+        self._side_ratio_spin = QDoubleSpinBox()
+        self._side_ratio_spin.setRange(0.3, 1.0)
+        self._side_ratio_spin.setSingleStep(0.05)
+        self._side_ratio_spin.setDecimals(2)
+        font_form.addRow("Side line ratio:", self._side_ratio_spin)
