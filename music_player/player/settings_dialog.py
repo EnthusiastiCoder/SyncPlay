@@ -190,3 +190,12 @@ class SettingsDialog(QDialog):
             self._unplayed_color_btn.color_hex = hex_val
         else:
             self._unplayed_color_edit.setText(self._unplayed_color_btn.color_hex)
+
+    def _load_from_config(self) -> None:
+        """Load current config values into the UI."""
+        played = self._config.get("played_color", "#00FF00")
+        unplayed = self._config.get("unplayed_color", "#FFFFFF")
+        self._played_color_btn.color_hex = played
+        self._played_color_edit.setText(played)
+        self._unplayed_color_btn.color_hex = unplayed
+        self._unplayed_color_edit.setText(unplayed)
