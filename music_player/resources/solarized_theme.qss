@@ -275,3 +275,7 @@ QDialog {
 QMessageBox {
     background-color: #002b36;
 }
+
+QMessageBox QLabel {
+    color: #839496;
+}
