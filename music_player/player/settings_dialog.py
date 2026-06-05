@@ -107,3 +107,7 @@ class SettingsDialog(QDialog):
         font_form.addRow("Side line ratio:", self._side_ratio_spin)
 
         layout.addWidget(font_group)
+
+        # -- Overlay position --
+        pos_group = QGroupBox("Overlay Position")
+        pos_form = QFormLayout(pos_group)
