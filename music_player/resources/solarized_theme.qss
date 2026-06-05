@@ -279,3 +279,11 @@ QMessageBox {
 QMessageBox QLabel {
     color: #839496;
 }
+
+QToolTip {
+    background-color: #073642;
+    color: #839496;
+    border: 1px solid #0d4a5a;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
