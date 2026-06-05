@@ -183,3 +183,10 @@ class SettingsDialog(QDialog):
             self._played_color_btn.color_hex = hex_val
         else:
             self._played_color_edit.setText(self._played_color_btn.color_hex)
+
+    def _sync_unplayed_color_from_edit(self) -> None:
+        hex_val = self._unplayed_color_edit.text().strip()
+        if QColor(hex_val).isValid():
+            self._unplayed_color_btn.color_hex = hex_val
+        else:
+            self._unplayed_color_edit.setText(self._unplayed_color_btn.color_hex)
