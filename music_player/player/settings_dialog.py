@@ -111,3 +111,8 @@ class SettingsDialog(QDialog):
         # -- Overlay position --
         pos_group = QGroupBox("Overlay Position")
         pos_form = QFormLayout(pos_group)
+
+        self._overlay_x_spin = QSpinBox()
+        self._overlay_x_spin.setRange(-5000, 10000)
+        self._overlay_x_spin.setSuffix(" px")
+        pos_form.addRow("X:", self._overlay_x_spin)
