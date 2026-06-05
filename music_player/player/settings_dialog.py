@@ -206,3 +206,6 @@ class SettingsDialog(QDialog):
         idx = self._font_combo.findText(font_family)
         if idx >= 0:
             self._font_combo.setCurrentIndex(idx)
+
+        self._font_size_spin.setValue(self._config.get("font_size_base", 28))
+        self._side_ratio_spin.setValue(self._config.get("font_ratio_side_lines", 0.75))
