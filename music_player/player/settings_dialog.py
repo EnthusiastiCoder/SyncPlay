@@ -94,3 +94,8 @@ class SettingsDialog(QDialog):
 
         self._font_combo = QFontComboBox()
         font_form.addRow("Font family:", self._font_combo)
+
+        self._font_size_spin = QSpinBox()
+        self._font_size_spin.setRange(8, 120)
+        self._font_size_spin.setSuffix(" pt")
+        font_form.addRow("Base font size:", self._font_size_spin)
