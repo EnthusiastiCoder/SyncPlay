@@ -57,3 +57,7 @@ class SettingsDialog(QDialog):
         self.setMinimumWidth(480)
         self._build_ui()
         self._load_from_config()
+
+    def _build_ui(self) -> None:
+        layout = QVBoxLayout(self)
+        layout.setSpacing(12)
