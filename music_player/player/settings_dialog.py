@@ -12,3 +12,7 @@ from PyQt6.QtGui import QColor
 
 from music_player.config import ConfigManager
 from music_player.alignment.model_manager import ModelManager, MODEL_INFO
+
+
+class ColorPickerButton(QPushButton):
+    """Button that shows a color and opens a color dialog on click."""
