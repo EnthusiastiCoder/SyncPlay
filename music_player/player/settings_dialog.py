@@ -147,3 +147,5 @@ class SettingsDialog(QDialog):
         model_btn_layout.addWidget(self._btn_delete_model)
         model_btn_layout.addStretch()
         model_layout.addLayout(model_btn_layout)
+
+        layout.addWidget(model_group)
