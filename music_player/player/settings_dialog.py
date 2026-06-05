@@ -126,3 +126,5 @@ class SettingsDialog(QDialog):
         self._overlay_h_spin.setRange(100, 1000)
         self._overlay_h_spin.setSuffix(" px")
         pos_form.addRow("Height:", self._overlay_h_spin)
+
+        layout.addWidget(pos_group)
