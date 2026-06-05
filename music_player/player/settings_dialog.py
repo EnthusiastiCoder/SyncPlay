@@ -61,3 +61,7 @@ class SettingsDialog(QDialog):
     def _build_ui(self) -> None:
         layout = QVBoxLayout(self)
         layout.setSpacing(12)
+
+        # -- Colors --
+        color_group = QGroupBox("Lyric Colors")
+        color_form = QFormLayout(color_group)
