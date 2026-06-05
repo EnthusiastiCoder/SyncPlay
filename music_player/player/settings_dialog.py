@@ -166,3 +166,13 @@ class SettingsDialog(QDialog):
         self._btn_ok.clicked.connect(self._ok)
         self._btn_cancel.clicked.connect(self.reject)
         self._btn_delete_model.clicked.connect(self._delete_model)
+
+        # Sync color button ↔ hex edit
+        self._played_color_btn.clicked.connect(
+            lambda: self._played_color_edit.setText(self._played_color_btn.color_hex)
+        )
+        self._unplayed_color_btn.clicked.connect(
+            lambda: self._unplayed_color_edit.setText(self._unplayed_color_btn.color_hex)
+        )
+        self._played_color_edit.editingFinished.connect(self._sync_played_color_from_edit)
+        self._unplayed_color_edit.editingFinished.connect(self._sync_unplayed_color_from_edit)
