@@ -132,3 +132,7 @@ class SettingsDialog(QDialog):
         # -- Whisper model management --
         model_group = QGroupBox("Whisper Models")
         model_layout = QVBoxLayout(model_group)
+
+        self._model_list_label = QLabel("")
+        self._model_list_label.setWordWrap(True)
+        model_layout.addWidget(self._model_list_label)
