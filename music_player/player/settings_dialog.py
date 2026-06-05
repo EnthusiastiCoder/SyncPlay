@@ -39,3 +39,8 @@ class ColorPickerButton(QPushButton):
     @property
     def color_hex(self) -> str:
         return self._color
+
+    @color_hex.setter
+    def color_hex(self, value: str) -> None:
+        self._color = value
+        self._update_style()
