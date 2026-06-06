@@ -29,3 +29,7 @@ from music_player.models.wlrc_embed import extract_wlrc_from_mp3
 from music_player.utils.time_utils import ms_to_display
 from music_player.player.widgets import ToggleSwitch
 from music_player.player.visualizer_widget import VisualizerWidget
+
+
+class PlayerTab(QWidget):
+    """Main player tab with audio controls and playlist."""
