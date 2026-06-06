@@ -248,3 +248,7 @@ class SettingsDialog(QDialog):
         self._config.set("overlay_y", self._overlay_y_spin.value())
         self._config.set("overlay_height", self._overlay_h_spin.value())
         self._config.save()
+
+    def _ok(self) -> None:
+        self._apply()
+        self.accept()
