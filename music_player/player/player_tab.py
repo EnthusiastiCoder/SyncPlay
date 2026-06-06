@@ -68,3 +68,8 @@ class PlayerTab(QWidget):
         self._now_playing_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._now_playing_label.setStyleSheet("font-size: 16px; font-weight: bold;")
         layout.addWidget(self._now_playing_label)
+
+        # -- Audio visualizer --
+        accent = self._config.get("played_color", "#89b4fa")
+        self._visualizer = VisualizerWidget(accent_color=accent, parent=self)
+        layout.addWidget(self._visualizer)
