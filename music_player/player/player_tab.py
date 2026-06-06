@@ -93,3 +93,8 @@ class PlayerTab(QWidget):
         seek_layout.addWidget(self._seek_slider)
         seek_layout.addWidget(self._time_total)
         layout.addLayout(seek_layout)
+
+        # -- Playback controls --
+        controls_layout = QHBoxLayout()
+        controls_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        controls_layout.setSpacing(6)
