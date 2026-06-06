@@ -252,3 +252,19 @@ class SettingsDialog(QDialog):
     def _ok(self) -> None:
         self._apply()
         self.accept()
+
+    def _delete_model(self) -> None:
+        name = self._model_combo.currentData()
+        if not name:
+            return
+        if not self._model_manager.is_model_cached(name):
+            QMessageBox.information(self, "Not Cached", f"Model '{name}' is not cached.")
+            return
+        reply = QMessageBox.question(
+            self, "Delete Model",
+            f"Delete cached model '{name}'?",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+        )
+        if reply == QMessageBox.StandardButton.Yes:
+            self._model_manager.delete_model(name)
+            self._refresh_model_list()
