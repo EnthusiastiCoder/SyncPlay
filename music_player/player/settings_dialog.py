@@ -238,3 +238,13 @@ class SettingsDialog(QDialog):
         if not QColor(unplayed_hex).isValid():
             QMessageBox.warning(self, "Invalid Color", f"Invalid unplayed color: {unplayed_hex}")
             return
+
+        self._config.set("played_color", played_hex)
+        self._config.set("unplayed_color", unplayed_hex)
+        self._config.set("font_family", self._font_combo.currentFont().family())
+        self._config.set("font_size_base", self._font_size_spin.value())
+        self._config.set("font_ratio_side_lines", self._side_ratio_spin.value())
+        self._config.set("overlay_x", self._overlay_x_spin.value())
+        self._config.set("overlay_y", self._overlay_y_spin.value())
+        self._config.set("overlay_height", self._overlay_h_spin.value())
+        self._config.save()
