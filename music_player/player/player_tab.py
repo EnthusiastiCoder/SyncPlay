@@ -88,3 +88,8 @@ class PlayerTab(QWidget):
         self._time_total = QLabel("0:00")
         self._time_total.setFixedWidth(60)
         self._time_total.setAlignment(Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter)
+
+        seek_layout.addWidget(self._time_current)
+        seek_layout.addWidget(self._seek_slider)
+        seek_layout.addWidget(self._time_total)
+        layout.addLayout(seek_layout)
