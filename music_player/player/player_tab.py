@@ -100,3 +100,8 @@ class PlayerTab(QWidget):
         controls_layout.setSpacing(6)
 
         style = self.style()
+
+        self._btn_prev = QPushButton()
+        self._btn_prev.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_MediaSkipBackward))
+        self._btn_prev.setFixedSize(40, 36)
+        self._btn_prev.setToolTip("Previous")
