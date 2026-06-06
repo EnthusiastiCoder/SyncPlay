@@ -115,3 +115,6 @@ class PlayerTab(QWidget):
         self._btn_next.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_MediaSkipForward))
         self._btn_next.setFixedSize(40, 36)
         self._btn_next.setToolTip("Next")
+
+        self._btn_repeat = QPushButton("Repeat: Off")
+        self._btn_repeat.setFixedSize(100, 36)
