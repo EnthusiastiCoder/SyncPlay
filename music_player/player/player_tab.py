@@ -13,3 +13,10 @@ from PyQt6.QtWidgets import (
 )
 from PyQt6.QtCore import Qt, pyqtSignal
 from PyQt6.QtGui import QIcon
+
+
+class RepeatMode(Enum):
+    """Repeat mode for playlist playback."""
+    OFF = "off"
+    ALL = "all"
+    ONE = "one"
