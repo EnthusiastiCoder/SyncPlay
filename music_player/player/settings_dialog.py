@@ -215,3 +215,13 @@ class SettingsDialog(QDialog):
         self._overlay_h_spin.setValue(self._config.get("overlay_height", 200))
 
         self._refresh_model_list()
+
+    def _refresh_model_list(self) -> None:
+        cached = self._model_manager.cached_models()
+        if cached:
+            total_mb = self._model_manager.cache_size_mb()
+            self._model_list_label.setText(
+                f"Cached models: {', '.join(cached)} ({total_mb:.0f} MB total)"
+            )
+        else:
+            self._model_list_label.setText("No cached models.")
