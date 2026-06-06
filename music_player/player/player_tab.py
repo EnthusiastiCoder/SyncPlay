@@ -141,3 +141,7 @@ class PlayerTab(QWidget):
         controls_layout.addWidget(vol_label)
         controls_layout.addWidget(self._vol_slider)
         layout.addLayout(controls_layout)
+
+        # -- File buttons + overlay toggle --
+        file_layout = QHBoxLayout()
+        file_layout.setSpacing(8)
