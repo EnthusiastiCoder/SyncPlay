@@ -213,3 +213,5 @@ class SettingsDialog(QDialog):
         self._overlay_x_spin.setValue(self._config.get("overlay_x", 100))
         self._overlay_y_spin.setValue(self._config.get("overlay_y", 800))
         self._overlay_h_spin.setValue(self._config.get("overlay_height", 200))
+
+        self._refresh_model_list()
