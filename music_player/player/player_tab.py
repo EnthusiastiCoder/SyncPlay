@@ -79,3 +79,8 @@ class PlayerTab(QWidget):
         self._time_current = QLabel("0:00")
         self._time_current.setFixedWidth(60)
         self._time_current.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+
+        self._seek_slider = QSlider(Qt.Orientation.Horizontal)
+        self._seek_slider.setRange(0, 0)
+        self._seek_slider.setSingleStep(1000)
+        self._seek_slider.setPageStep(5000)
