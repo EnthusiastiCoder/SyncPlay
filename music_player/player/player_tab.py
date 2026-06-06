@@ -118,3 +118,7 @@ class PlayerTab(QWidget):
 
         self._btn_repeat = QPushButton("Repeat: Off")
         self._btn_repeat.setFixedSize(100, 36)
+
+        self._btn_shuffle = QPushButton("Shuffle")
+        self._btn_shuffle.setFixedSize(80, 36)
+        self._btn_shuffle.setCheckable(True)
