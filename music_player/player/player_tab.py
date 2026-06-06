@@ -151,3 +151,7 @@ class PlayerTab(QWidget):
 
         self._btn_open_folder = QPushButton("Open Folder")
         self._btn_open_folder.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_DirOpenIcon))
+
+        file_layout.addWidget(self._btn_open_file)
+        file_layout.addWidget(self._btn_open_folder)
+        file_layout.addStretch()
