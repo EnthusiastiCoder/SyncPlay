@@ -231,3 +231,10 @@ class SettingsDialog(QDialog):
         # Validate hex colors
         played_hex = self._played_color_edit.text().strip()
         unplayed_hex = self._unplayed_color_edit.text().strip()
+
+        if not QColor(played_hex).isValid():
+            QMessageBox.warning(self, "Invalid Color", f"Invalid played color: {played_hex}")
+            return
+        if not QColor(unplayed_hex).isValid():
+            QMessageBox.warning(self, "Invalid Color", f"Invalid unplayed color: {unplayed_hex}")
+            return
