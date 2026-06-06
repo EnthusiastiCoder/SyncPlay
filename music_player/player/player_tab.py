@@ -73,3 +73,9 @@ class PlayerTab(QWidget):
         accent = self._config.get("played_color", "#89b4fa")
         self._visualizer = VisualizerWidget(accent_color=accent, parent=self)
         layout.addWidget(self._visualizer)
+
+        # -- Time + Seek bar --
+        seek_layout = QHBoxLayout()
+        self._time_current = QLabel("0:00")
+        self._time_current.setFixedWidth(60)
+        self._time_current.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
