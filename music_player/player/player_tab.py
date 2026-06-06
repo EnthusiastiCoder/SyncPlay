@@ -49,3 +49,8 @@ class PlayerTab(QWidget):
         self._is_seeking = False
         self._playlist: list[str] = []
         self._current_index: int = -1
+        
+        # Playback modes
+        self._repeat_mode = RepeatMode.OFF
+        self._shuffle_enabled = False
+        self._shuffle_history: list[int] = []
