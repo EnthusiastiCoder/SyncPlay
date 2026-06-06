@@ -54,3 +54,6 @@ class PlayerTab(QWidget):
         self._repeat_mode = RepeatMode.OFF
         self._shuffle_enabled = False
         self._shuffle_history: list[int] = []
+
+        self._build_ui()
+        self._connect_signals()
