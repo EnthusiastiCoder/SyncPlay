@@ -98,3 +98,5 @@ class PlayerTab(QWidget):
         controls_layout = QHBoxLayout()
         controls_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         controls_layout.setSpacing(6)
+
+        style = self.style()
