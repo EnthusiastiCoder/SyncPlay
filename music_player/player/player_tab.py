@@ -57,3 +57,8 @@ class PlayerTab(QWidget):
 
         self._build_ui()
         self._connect_signals()
+
+    def _build_ui(self) -> None:
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(16, 16, 16, 16)
+        layout.setSpacing(12)
