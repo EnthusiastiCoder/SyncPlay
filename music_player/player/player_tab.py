@@ -40,3 +40,7 @@ class PlayerTab(QWidget):
     def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
         super().__init__(parent)
         self._config = config
+
+        # Audio subsystem
+        self._engine = AudioEngine(self)
+        self._clock = PlaybackClock(self._engine, self)
