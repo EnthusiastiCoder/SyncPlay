@@ -145,3 +145,6 @@ class PlayerTab(QWidget):
         # -- File buttons + overlay toggle --
         file_layout = QHBoxLayout()
         file_layout.setSpacing(8)
+
+        self._btn_open_file = QPushButton("Open File")
+        self._btn_open_file.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_DialogOpenButton))
