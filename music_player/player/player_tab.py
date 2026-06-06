@@ -33,3 +33,6 @@ from music_player.player.visualizer_widget import VisualizerWidget
 
 class PlayerTab(QWidget):
     """Main player tab with audio controls and playlist."""
+
+    overlay_toggle_requested = pyqtSignal()
+    wlrc_loaded = pyqtSignal(object)  # WlrcData or None
