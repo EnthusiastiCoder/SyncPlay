@@ -122,3 +122,11 @@ class PlayerTab(QWidget):
         self._btn_shuffle = QPushButton("Shuffle")
         self._btn_shuffle.setFixedSize(80, 36)
         self._btn_shuffle.setCheckable(True)
+
+        # Volume
+        vol_label = QLabel("Vol")
+        self._vol_slider = QSlider(Qt.Orientation.Horizontal)
+        self._vol_slider.setRange(0, 100)
+        self._vol_slider.setValue(100)
+        self._vol_slider.setFixedWidth(100)
+        self._vol_slider.setToolTip("Volume")
