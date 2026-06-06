@@ -62,3 +62,9 @@ class PlayerTab(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(16, 16, 16, 16)
         layout.setSpacing(12)
+
+        # -- Now Playing label --
+        self._now_playing_label = QLabel("No track loaded")
+        self._now_playing_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._now_playing_label.setStyleSheet("font-size: 16px; font-weight: bold;")
+        layout.addWidget(self._now_playing_label)
