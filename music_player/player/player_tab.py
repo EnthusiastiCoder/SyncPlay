@@ -44,3 +44,8 @@ class PlayerTab(QWidget):
         # Audio subsystem
         self._engine = AudioEngine(self)
         self._clock = PlaybackClock(self._engine, self)
+
+        # Track seeking state
+        self._is_seeking = False
+        self._playlist: list[str] = []
+        self._current_index: int = -1
