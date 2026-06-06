@@ -105,3 +105,8 @@ class PlayerTab(QWidget):
         self._btn_prev.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_MediaSkipBackward))
         self._btn_prev.setFixedSize(40, 36)
         self._btn_prev.setToolTip("Previous")
+
+        self._btn_play_pause = QPushButton()
+        self._btn_play_pause.setIcon(style.standardIcon(QStyle.StandardPixmap.SP_MediaPlay))
+        self._btn_play_pause.setFixedSize(48, 36)
+        self._btn_play_pause.setToolTip("Play / Pause")
