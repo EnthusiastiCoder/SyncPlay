@@ -225,3 +225,9 @@ class SettingsDialog(QDialog):
             )
         else:
             self._model_list_label.setText("No cached models.")
+
+    def _apply(self) -> None:
+        """Apply settings to config (live update)."""
+        # Validate hex colors
+        played_hex = self._played_color_edit.text().strip()
+        unplayed_hex = self._unplayed_color_edit.text().strip()
