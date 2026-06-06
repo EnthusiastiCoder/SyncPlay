@@ -36,3 +36,7 @@ class PlayerTab(QWidget):
 
     overlay_toggle_requested = pyqtSignal()
     wlrc_loaded = pyqtSignal(object)  # WlrcData or None
+
+    def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._config = config
