@@ -163,3 +163,9 @@ class PlayerTab(QWidget):
         file_layout.addWidget(overlay_label)
         file_layout.addWidget(self._overlay_toggle)
         layout.addLayout(file_layout)
+
+        # -- Lyric status --
+        self._lyric_status = QLabel("")
+        self._lyric_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        self._lyric_status.setStyleSheet("color: gray; font-size: 11px;")
+        layout.addWidget(self._lyric_status)
