@@ -174,3 +174,14 @@ class PlayerTab(QWidget):
         self._playlist_widget = QListWidget()
         self._playlist_widget.setAlternatingRowColors(True)
         layout.addWidget(self._playlist_widget, stretch=1)
+
+    def _connect_signals(self) -> None:
+        # Buttons
+        self._btn_play_pause.clicked.connect(self._toggle_play_pause)
+        self._btn_prev.clicked.connect(self._prev_track)
+        self._btn_next.clicked.connect(self._next_track)
+        self._btn_repeat.clicked.connect(self._cycle_repeat_mode)
+        self._btn_shuffle.clicked.connect(self._toggle_shuffle)
+        self._btn_open_file.clicked.connect(self._open_file)
+        self._btn_open_folder.clicked.connect(self._open_folder)
+        self._overlay_toggle.toggled.connect(lambda _: self.overlay_toggle_requested.emit())
