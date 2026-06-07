@@ -169,3 +169,8 @@ class PlayerTab(QWidget):
         self._lyric_status.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self._lyric_status.setStyleSheet("color: gray; font-size: 11px;")
         layout.addWidget(self._lyric_status)
+
+        # -- Playlist --
+        self._playlist_widget = QListWidget()
+        self._playlist_widget.setAlternatingRowColors(True)
+        layout.addWidget(self._playlist_widget, stretch=1)
