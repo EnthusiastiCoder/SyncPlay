@@ -185,3 +185,7 @@ class PlayerTab(QWidget):
         self._btn_open_file.clicked.connect(self._open_file)
         self._btn_open_folder.clicked.connect(self._open_folder)
         self._overlay_toggle.toggled.connect(lambda _: self.overlay_toggle_requested.emit())
+
+        # Seek slider
+        self._seek_slider.sliderPressed.connect(self._on_seek_start)
+        self._seek_slider.sliderReleased.connect(self._on_seek_end)
