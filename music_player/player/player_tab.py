@@ -155,3 +155,11 @@ class PlayerTab(QWidget):
         file_layout.addWidget(self._btn_open_file)
         file_layout.addWidget(self._btn_open_folder)
         file_layout.addStretch()
+
+        # Overlay toggle switch
+        overlay_label = QLabel("Overlay")
+        self._overlay_toggle = ToggleSwitch()
+        self._overlay_toggle.setToolTip("Toggle lyric overlay")
+        file_layout.addWidget(overlay_label)
+        file_layout.addWidget(self._overlay_toggle)
+        layout.addLayout(file_layout)
