@@ -197,3 +197,10 @@ class PlayerTab(QWidget):
 
         # Playlist double-click
         self._playlist_widget.itemDoubleClicked.connect(self._on_playlist_item_activated)
+
+        # Clock / Engine
+        self._clock.position_updated.connect(self._on_position_updated)
+        self._clock.track_finished.connect(self._on_track_finished)
+        self._engine.duration_available.connect(self._on_duration_available)
+        self._engine.state_changed.connect(self._on_state_changed)
+        self._engine.error_occurred.connect(self._on_error)
