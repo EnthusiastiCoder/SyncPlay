@@ -194,3 +194,6 @@ class PlayerTab(QWidget):
         self._vol_slider.valueChanged.connect(
             lambda v: self._engine.set_volume(v / 100.0)
         )
+
+        # Playlist double-click
+        self._playlist_widget.itemDoubleClicked.connect(self._on_playlist_item_activated)
