@@ -189,3 +189,8 @@ class PlayerTab(QWidget):
         # Seek slider
         self._seek_slider.sliderPressed.connect(self._on_seek_start)
         self._seek_slider.sliderReleased.connect(self._on_seek_end)
+
+        # Volume
+        self._vol_slider.valueChanged.connect(
+            lambda v: self._engine.set_volume(v / 100.0)
+        )
