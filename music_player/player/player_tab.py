@@ -276,3 +276,6 @@ class PlayerTab(QWidget):
                 style.standardIcon(QStyle.StandardPixmap.SP_MediaPlay)
             )
             self._visualizer.set_playing(False)
+
+    def _on_error(self, msg: str) -> None:
+        self._now_playing_label.setText(f"Error: {msg}")
