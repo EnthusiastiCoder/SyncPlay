@@ -340,3 +340,14 @@ class PlayerTab(QWidget):
                     return
             except Exception:
                 pass
+        
+        # Fall back to sidecar .wlrc file
+        wlrc_path = Path(audio_path).with_suffix(".wlrc")
+        if wlrc_path.exists():
+            try:
+                wlrc = load_wlrc(str(wlrc_path))
+                self.wlrc_loaded.emit(wlrc)
+            except Exception:
+                self.wlrc_loaded.emit(None)
+        else:
+            self.wlrc_loaded.emit(None)
