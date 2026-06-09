@@ -254,3 +254,8 @@ class PlayerTab(QWidget):
         self._engine.seek(self._seek_slider.value())
 
     # -- Position / duration --
+
+    def _on_position_updated(self, ms: int) -> None:
+        if not self._is_seeking:
+            self._seek_slider.setValue(ms)
+            self._time_current.setText(ms_to_display(ms))
