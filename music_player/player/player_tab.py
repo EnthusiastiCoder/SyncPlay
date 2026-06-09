@@ -248,3 +248,7 @@ class PlayerTab(QWidget):
 
     def _on_seek_start(self) -> None:
         self._is_seeking = True
+
+    def _on_seek_end(self) -> None:
+        self._is_seeking = False
+        self._engine.seek(self._seek_slider.value())
