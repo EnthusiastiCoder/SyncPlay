@@ -357,3 +357,11 @@ class PlayerTab(QWidget):
         for fp in self._playlist:
             name = Path(fp).name
             self._playlist_widget.addItem(name)
+
+    def _highlight_playlist_item(self, index: int) -> None:
+        for i in range(self._playlist_widget.count()):
+            item = self._playlist_widget.item(i)
+            if item:
+                font = item.font()
+                font.setBold(i == index)
+                item.setFont(font)
