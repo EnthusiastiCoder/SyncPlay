@@ -245,3 +245,6 @@ class PlayerTab(QWidget):
             self._engine.play()
 
     # -- Seek slots --
+
+    def _on_seek_start(self) -> None:
+        self._is_seeking = True
