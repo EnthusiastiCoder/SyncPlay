@@ -300,3 +300,21 @@ class PlayerTab(QWidget):
             self._refresh_playlist_widget()
             self._load_track(0)
             self._engine.play()
+
+    def _open_folder(self) -> None:
+        last_dir = self._config.get("last_directory", "")
+        folder = QFileDialog.getExistingDirectory(self, "Open Folder", last_dir)
+        if folder:
+            self._config.set("last_directory", folder)
+            self._config.save()
+            files = sorted(
+                str(p)
+                for p in Path(folder).iterdir()
+                if p.suffix.lower() in SUPPORTED_EXTENSIONS
+            )
+            if files:
+                self._playlist = files
+                self._shuffle_history = []
+                self._refresh_playlist_widget()
+                self._load_track(0)
+                self._engine.play()
