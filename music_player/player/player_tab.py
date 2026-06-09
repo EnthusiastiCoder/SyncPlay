@@ -351,3 +351,9 @@ class PlayerTab(QWidget):
                 self.wlrc_loaded.emit(None)
         else:
             self.wlrc_loaded.emit(None)
+
+    def _refresh_playlist_widget(self) -> None:
+        self._playlist_widget.clear()
+        for fp in self._playlist:
+            name = Path(fp).name
+            self._playlist_widget.addItem(name)
