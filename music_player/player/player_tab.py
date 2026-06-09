@@ -222,3 +222,8 @@ class PlayerTab(QWidget):
         if self._current_index > 0:
             self._load_track(self._current_index - 1)
             self._engine.play()
+
+    def _next_track(self) -> None:
+        if self._current_index < len(self._playlist) - 1:
+            self._load_track(self._current_index + 1)
+            self._engine.play()
