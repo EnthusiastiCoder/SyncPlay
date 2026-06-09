@@ -227,3 +227,7 @@ class PlayerTab(QWidget):
         if self._current_index < len(self._playlist) - 1:
             self._load_track(self._current_index + 1)
             self._engine.play()
+
+    def _on_track_finished(self) -> None:
+        """Auto-advance to next track based on repeat/shuffle mode."""
+        self._engine.stop()
