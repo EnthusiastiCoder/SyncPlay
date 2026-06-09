@@ -279,3 +279,7 @@ class PlayerTab(QWidget):
 
     def _on_error(self, msg: str) -> None:
         self._now_playing_label.setText(f"Error: {msg}")
+
+    def _on_config_changed(self, key: str, value) -> None:
+        if key == "played_color":
+            self._visualizer.set_accent_color(str(value))
