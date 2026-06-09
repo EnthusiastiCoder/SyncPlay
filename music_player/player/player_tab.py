@@ -376,3 +376,7 @@ class PlayerTab(QWidget):
     @property
     def engine(self) -> AudioEngine:
         return self._engine
+
+    @property
+    def clock(self) -> PlaybackClock:
+        return self._clock
