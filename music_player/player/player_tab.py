@@ -209,3 +209,11 @@ class PlayerTab(QWidget):
         self._config.config_changed.connect(self._on_config_changed)
 
     # -- Playback control slots --
+
+    def _toggle_play_pause(self) -> None:
+        if self._engine.state == "playing":
+            self._engine.pause()
+        else:
+            if self._engine.current_file is None and self._playlist:
+                self._load_track(0)
+            self._engine.play()
