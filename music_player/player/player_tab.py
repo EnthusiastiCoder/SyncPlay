@@ -283,3 +283,5 @@ class PlayerTab(QWidget):
     def _on_config_changed(self, key: str, value) -> None:
         if key == "played_color":
             self._visualizer.set_accent_color(str(value))
+
+    # -- File loading --
