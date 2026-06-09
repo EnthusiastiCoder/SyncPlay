@@ -237,3 +237,9 @@ class PlayerTab(QWidget):
             self._engine.seek(0)
             self._engine.play()
             return
+        
+        # Determine next track
+        next_idx = self._get_next_track_index()
+        if next_idx is not None:
+            self._load_track(next_idx)
+            self._engine.play()
