@@ -370,3 +370,5 @@ class PlayerTab(QWidget):
         row = self._playlist_widget.row(item)
         self._load_track(row)
         self._engine.play()
+
+    # -- Public API --
