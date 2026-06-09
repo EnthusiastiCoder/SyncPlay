@@ -372,3 +372,7 @@ class PlayerTab(QWidget):
         self._engine.play()
 
     # -- Public API --
+
+    @property
+    def engine(self) -> AudioEngine:
+        return self._engine
