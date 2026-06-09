@@ -207,3 +207,5 @@ class PlayerTab(QWidget):
 
         # Update visualizer accent color when theme changes
         self._config.config_changed.connect(self._on_config_changed)
+
+    # -- Playback control slots --
