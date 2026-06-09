@@ -328,3 +328,15 @@ class PlayerTab(QWidget):
                 self._now_playing_label.setText(f"Now Playing: {name}")
                 self._highlight_playlist_item(index)
                 self._try_load_sidecar_wlrc(file_path)
+
+    def _try_load_sidecar_wlrc(self, audio_path: str) -> None:
+        """Look for embedded WLRC data or a .wlrc file alongside the audio and load it."""
+        # First, try to extract embedded WLRC from MP3
+        if audio_path.lower().endswith('.mp3'):
+            try:
+                wlrc = extract_wlrc_from_mp3(audio_path)
+                if wlrc is not None:
+                    self.wlrc_loaded.emit(wlrc)
+                    return
+            except Exception:
+                pass
