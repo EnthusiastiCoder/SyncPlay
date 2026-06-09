@@ -243,3 +243,5 @@ class PlayerTab(QWidget):
         if next_idx is not None:
             self._load_track(next_idx)
             self._engine.play()
+
+    # -- Seek slots --
