@@ -318,3 +318,13 @@ class PlayerTab(QWidget):
                 self._refresh_playlist_widget()
                 self._load_track(0)
                 self._engine.play()
+
+    def _load_track(self, index: int) -> None:
+        if 0 <= index < len(self._playlist):
+            self._current_index = index
+            file_path = self._playlist[index]
+            if self._engine.load(file_path):
+                name = Path(file_path).stem
+                self._now_playing_label.setText(f"Now Playing: {name}")
+                self._highlight_playlist_item(index)
+                self._try_load_sidecar_wlrc(file_path)
