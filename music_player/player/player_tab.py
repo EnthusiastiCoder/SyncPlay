@@ -365,3 +365,8 @@ class PlayerTab(QWidget):
                 font = item.font()
                 font.setBold(i == index)
                 item.setFont(font)
+
+    def _on_playlist_item_activated(self, item: QListWidgetItem) -> None:
+        row = self._playlist_widget.row(item)
+        self._load_track(row)
+        self._engine.play()
