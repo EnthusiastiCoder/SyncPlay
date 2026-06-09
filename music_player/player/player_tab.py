@@ -285,3 +285,18 @@ class PlayerTab(QWidget):
             self._visualizer.set_accent_color(str(value))
 
     # -- File loading --
+
+    def _open_file(self) -> None:
+        last_dir = self._config.get("last_directory", "")
+        exts = " ".join(f"*{e}" for e in SUPPORTED_EXTENSIONS)
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Open Audio File", last_dir, f"Audio Files ({exts})"
+        )
+        if file_path:
+            self._config.set("last_directory", str(Path(file_path).parent))
+            self._config.save()
+            self._playlist = [file_path]
+            self._shuffle_history = []
+            self._refresh_playlist_widget()
+            self._load_track(0)
+            self._engine.play()
