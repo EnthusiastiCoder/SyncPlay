@@ -217,3 +217,8 @@ class PlayerTab(QWidget):
             if self._engine.current_file is None and self._playlist:
                 self._load_track(0)
             self._engine.play()
+
+    def _prev_track(self) -> None:
+        if self._current_index > 0:
+            self._load_track(self._current_index - 1)
+            self._engine.play()
