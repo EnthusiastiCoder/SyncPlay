@@ -263,3 +263,16 @@ class PlayerTab(QWidget):
     def _on_duration_available(self, ms: int) -> None:
         self._seek_slider.setRange(0, ms)
         self._time_total.setText(ms_to_display(ms))
+
+    def _on_state_changed(self, state: str) -> None:
+        style = self.style()
+        if state == "playing":
+            self._btn_play_pause.setIcon(
+                style.standardIcon(QStyle.StandardPixmap.SP_MediaPause)
+            )
+            self._visualizer.set_playing(True)
+        else:
+            self._btn_play_pause.setIcon(
+                style.standardIcon(QStyle.StandardPixmap.SP_MediaPlay)
+            )
+            self._visualizer.set_playing(False)
