@@ -259,3 +259,7 @@ class PlayerTab(QWidget):
         if not self._is_seeking:
             self._seek_slider.setValue(ms)
             self._time_current.setText(ms_to_display(ms))
+
+    def _on_duration_available(self, ms: int) -> None:
+        self._seek_slider.setRange(0, ms)
+        self._time_total.setText(ms_to_display(ms))
