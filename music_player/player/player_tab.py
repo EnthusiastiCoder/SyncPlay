@@ -204,3 +204,6 @@ class PlayerTab(QWidget):
         self._engine.duration_available.connect(self._on_duration_available)
         self._engine.state_changed.connect(self._on_state_changed)
         self._engine.error_occurred.connect(self._on_error)
+
+        # Update visualizer accent color when theme changes
+        self._config.config_changed.connect(self._on_config_changed)
