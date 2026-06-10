@@ -380,3 +380,6 @@ class PlayerTab(QWidget):
     @property
     def clock(self) -> PlaybackClock:
         return self._clock
+
+    def cleanup(self) -> None:
+        self._engine.cleanup()
