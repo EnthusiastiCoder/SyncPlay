@@ -383,3 +383,15 @@ class PlayerTab(QWidget):
 
     def cleanup(self) -> None:
         self._engine.cleanup()
+
+    def _cycle_repeat_mode(self) -> None:
+        """Cycle through repeat modes: Off -> All -> One -> Off."""
+        if self._repeat_mode == RepeatMode.OFF:
+            self._repeat_mode = RepeatMode.ALL
+            self._btn_repeat.setText("Repeat: All")
+        elif self._repeat_mode == RepeatMode.ALL:
+            self._repeat_mode = RepeatMode.ONE
+            self._btn_repeat.setText("Repeat: One")
+        else:
+            self._repeat_mode = RepeatMode.OFF
+            self._btn_repeat.setText("Repeat: Off")
