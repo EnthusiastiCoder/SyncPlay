@@ -401,3 +401,8 @@ class PlayerTab(QWidget):
         self._shuffle_enabled = self._btn_shuffle.isChecked()
         if self._shuffle_enabled:
             self._shuffle_history = [self._current_index] if self._current_index >= 0 else []
+    
+    def _get_next_track_index(self) -> Optional[int]:
+        """Get the next track index based on shuffle/repeat settings."""
+        if not self._playlist:
+            return None
