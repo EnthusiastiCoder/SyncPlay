@@ -395,3 +395,9 @@ class PlayerTab(QWidget):
         else:
             self._repeat_mode = RepeatMode.OFF
             self._btn_repeat.setText("Repeat: Off")
+    
+    def _toggle_shuffle(self) -> None:
+        """Toggle shuffle mode."""
+        self._shuffle_enabled = self._btn_shuffle.isChecked()
+        if self._shuffle_enabled:
+            self._shuffle_history = [self._current_index] if self._current_index >= 0 else []
