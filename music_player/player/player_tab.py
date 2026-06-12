@@ -406,3 +406,23 @@ class PlayerTab(QWidget):
         """Get the next track index based on shuffle/repeat settings."""
         if not self._playlist:
             return None
+        
+        if self._shuffle_enabled:
+            # Shuffle mode: pick random unplayed track
+            unplayed = [i for i in range(len(self._playlist)) if i not in self._shuffle_history]
+            if not unplayed:
+                if self._repeat_mode == RepeatMode.ALL:
+                    # Reset shuffle history and continue
+                    self._shuffle_history = []
+                    unplayed = list(range(len(self._playlist)))
+                else:
+                    return None
+            return random.choice(unplayed)
+        else:
+            # Sequential mode
+            if self._current_index < len(self._playlist) - 1:
+                return self._current_index + 1
+            elif self._repeat_mode == RepeatMode.ALL:
+                return 0
+            else:
+                return None
