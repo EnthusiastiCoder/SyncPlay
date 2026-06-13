@@ -20,3 +20,9 @@ class SubtitleViewerTab(QWidget):
     """Tab for viewing and managing WLRC subtitle files."""
     
     load_in_player_requested = pyqtSignal(str, object)  # audio_path, wlrc_data
+    
+    def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._config = config
+        self._current_wlrc: Optional[WlrcData] = None
+        self._current_file_path: Optional[str] = None
