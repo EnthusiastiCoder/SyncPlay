@@ -434,3 +434,8 @@ class PlayerTab(QWidget):
         self._refresh_playlist_widget()
         self._load_track(0)
         self._engine.play()
+    
+    @property
+    def repeat_mode(self) -> RepeatMode:
+        """Get current repeat mode."""
+        return self._repeat_mode
