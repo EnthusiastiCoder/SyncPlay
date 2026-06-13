@@ -18,3 +18,5 @@ from music_player.models.wlrc_embed import extract_wlrc_from_mp3, has_embedded_w
 
 class SubtitleViewerTab(QWidget):
     """Tab for viewing and managing WLRC subtitle files."""
+    
+    load_in_player_requested = pyqtSignal(str, object)  # audio_path, wlrc_data
