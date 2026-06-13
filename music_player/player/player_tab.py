@@ -439,3 +439,13 @@ class PlayerTab(QWidget):
     def repeat_mode(self) -> RepeatMode:
         """Get current repeat mode."""
         return self._repeat_mode
+    
+    def set_repeat_mode(self, mode: RepeatMode) -> None:
+        """Set repeat mode (for tray menu integration)."""
+        self._repeat_mode = mode
+        if mode == RepeatMode.OFF:
+            self._btn_repeat.setText("Repeat: Off")
+        elif mode == RepeatMode.ALL:
+            self._btn_repeat.setText("Repeat: All")
+        else:
+            self._btn_repeat.setText("Repeat: One")
