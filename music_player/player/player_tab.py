@@ -426,3 +426,11 @@ class PlayerTab(QWidget):
                 return 0
             else:
                 return None
+    
+    def load_file_and_play(self, file_path: str) -> None:
+        """Load a single file into the playlist and start playing."""
+        self._playlist = [file_path]
+        self._shuffle_history = []
+        self._refresh_playlist_widget()
+        self._load_track(0)
+        self._engine.play()
