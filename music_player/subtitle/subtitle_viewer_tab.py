@@ -33,3 +33,8 @@ class SubtitleViewerTab(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(16, 16, 16, 16)
         layout.setSpacing(16)
+        
+        # Title
+        title = QLabel("Subtitle Viewer")
+        title.setStyleSheet("font-size: 16pt; font-weight: bold; color: #89b4fa;")
+        layout.addWidget(title)
