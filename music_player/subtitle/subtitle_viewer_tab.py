@@ -38,3 +38,7 @@ class SubtitleViewerTab(QWidget):
         title = QLabel("Subtitle Viewer")
         title.setStyleSheet("font-size: 16pt; font-weight: bold; color: #89b4fa;")
         layout.addWidget(title)
+        
+        # File info group
+        info_group = QGroupBox("File Information")
+        info_layout = QVBoxLayout(info_group)
