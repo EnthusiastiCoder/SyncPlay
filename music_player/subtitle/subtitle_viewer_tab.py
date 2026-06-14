@@ -26,3 +26,5 @@ class SubtitleViewerTab(QWidget):
         self._config = config
         self._current_wlrc: Optional[WlrcData] = None
         self._current_file_path: Optional[str] = None
+        
+        self._build_ui()
