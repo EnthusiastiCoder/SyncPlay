@@ -28,3 +28,8 @@ class SubtitleViewerTab(QWidget):
         self._current_file_path: Optional[str] = None
         
         self._build_ui()
+    
+    def _build_ui(self):
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(16, 16, 16, 16)
+        layout.setSpacing(16)
