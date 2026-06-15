@@ -84,3 +84,5 @@ class SubtitleViewerTab(QWidget):
         self._subtitle_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
         self._subtitle_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
         table_layout.addWidget(self._subtitle_table)
+        
+        layout.addWidget(table_group)
