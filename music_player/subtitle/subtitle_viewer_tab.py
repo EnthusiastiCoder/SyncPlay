@@ -52,3 +52,6 @@ class SubtitleViewerTab(QWidget):
         info_layout.addWidget(self._metadata_label)
         
         layout.addWidget(info_group)
+        
+        # Buttons
+        button_layout = QHBoxLayout()
