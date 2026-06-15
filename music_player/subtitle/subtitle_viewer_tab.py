@@ -75,3 +75,12 @@ class SubtitleViewerTab(QWidget):
         # Subtitle table
         table_group = QGroupBox("Subtitle Lines")
         table_layout = QVBoxLayout(table_group)
+        
+        self._subtitle_table = QTableWidget()
+        self._subtitle_table.setColumnCount(4)
+        self._subtitle_table.setHorizontalHeaderLabels(["#", "Start", "End", "Text"])
+        self._subtitle_table.horizontalHeader().setSectionResizeMode(3, QHeaderView.ResizeMode.Stretch)
+        self._subtitle_table.setAlternatingRowColors(True)
+        self._subtitle_table.setEditTriggers(QTableWidget.EditTrigger.NoEditTriggers)
+        self._subtitle_table.setSelectionBehavior(QTableWidget.SelectionBehavior.SelectRows)
+        table_layout.addWidget(self._subtitle_table)
