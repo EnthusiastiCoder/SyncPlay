@@ -71,3 +71,7 @@ class SubtitleViewerTab(QWidget):
         
         button_layout.addStretch()
         layout.addLayout(button_layout)
+        
+        # Subtitle table
+        table_group = QGroupBox("Subtitle Lines")
+        table_layout = QVBoxLayout(table_group)
