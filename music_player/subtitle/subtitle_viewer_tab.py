@@ -59,3 +59,7 @@ class SubtitleViewerTab(QWidget):
         self._btn_open_wlrc = QPushButton("Open .wlrc File")
         self._btn_open_wlrc.clicked.connect(self._open_wlrc_file)
         button_layout.addWidget(self._btn_open_wlrc)
+        
+        self._btn_open_mp3 = QPushButton("Extract from MP3")
+        self._btn_open_mp3.clicked.connect(self._extract_from_mp3)
+        button_layout.addWidget(self._btn_open_mp3)
