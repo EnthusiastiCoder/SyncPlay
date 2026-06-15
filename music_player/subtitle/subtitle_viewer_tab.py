@@ -42,3 +42,7 @@ class SubtitleViewerTab(QWidget):
         # File info group
         info_group = QGroupBox("File Information")
         info_layout = QVBoxLayout(info_group)
+        
+        self._file_label = QLabel("No file loaded")
+        self._file_label.setWordWrap(True)
+        info_layout.addWidget(self._file_label)
