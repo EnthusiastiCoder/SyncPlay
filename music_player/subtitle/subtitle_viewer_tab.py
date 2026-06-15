@@ -50,3 +50,5 @@ class SubtitleViewerTab(QWidget):
         self._metadata_label = QLabel("")
         self._metadata_label.setWordWrap(True)
         info_layout.addWidget(self._metadata_label)
+        
+        layout.addWidget(info_group)
