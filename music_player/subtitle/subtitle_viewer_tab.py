@@ -63,3 +63,8 @@ class SubtitleViewerTab(QWidget):
         self._btn_open_mp3 = QPushButton("Extract from MP3")
         self._btn_open_mp3.clicked.connect(self._extract_from_mp3)
         button_layout.addWidget(self._btn_open_mp3)
+        
+        self._btn_load_player = QPushButton("Load in Player")
+        self._btn_load_player.clicked.connect(self._load_in_player)
+        self._btn_load_player.setEnabled(False)
+        button_layout.addWidget(self._btn_load_player)
