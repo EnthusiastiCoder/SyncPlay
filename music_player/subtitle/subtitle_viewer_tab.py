@@ -55,3 +55,7 @@ class SubtitleViewerTab(QWidget):
         
         # Buttons
         button_layout = QHBoxLayout()
+        
+        self._btn_open_wlrc = QPushButton("Open .wlrc File")
+        self._btn_open_wlrc.clicked.connect(self._open_wlrc_file)
+        button_layout.addWidget(self._btn_open_wlrc)
