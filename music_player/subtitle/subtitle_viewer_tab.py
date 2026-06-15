@@ -68,3 +68,6 @@ class SubtitleViewerTab(QWidget):
         self._btn_load_player.clicked.connect(self._load_in_player)
         self._btn_load_player.setEnabled(False)
         button_layout.addWidget(self._btn_load_player)
+        
+        button_layout.addStretch()
+        layout.addLayout(button_layout)
