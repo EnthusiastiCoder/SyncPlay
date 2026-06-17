@@ -86,3 +86,7 @@ class SubtitleViewerTab(QWidget):
         table_layout.addWidget(self._subtitle_table)
         
         layout.addWidget(table_group)
+        
+        # Word details
+        word_group = QGroupBox("Word-Level Timing (Selected Line)")
+        word_layout = QVBoxLayout(word_group)
