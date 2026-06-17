@@ -90,3 +90,9 @@ class SubtitleViewerTab(QWidget):
         # Word details
         word_group = QGroupBox("Word-Level Timing (Selected Line)")
         word_layout = QVBoxLayout(word_group)
+        
+        self._word_text = QTextEdit()
+        self._word_text.setReadOnly(True)
+        self._word_text.setMaximumHeight(150)
+        self._word_text.setFont(QFont("Consolas", 9))
+        word_layout.addWidget(self._word_text)
