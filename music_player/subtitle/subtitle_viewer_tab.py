@@ -101,3 +101,12 @@ class SubtitleViewerTab(QWidget):
         
         # Connect table selection
         self._subtitle_table.itemSelectionChanged.connect(self._on_line_selected)
+    
+    def _open_wlrc_file(self):
+        """Open a .wlrc file."""
+        file_path, _ = QFileDialog.getOpenFileName(
+            self,
+            "Open WLRC File",
+            self._config.get("last_directory", ""),
+            "WLRC Files (*.wlrc);;All Files (*.*)"
+        )
