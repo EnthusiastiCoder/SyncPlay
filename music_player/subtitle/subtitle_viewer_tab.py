@@ -96,3 +96,5 @@ class SubtitleViewerTab(QWidget):
         self._word_text.setMaximumHeight(150)
         self._word_text.setFont(QFont("Consolas", 9))
         word_layout.addWidget(self._word_text)
+        
+        layout.addWidget(word_group)
