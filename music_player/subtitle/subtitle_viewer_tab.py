@@ -98,3 +98,6 @@ class SubtitleViewerTab(QWidget):
         word_layout.addWidget(self._word_text)
         
         layout.addWidget(word_group)
+        
+        # Connect table selection
+        self._subtitle_table.itemSelectionChanged.connect(self._on_line_selected)
