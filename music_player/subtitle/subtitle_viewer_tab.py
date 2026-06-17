@@ -110,3 +110,6 @@ class SubtitleViewerTab(QWidget):
             self._config.get("last_directory", ""),
             "WLRC Files (*.wlrc);;All Files (*.*)"
         )
+        
+        if not file_path:
+            return
