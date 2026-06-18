@@ -183,3 +183,7 @@ class SubtitleViewerTab(QWidget):
             
             # Text
             self._subtitle_table.setItem(i, 3, QTableWidgetItem(line.text))
+        
+        self._subtitle_table.resizeColumnsToContents()
+        self._btn_load_player.setEnabled(True)
+        self._word_text.clear()
