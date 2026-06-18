@@ -172,3 +172,7 @@ class SubtitleViewerTab(QWidget):
         for i, line in enumerate(wlrc.lines):
             # Line number
             self._subtitle_table.setItem(i, 0, QTableWidgetItem(str(i + 1)))
+            
+            # Start time
+            start_sec = line.start_ms / 1000.0
+            self._subtitle_table.setItem(i, 1, QTableWidgetItem(f"{start_sec:.3f}s"))
