@@ -131,3 +131,6 @@ class SubtitleViewerTab(QWidget):
             self._config.get("last_directory", ""),
             "MP3 Files (*.mp3);;All Files (*.*)"
         )
+        
+        if not file_path:
+            return
