@@ -158,3 +158,6 @@ class SubtitleViewerTab(QWidget):
         """Load WLRC data into the viewer."""
         self._current_wlrc = wlrc
         self._current_file_path = file_path
+        
+        # Update file info
+        self._file_label.setText(f"File: {Path(file_path).name}")
