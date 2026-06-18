@@ -161,3 +161,8 @@ class SubtitleViewerTab(QWidget):
         
         # Update file info
         self._file_label.setText(f"File: {Path(file_path).name}")
+        
+        # Update metadata
+        duration_sec = wlrc.metadata.duration_ms / 1000.0
+        metadata_text = f"Duration: {duration_sec:.2f}s | Lines: {len(wlrc.lines)}"
+        self._metadata_label.setText(metadata_text)
