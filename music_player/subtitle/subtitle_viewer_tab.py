@@ -116,3 +116,9 @@ class SubtitleViewerTab(QWidget):
         
         self._config.set("last_directory", str(Path(file_path).parent))
         self._config.save()
+        
+        try:
+            wlrc = load_wlrc(file_path)
+            self._load_wlrc(wlrc, file_path)
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to load WLRC file: {e}")
