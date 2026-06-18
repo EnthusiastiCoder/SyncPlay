@@ -153,3 +153,8 @@ class SubtitleViewerTab(QWidget):
                 QMessageBox.warning(self, "Error", "Failed to extract WLRC data from MP3.")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to extract WLRC: {e}")
+    
+    def _load_wlrc(self, wlrc: WlrcData, file_path: str):
+        """Load WLRC data into the viewer."""
+        self._current_wlrc = wlrc
+        self._current_file_path = file_path
