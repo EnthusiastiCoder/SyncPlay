@@ -166,3 +166,9 @@ class SubtitleViewerTab(QWidget):
         duration_sec = wlrc.metadata.duration_ms / 1000.0
         metadata_text = f"Duration: {duration_sec:.2f}s | Lines: {len(wlrc.lines)}"
         self._metadata_label.setText(metadata_text)
+        
+        # Populate table
+        self._subtitle_table.setRowCount(len(wlrc.lines))
+        for i, line in enumerate(wlrc.lines):
+            # Line number
+            self._subtitle_table.setItem(i, 0, QTableWidgetItem(str(i + 1)))
