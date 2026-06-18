@@ -187,3 +187,10 @@ class SubtitleViewerTab(QWidget):
         self._subtitle_table.resizeColumnsToContents()
         self._btn_load_player.setEnabled(True)
         self._word_text.clear()
+    
+    def _on_line_selected(self):
+        """Show word-level timing for selected line."""
+        selected_rows = self._subtitle_table.selectionModel().selectedRows()
+        if not selected_rows or not self._current_wlrc:
+            self._word_text.clear()
+            return
