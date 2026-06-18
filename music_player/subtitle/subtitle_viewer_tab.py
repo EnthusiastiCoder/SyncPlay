@@ -198,3 +198,16 @@ class SubtitleViewerTab(QWidget):
         row = selected_rows[0].row()
         if 0 <= row < len(self._current_wlrc.lines):
             line = self._current_wlrc.lines[row]
+            
+            if line.has_word_timing():
+                word_details = []
+                for word in line.words:
+                    start_sec = word.start_ms / 1000.0
+                    end_sec = word.end_ms / 1000.0
+                    duration = (word.end_ms - word.start_ms) / 1000.0
+                    word_details.append(
+                        f"{word.word:20s} | {start_sec:8.3f}s - {end_sec:8.3f}s | {duration:6.3f}s"
+                    )
+                self._word_text.setPlainText("\n".join(word_details))
+            else:
+                self._word_text.setPlainText("No word-level timing available for this line.")
