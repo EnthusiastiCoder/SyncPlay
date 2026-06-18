@@ -194,3 +194,7 @@ class SubtitleViewerTab(QWidget):
         if not selected_rows or not self._current_wlrc:
             self._word_text.clear()
             return
+        
+        row = selected_rows[0].row()
+        if 0 <= row < len(self._current_wlrc.lines):
+            line = self._current_wlrc.lines[row]
