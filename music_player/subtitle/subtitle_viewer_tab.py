@@ -134,3 +134,6 @@ class SubtitleViewerTab(QWidget):
         
         if not file_path:
             return
+        
+        self._config.set("last_directory", str(Path(file_path).parent))
+        self._config.save()
