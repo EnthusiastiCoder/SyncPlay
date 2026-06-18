@@ -180,3 +180,6 @@ class SubtitleViewerTab(QWidget):
             # End time
             end_sec = line.end_ms / 1000.0
             self._subtitle_table.setItem(i, 2, QTableWidgetItem(f"{end_sec:.3f}s"))
+            
+            # Text
+            self._subtitle_table.setItem(i, 3, QTableWidgetItem(line.text))
