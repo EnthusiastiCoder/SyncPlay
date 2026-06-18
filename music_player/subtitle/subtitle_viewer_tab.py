@@ -137,3 +137,11 @@ class SubtitleViewerTab(QWidget):
         
         self._config.set("last_directory", str(Path(file_path).parent))
         self._config.save()
+        
+        try:
+            if not has_embedded_wlrc(file_path):
+                QMessageBox.information(
+                    self, "No WLRC Data",
+                    "This MP3 file does not contain embedded WLRC data."
+                )
+                return
