@@ -145,3 +145,11 @@ class SubtitleViewerTab(QWidget):
                     "This MP3 file does not contain embedded WLRC data."
                 )
                 return
+            
+            wlrc = extract_wlrc_from_mp3(file_path)
+            if wlrc:
+                self._load_wlrc(wlrc, file_path)
+            else:
+                QMessageBox.warning(self, "Error", "Failed to extract WLRC data from MP3.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Failed to extract WLRC: {e}")
