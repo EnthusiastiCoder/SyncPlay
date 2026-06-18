@@ -122,3 +122,12 @@ class SubtitleViewerTab(QWidget):
             self._load_wlrc(wlrc, file_path)
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Failed to load WLRC file: {e}")
+    
+    def _extract_from_mp3(self):
+        """Extract embedded WLRC from an MP3 file."""
+        file_path, _ = QFileDialog.getOpenFileName(
+            self,
+            "Open MP3 File",
+            self._config.get("last_directory", ""),
+            "MP3 Files (*.mp3);;All Files (*.*)"
+        )
