@@ -219,3 +219,12 @@ class SubtitleViewerTab(QWidget):
         
         # Try to find the associated audio file
         file_path = Path(self._current_file_path)
+        
+        # If it's a .wlrc file, look for audio with same name
+        if file_path.suffix.lower() == '.wlrc':
+            audio_path = None
+            for ext in ['.mp3', '.wav', '.ogg', '.flac']:
+                candidate = file_path.with_suffix(ext)
+                if candidate.exists():
+                    audio_path = str(candidate)
+                    break
