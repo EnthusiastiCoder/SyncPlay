@@ -211,3 +211,8 @@ class SubtitleViewerTab(QWidget):
                 self._word_text.setPlainText("\n".join(word_details))
             else:
                 self._word_text.setPlainText("No word-level timing available for this line.")
+    
+    def _load_in_player(self):
+        """Load the current WLRC in the player."""
+        if not self._current_wlrc or not self._current_file_path:
+            return
