@@ -34,3 +34,7 @@ class AlignmentWorker(QThread):
         self._language = language
         self._output_path = output_path or self._default_output_path()
         self._cancelled = False
+
+    def _default_output_path(self) -> str:
+        """Generate output path by replacing audio extension with .wlrc."""
+        return str(Path(self._audio_path).with_suffix(".wlrc"))
