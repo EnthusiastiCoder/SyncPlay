@@ -17,3 +17,20 @@ class AlignmentWorker(QThread):
     progress = pyqtSignal(str)       # status message
     finished_ok = pyqtSignal(str)    # output .wlrc path
     failed = pyqtSignal(str)         # error message
+
+    def __init__(
+        self,
+        audio_path: str,
+        transcript: str,
+        model_name: str = "base",
+        language: str = "en",
+        output_path: Optional[str] = None,
+        parent: Optional[QObject] = None,
+    ):
+        super().__init__(parent)
+        self._audio_path = audio_path
+        self._transcript = transcript
+        self._model_name = model_name
+        self._language = language
+        self._output_path = output_path or self._default_output_path()
+        self._cancelled = False
