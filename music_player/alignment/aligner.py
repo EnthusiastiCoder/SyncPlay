@@ -38,3 +38,16 @@ class AlignmentWorker(QThread):
     def _default_output_path(self) -> str:
         """Generate output path by replacing audio extension with .wlrc."""
         return str(Path(self._audio_path).with_suffix(".wlrc"))
+
+    def run(self) -> None:
+        # When running as a GUI app (.pyw / pythonw), sys.stdout and
+        # sys.stderr are None.  stable-whisper writes progress to stdout
+        # internally, which crashes with "NoneType has no attribute 'write'".
+        # Redirect them to devnull so the library works silently.
+        _orig_stdout = sys.stdout
+        _orig_stderr = sys.stderr
+        try:
+            if sys.stdout is None:
+                sys.stdout = open(os.devnull, "w")
+            if sys.stderr is None:
+                sys.stderr = open(os.devnull, "w")
