@@ -67,3 +67,6 @@ class AlignmentWorker(QThread):
                 self._transcript,
                 language=self._language,
             )
+
+            if self._cancelled:
+                return
