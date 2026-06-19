@@ -216,3 +216,6 @@ class SubtitleViewerTab(QWidget):
         """Load the current WLRC in the player."""
         if not self._current_wlrc or not self._current_file_path:
             return
+        
+        # Try to find the associated audio file
+        file_path = Path(self._current_file_path)
