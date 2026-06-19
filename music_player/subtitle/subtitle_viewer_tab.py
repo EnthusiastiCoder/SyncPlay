@@ -238,3 +238,9 @@ class SubtitleViewerTab(QWidget):
         else:
             # It's an MP3 file with embedded WLRC
             audio_path = str(file_path)
+        
+        self.load_in_player_requested.emit(audio_path, self._current_wlrc)
+        QMessageBox.information(
+            self, "Loaded",
+            f"Loaded in player:\n{Path(audio_path).name}"
+        )
