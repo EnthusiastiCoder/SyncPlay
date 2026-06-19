@@ -228,3 +228,13 @@ class SubtitleViewerTab(QWidget):
                 if candidate.exists():
                     audio_path = str(candidate)
                     break
+            
+            if not audio_path:
+                QMessageBox.warning(
+                    self, "Audio Not Found",
+                    "Could not find audio file with the same name as the .wlrc file."
+                )
+                return
+        else:
+            # It's an MP3 file with embedded WLRC
+            audio_path = str(file_path)
