@@ -13,3 +13,7 @@ from music_player.models.wlrc import WlrcData, WlrcLine, WlrcWord, WlrcMetadata,
 
 class AlignmentWorker(QThread):
     """Background thread that runs stable-ts forced alignment."""
+
+    progress = pyqtSignal(str)       # status message
+    finished_ok = pyqtSignal(str)    # output .wlrc path
+    failed = pyqtSignal(str)         # error message
