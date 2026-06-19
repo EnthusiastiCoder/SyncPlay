@@ -60,3 +60,10 @@ class AlignmentWorker(QThread):
 
             if self._cancelled:
                 return
+
+            self.progress.emit("Aligning transcript to audio...")
+            result = model.align(
+                self._audio_path,
+                self._transcript,
+                language=self._language,
+            )
