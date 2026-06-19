@@ -51,3 +51,9 @@ class AlignmentWorker(QThread):
                 sys.stdout = open(os.devnull, "w")
             if sys.stderr is None:
                 sys.stderr = open(os.devnull, "w")
+
+            import torch
+            import stable_whisper
+            device = "cuda" if torch.cuda.is_available() else "cpu"
+            self.progress.emit(f"Loading model on {device}...")
+            model = stable_whisper.load_model(self._model_name, device=device)
