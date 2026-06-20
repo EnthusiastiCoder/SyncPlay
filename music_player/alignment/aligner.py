@@ -78,3 +78,10 @@ class AlignmentWorker(QThread):
             if not self._cancelled:
                 self.progress.emit("Done!")
                 self.finished_ok.emit(self._output_path)
+
+        except Exception as e:
+            if not self._cancelled:
+                self.failed.emit(str(e))
+        finally:
+            sys.stdout = _orig_stdout
+            sys.stderr = _orig_stderr
