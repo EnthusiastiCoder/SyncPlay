@@ -74,3 +74,7 @@ class AlignmentWorker(QThread):
             self.progress.emit("Converting to WLRC format...")
             wlrc = self._result_to_wlrc(result)
             save_wlrc(wlrc, self._output_path)
+
+            if not self._cancelled:
+                self.progress.emit("Done!")
+                self.finished_ok.emit(self._output_path)
