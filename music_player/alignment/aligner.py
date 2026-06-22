@@ -90,3 +90,6 @@ class AlignmentWorker(QThread):
         """Convert stable-ts alignment result to WlrcData."""
         if result is None:
             raise ValueError("Alignment result is None - alignment may have failed")
+        
+        if not hasattr(result, 'segments') or result.segments is None:
+            raise ValueError("Alignment result has no segments - check audio and transcript")
