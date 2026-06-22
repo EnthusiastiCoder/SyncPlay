@@ -104,3 +104,11 @@ class AlignmentWorker(QThread):
                     end_ms = int(word_obj.end * 1000)
                     if end_ms > duration_ms:
                         duration_ms = end_ms
+
+        audio_name = Path(self._audio_path).stem
+        metadata = WlrcMetadata(
+            title=audio_name,
+            artist="",
+            audio_file=Path(self._audio_path).name,
+            duration_ms=duration_ms,
+        )
