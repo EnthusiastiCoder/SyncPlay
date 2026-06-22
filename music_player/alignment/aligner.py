@@ -85,3 +85,8 @@ class AlignmentWorker(QThread):
         finally:
             sys.stdout = _orig_stdout
             sys.stderr = _orig_stderr
+
+    def _result_to_wlrc(self, result) -> WlrcData:
+        """Convert stable-ts alignment result to WlrcData."""
+        if result is None:
+            raise ValueError("Alignment result is None - alignment may have failed")
