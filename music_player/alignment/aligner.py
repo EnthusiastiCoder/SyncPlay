@@ -93,3 +93,14 @@ class AlignmentWorker(QThread):
         
         if not hasattr(result, 'segments') or result.segments is None:
             raise ValueError("Alignment result has no segments - check audio and transcript")
+        
+        # Estimate duration from the last word's end time
+        duration_ms = 0
+        for segment in result.segments:
+            if not hasattr(segment, 'words') or segment.words is None:
+                continue
+            for word_obj in segment.words:
+                if hasattr(word_obj, 'end') and word_obj.end is not None:
+                    end_ms = int(word_obj.end * 1000)
+                    if end_ms > duration_ms:
+                        duration_ms = end_ms
