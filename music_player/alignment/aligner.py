@@ -131,3 +131,10 @@ class AlignmentWorker(QThread):
                     continue
                 if word_obj.start is None or word_obj.end is None:
                     continue
+                
+                start_ms = int(word_obj.start * 1000)
+                end_ms = int(word_obj.end * 1000)
+                # Clamp to valid range
+                start_ms = max(0, start_ms)
+                end_ms = max(start_ms, end_ms)
+                words.append(WlrcWord(text=text, start_ms=start_ms, end_ms=end_ms))
