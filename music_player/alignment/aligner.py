@@ -138,3 +138,11 @@ class AlignmentWorker(QThread):
                 start_ms = max(0, start_ms)
                 end_ms = max(start_ms, end_ms)
                 words.append(WlrcWord(text=text, start_ms=start_ms, end_ms=end_ms))
+
+            if words:
+                line = WlrcLine(
+                    start_ms=words[0].start_ms,
+                    end_ms=words[-1].end_ms,
+                    words=words,
+                )
+                lines.append(line)
