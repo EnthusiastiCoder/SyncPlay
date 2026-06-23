@@ -126,3 +126,8 @@ class AlignmentWorker(QThread):
                 text = word_obj.word.strip()
                 if not text:
                     continue
+                
+                if not hasattr(word_obj, 'start') or not hasattr(word_obj, 'end'):
+                    continue
+                if word_obj.start is None or word_obj.end is None:
+                    continue
