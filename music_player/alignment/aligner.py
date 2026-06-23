@@ -122,3 +122,7 @@ class AlignmentWorker(QThread):
             for word_obj in segment.words:
                 if not hasattr(word_obj, 'word') or word_obj.word is None:
                     continue
+                
+                text = word_obj.word.strip()
+                if not text:
+                    continue
