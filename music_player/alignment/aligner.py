@@ -112,3 +112,8 @@ class AlignmentWorker(QThread):
             audio_file=Path(self._audio_path).name,
             duration_ms=duration_ms,
         )
+
+        lines: list[WlrcLine] = []
+        for segment in result.segments:
+            if not hasattr(segment, 'words') or segment.words is None:
+                continue
