@@ -117,3 +117,8 @@ class AlignmentWorker(QThread):
         for segment in result.segments:
             if not hasattr(segment, 'words') or segment.words is None:
                 continue
+            
+            words: list[WlrcWord] = []
+            for word_obj in segment.words:
+                if not hasattr(word_obj, 'word') or word_obj.word is None:
+                    continue
