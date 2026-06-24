@@ -47,3 +47,11 @@ def fetch_lyrics(
 
     artist_name = artist_name.strip()
     album_name = album_name.strip()
+
+    def _extract_plain(data: Optional[dict]) -> Optional[dict]:
+        if not data:
+            return None
+        plain = data.get("plainLyrics") or ""
+        if not plain.strip():
+            return None
+        return {"plainLyrics": plain}
