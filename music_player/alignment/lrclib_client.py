@@ -33,3 +33,7 @@ def fetch_lyrics(
     timeout: int = 10,
 ) -> Optional[dict]:
     """Fetch plain lyrics from lrclib.net using a 3-stage fallback strategy.
+
+    Stage 1: GET /api/get with track + artist + album + duration (most precise).
+    Stage 2: GET /api/get with track + artist only (no album/duration).
+    Stage 3: GET /api/search?q=<track artist> and take the first result.
