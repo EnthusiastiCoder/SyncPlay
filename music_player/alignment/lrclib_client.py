@@ -23,3 +23,13 @@ def _get(url: str, timeout: int) -> Optional[dict]:
         if e.code in (404, 400):
             return None
         raise
+
+
+def fetch_lyrics(
+    track_name: str,
+    artist_name: str = "",
+    album_name: str = "",
+    duration_sec: float = 0.0,
+    timeout: int = 10,
+) -> Optional[dict]:
+    """Fetch plain lyrics from lrclib.net using a 3-stage fallback strategy.
