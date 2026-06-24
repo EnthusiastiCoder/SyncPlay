@@ -64,3 +64,8 @@ def fetch_lyrics(
         params["album_name"] = album_name
     if duration_sec > 0:
         params["duration"] = int(duration_sec)
+
+    url = _API_GET + "?" + urllib.parse.urlencode(params)
+    result = _extract_plain(_get(url, timeout))
+    if result:
+        return result
