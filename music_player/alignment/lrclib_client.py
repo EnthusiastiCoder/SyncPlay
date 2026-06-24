@@ -37,3 +37,10 @@ def fetch_lyrics(
     Stage 1: GET /api/get with track + artist + album + duration (most precise).
     Stage 2: GET /api/get with track + artist only (no album/duration).
     Stage 3: GET /api/search?q=<track artist> and take the first result.
+
+    Returns a dict with key 'plainLyrics' (str, may be empty), or None if
+    nothing was found.  The 'syncedLyrics' key is intentionally omitted.
+    """
+    track_name = track_name.strip()
+    if not track_name:
+        return None
