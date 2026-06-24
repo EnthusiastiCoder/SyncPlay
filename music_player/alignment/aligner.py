@@ -154,3 +154,7 @@ class AlignmentWorker(QThread):
 
     def cancel(self) -> None:
         self._cancelled = True
+
+    @property
+    def output_path(self) -> str:
+        return self._output_path
