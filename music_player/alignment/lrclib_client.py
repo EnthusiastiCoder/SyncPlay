@@ -55,3 +55,12 @@ def fetch_lyrics(
         if not plain.strip():
             return None
         return {"plainLyrics": plain}
+
+    # Stage 1: full params with duration
+    params: dict = {"track_name": track_name}
+    if artist_name:
+        params["artist_name"] = artist_name
+    if album_name:
+        params["album_name"] = album_name
+    if duration_sec > 0:
+        params["duration"] = int(duration_sec)
