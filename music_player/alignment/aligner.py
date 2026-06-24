@@ -149,3 +149,5 @@ class AlignmentWorker(QThread):
 
         if not lines:
             raise ValueError("No valid alignment data found - check that audio matches transcript")
+
+        return WlrcData(version=1, metadata=metadata, lines=lines)
