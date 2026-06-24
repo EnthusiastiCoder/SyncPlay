@@ -44,3 +44,6 @@ def fetch_lyrics(
     track_name = track_name.strip()
     if not track_name:
         return None
+
+    artist_name = artist_name.strip()
+    album_name = album_name.strip()
