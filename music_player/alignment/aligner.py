@@ -151,3 +151,6 @@ class AlignmentWorker(QThread):
             raise ValueError("No valid alignment data found - check that audio matches transcript")
 
         return WlrcData(version=1, metadata=metadata, lines=lines)
+
+    def cancel(self) -> None:
+        self._cancelled = True
