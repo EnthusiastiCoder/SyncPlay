@@ -146,3 +146,6 @@ class AlignmentWorker(QThread):
                     words=words,
                 )
                 lines.append(line)
+
+        if not lines:
+            raise ValueError("No valid alignment data found - check that audio matches transcript")
