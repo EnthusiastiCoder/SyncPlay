@@ -123,3 +123,6 @@ def extract_audio_metadata(audio_path: str) -> dict:
                     result["artist"] = str(tags["TPE1"].text[0])
                 if tags.get("TALB"):
                     result["album"] = str(tags["TALB"].text[0])
+
+        elif path.suffix.lower() in (".flac", ".ogg", ".wav"):
+            from mutagen import File as MutagenFile
