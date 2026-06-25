@@ -111,3 +111,6 @@ def extract_audio_metadata(audio_path: str) -> dict:
         if path.suffix.lower() == ".mp3":
             from mutagen.mp3 import MP3
             from mutagen.id3 import ID3, TIT2, TPE1, TALB
+
+            audio = MP3(str(path))
+            result["duration_sec"] = audio.info.length
