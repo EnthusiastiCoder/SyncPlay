@@ -100,3 +100,9 @@ def fetch_lyrics(
 
 def extract_audio_metadata(audio_path: str) -> dict:
     """Extract track metadata from an audio file using mutagen.
+
+    Returns a dict with keys: 'title', 'artist', 'album', 'duration_sec'.
+    Any value may be an empty string / 0.0 if not found.
+    """
+    result = {"title": "", "artist": "", "album": "", "duration_sec": 0.0}
+    path = Path(audio_path)
