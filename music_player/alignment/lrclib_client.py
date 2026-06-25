@@ -89,3 +89,8 @@ def fetch_lyrics(
             hits = json.loads(resp.read().decode("utf-8"))
     except Exception:
         hits = []
+
+    for hit in hits:
+        result = _extract_plain(hit)
+        if result:
+            return result
