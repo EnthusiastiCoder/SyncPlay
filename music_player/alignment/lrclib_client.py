@@ -79,3 +79,13 @@ def fetch_lyrics(
         result = _extract_plain(_get(url2, timeout))
         if result:
             return result
+
+    # Stage 3: free-text search
+    q = " ".join(p for p in [track_name, artist_name] if p)
+    url3 = _API_SEARCH + "?" + urllib.parse.urlencode({"q": q})
+    req3 = urllib.request.Request(url3, headers={"User-Agent": _USER_AGENT})
+    try:
+        with urllib.request.urlopen(req3, timeout=timeout) as resp:
+            hits = json.loads(resp.read().decode("utf-8"))
+    except Exception:
+        hits = []
