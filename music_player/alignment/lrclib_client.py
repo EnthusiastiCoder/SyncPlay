@@ -106,3 +106,8 @@ def extract_audio_metadata(audio_path: str) -> dict:
     """
     result = {"title": "", "artist": "", "album": "", "duration_sec": 0.0}
     path = Path(audio_path)
+
+    try:
+        if path.suffix.lower() == ".mp3":
+            from mutagen.mp3 import MP3
+            from mutagen.id3 import ID3, TIT2, TPE1, TALB
