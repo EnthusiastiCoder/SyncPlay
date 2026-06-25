@@ -126,3 +126,20 @@ def extract_audio_metadata(audio_path: str) -> dict:
 
         elif path.suffix.lower() in (".flac", ".ogg", ".wav"):
             from mutagen import File as MutagenFile
+
+            audio = MutagenFile(str(path))
+            if audio is not None:
+                if hasattr(audio, "info"):
+                    result["duration_sec"] = getattr(audio.info, "length", 0.0)
+                tags = audio.tags
+                if tags:
+                    for key_variants, field in [
+                        (["title", "TITLE"], "title"),
+                        (["artist", "ARTIST"], "artist"),
+                        (["album", "ALBUM"], "album"),
+                    ]:
+                        for k in key_variants:
+                            val = tags.get(k)
+                            if val:
+                                result[field] = str(val[0]) if isinstance(val, list) else str(val)
+                                break
