@@ -114,3 +114,12 @@ def extract_audio_metadata(audio_path: str) -> dict:
 
             audio = MP3(str(path))
             result["duration_sec"] = audio.info.length
+
+            tags = audio.tags
+            if tags:
+                if tags.get("TIT2"):
+                    result["title"] = str(tags["TIT2"].text[0])
+                if tags.get("TPE1"):
+                    result["artist"] = str(tags["TPE1"].text[0])
+                if tags.get("TALB"):
+                    result["album"] = str(tags["TALB"].text[0])
