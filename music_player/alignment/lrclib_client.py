@@ -94,3 +94,5 @@ def fetch_lyrics(
         result = _extract_plain(hit)
         if result:
             return result
+
+    return None
