@@ -96,3 +96,7 @@ def fetch_lyrics(
             return result
 
     return None
+
+
+def extract_audio_metadata(audio_path: str) -> dict:
+    """Extract track metadata from an audio file using mutagen.
