@@ -143,3 +143,7 @@ def extract_audio_metadata(audio_path: str) -> dict:
                             if val:
                                 result[field] = str(val[0]) if isinstance(val, list) else str(val)
                                 break
+
+        # Fall back to filename as title if not found
+        if not result["title"]:
+            result["title"] = path.stem
