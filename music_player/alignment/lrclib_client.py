@@ -69,3 +69,13 @@ def fetch_lyrics(
     result = _extract_plain(_get(url, timeout))
     if result:
         return result
+
+    # Stage 2: track + artist only (drop album and duration)
+    if album_name or duration_sec > 0:
+        params2: dict = {"track_name": track_name}
+        if artist_name:
+            params2["artist_name"] = artist_name
+        url2 = _API_GET + "?" + urllib.parse.urlencode(params2)
+        result = _extract_plain(_get(url2, timeout))
+        if result:
+            return result
