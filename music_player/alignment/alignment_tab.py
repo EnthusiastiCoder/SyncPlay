@@ -16,3 +16,7 @@ from music_player.alignment.model_manager import ModelManager, MODEL_INFO
 from music_player.audio.engine import SUPPORTED_EXTENSIONS
 from music_player.models.wlrc import load_wlrc
 from music_player.models.wlrc_embed import embed_wlrc_in_mp3
+
+
+class AlignmentTab(QWidget):
+    """Tab for aligning transcripts to audio using stable-ts."""
