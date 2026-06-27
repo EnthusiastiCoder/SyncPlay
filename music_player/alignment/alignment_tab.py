@@ -22,3 +22,11 @@ class AlignmentTab(QWidget):
     """Tab for aligning transcripts to audio using stable-ts."""
 
     open_in_player_requested = pyqtSignal(str, str)  # audio_path, wlrc_path
+
+    def __init__(self, config: ConfigManager, parent: Optional[QWidget] = None):
+        super().__init__(parent)
+        self._config = config
+        self._model_manager = ModelManager()
+        self._worker: Optional[AlignmentWorker] = None
+        self._audio_path: Optional[str] = None
+        self._output_path: Optional[str] = None
