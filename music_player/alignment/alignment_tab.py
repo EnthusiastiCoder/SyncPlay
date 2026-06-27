@@ -34,3 +34,8 @@ class AlignmentTab(QWidget):
         self._build_ui()
         self._connect_signals()
         self._refresh_model_status()
+
+    def _build_ui(self) -> None:
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(16, 16, 16, 16)
+        layout.setSpacing(12)
