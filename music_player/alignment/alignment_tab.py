@@ -30,3 +30,7 @@ class AlignmentTab(QWidget):
         self._worker: Optional[AlignmentWorker] = None
         self._audio_path: Optional[str] = None
         self._output_path: Optional[str] = None
+
+        self._build_ui()
+        self._connect_signals()
+        self._refresh_model_status()
