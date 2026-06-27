@@ -20,3 +20,5 @@ from music_player.models.wlrc_embed import embed_wlrc_in_mp3
 
 class AlignmentTab(QWidget):
     """Tab for aligning transcripts to audio using stable-ts."""
+
+    open_in_player_requested = pyqtSignal(str, str)  # audio_path, wlrc_path
