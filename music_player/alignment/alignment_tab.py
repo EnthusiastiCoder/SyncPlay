@@ -91,3 +91,6 @@ class AlignmentTab(QWidget):
         if idx >= 0:
             self._model_combo.setCurrentIndex(idx)
         model_grid.addWidget(self._model_combo, 0, 1)
+
+        self._model_status_label = QLabel("")
+        model_grid.addWidget(self._model_status_label, 0, 2)
