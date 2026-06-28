@@ -50,3 +50,8 @@ class AlignmentTab(QWidget):
         audio_layout.addWidget(self._btn_browse_audio)
         audio_layout.addWidget(self._audio_label, stretch=1)
         layout.addWidget(audio_group)
+
+        # -- Transcript input --
+        transcript_group = QGroupBox("Transcript")
+        transcript_layout = QVBoxLayout(transcript_group)
+        transcript_layout.setSpacing(8)
