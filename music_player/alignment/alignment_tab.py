@@ -113,3 +113,12 @@ class AlignmentTab(QWidget):
         model_grid.addWidget(self._lang_combo, 0, 4)
 
         layout.addWidget(model_group)
+
+        # -- Align button + progress --
+        action_layout = QHBoxLayout()
+        action_layout.setSpacing(8)
+        self._btn_align = QPushButton("Align")
+        self._btn_align.setFixedWidth(100)
+        self._btn_cancel = QPushButton("Cancel")
+        self._btn_cancel.setFixedWidth(80)
+        self._btn_cancel.setEnabled(False)
