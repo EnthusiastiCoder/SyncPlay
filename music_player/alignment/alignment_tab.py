@@ -66,3 +66,9 @@ class AlignmentTab(QWidget):
         transcript_btn_layout.addWidget(self._btn_auto_fetch)
         transcript_btn_layout.addStretch()
         transcript_layout.addLayout(transcript_btn_layout)
+
+        self._transcript_edit = QTextEdit()
+        self._transcript_edit.setPlaceholderText("Paste or load the transcript text here...")
+        self._transcript_edit.setMinimumHeight(120)
+        transcript_layout.addWidget(self._transcript_edit)
+        layout.addWidget(transcript_group)
