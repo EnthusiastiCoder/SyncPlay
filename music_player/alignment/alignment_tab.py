@@ -122,3 +122,7 @@ class AlignmentTab(QWidget):
         self._btn_cancel = QPushButton("Cancel")
         self._btn_cancel.setFixedWidth(80)
         self._btn_cancel.setEnabled(False)
+
+        self._progress_bar = QProgressBar()
+        self._progress_bar.setRange(0, 0)  # indeterminate
+        self._progress_bar.setVisible(False)
