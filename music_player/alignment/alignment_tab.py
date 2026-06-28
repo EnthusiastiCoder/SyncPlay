@@ -39,3 +39,14 @@ class AlignmentTab(QWidget):
         layout = QVBoxLayout(self)
         layout.setContentsMargins(16, 16, 16, 16)
         layout.setSpacing(12)
+
+        # -- Audio file selection --
+        audio_group = QGroupBox("Audio File")
+        audio_layout = QHBoxLayout(audio_group)
+        self._btn_browse_audio = QPushButton("Browse...")
+        self._btn_browse_audio.setFixedWidth(100)
+        self._audio_label = QLabel("No audio file selected")
+        self._audio_label.setWordWrap(True)
+        audio_layout.addWidget(self._btn_browse_audio)
+        audio_layout.addWidget(self._audio_label, stretch=1)
+        layout.addWidget(audio_group)
