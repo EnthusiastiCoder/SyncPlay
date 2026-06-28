@@ -72,3 +72,10 @@ class AlignmentTab(QWidget):
         self._transcript_edit.setMinimumHeight(120)
         transcript_layout.addWidget(self._transcript_edit)
         layout.addWidget(transcript_group)
+
+        # -- Model + Language selection --
+        model_group = QGroupBox("Model & Language")
+        model_grid = QGridLayout(model_group)
+        model_grid.setSpacing(8)
+        model_grid.setColumnStretch(1, 1)
+        model_grid.setColumnStretch(3, 1)
