@@ -111,3 +111,5 @@ class AlignmentTab(QWidget):
         if lang_idx >= 0:
             self._lang_combo.setCurrentIndex(lang_idx)
         model_grid.addWidget(self._lang_combo, 0, 4)
+
+        layout.addWidget(model_group)
