@@ -79,3 +79,15 @@ class AlignmentTab(QWidget):
         model_grid.setSpacing(8)
         model_grid.setColumnStretch(1, 1)
         model_grid.setColumnStretch(3, 1)
+
+        model_grid.addWidget(QLabel("Whisper Model:"), 0, 0)
+        self._model_combo = QComboBox()
+        for name in ModelManager.available_models():
+            info = MODEL_INFO.get(name, {})
+            label = f"{name} (~{info.get('size_mb', '?')} MB)"
+            self._model_combo.addItem(label, name)
+        default_model = self._config.get("whisper_model_size", "base")
+        idx = self._model_combo.findData(default_model)
+        if idx >= 0:
+            self._model_combo.setCurrentIndex(idx)
+        model_grid.addWidget(self._model_combo, 0, 1)
