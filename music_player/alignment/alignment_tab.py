@@ -94,3 +94,20 @@ class AlignmentTab(QWidget):
 
         self._model_status_label = QLabel("")
         model_grid.addWidget(self._model_status_label, 0, 2)
+
+        model_grid.addWidget(QLabel("Language:"), 0, 3)
+        self._lang_combo = QComboBox()
+        self._lang_combo.setEditable(False)
+        _LANGUAGES = [
+            ("en", "English"), ("hi", "Hindi"), ("es", "Spanish"),
+            ("fr", "French"), ("de", "German"), ("ja", "Japanese"),
+            ("ko", "Korean"), ("zh", "Chinese"), ("pt", "Portuguese"),
+            ("ru", "Russian"), ("ar", "Arabic"), ("it", "Italian"),
+        ]
+        for code, name in _LANGUAGES:
+            self._lang_combo.addItem(f"{name} ({code})", code)
+        default_lang = self._config.get("alignment_language", "en")
+        lang_idx = self._lang_combo.findData(default_lang)
+        if lang_idx >= 0:
+            self._lang_combo.setCurrentIndex(lang_idx)
+        model_grid.addWidget(self._lang_combo, 0, 4)
