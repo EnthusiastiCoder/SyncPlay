@@ -126,3 +126,9 @@ class AlignmentTab(QWidget):
         self._progress_bar = QProgressBar()
         self._progress_bar.setRange(0, 0)  # indeterminate
         self._progress_bar.setVisible(False)
+
+        action_layout.addWidget(self._btn_align)
+        action_layout.addWidget(self._btn_cancel)
+        action_layout.addWidget(self._progress_bar, stretch=1)
+        action_layout.addStretch()
+        layout.addLayout(action_layout)
