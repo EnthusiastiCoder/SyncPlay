@@ -267,3 +267,5 @@ class AlignmentTab(QWidget):
                 continue
             lines.append(line)
         return " ".join(lines)
+
+    # -- Alignment --
