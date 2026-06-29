@@ -137,3 +137,15 @@ class AlignmentTab(QWidget):
         self._status_label = QLabel("")
         self._status_label.setWordWrap(True)
         layout.addWidget(self._status_label)
+
+        # -- Output + open in player --
+        output_group = QGroupBox("Output")
+        output_layout = QHBoxLayout(output_group)
+        self._output_label = QLabel("No output yet.")
+        self._output_label.setWordWrap(True)
+        self._btn_open_in_player = QPushButton("Open in Player")
+        self._btn_open_in_player.setEnabled(False)
+        self._btn_open_in_player.setFixedWidth(120)
+        output_layout.addWidget(self._output_label, stretch=1)
+        output_layout.addWidget(self._btn_open_in_player)
+        layout.addWidget(output_group)
