@@ -161,3 +161,12 @@ class AlignmentTab(QWidget):
         self._btn_cancel.clicked.connect(self._cancel_alignment)
         self._btn_open_in_player.clicked.connect(self._on_open_in_player)
         self._model_combo.currentIndexChanged.connect(self._on_model_changed)
+
+    def _refresh_model_status(self) -> None:
+        name = self._model_combo.currentData()
+        if name and self._model_manager.is_model_cached(name):
+            self._model_status_label.setText("Cached")
+            self._model_status_label.setStyleSheet("color: green;")
+        else:
+            self._model_status_label.setText("Will download on first use")
+            self._model_status_label.setStyleSheet("color: orange;")
