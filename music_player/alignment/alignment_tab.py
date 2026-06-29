@@ -170,3 +170,10 @@ class AlignmentTab(QWidget):
         else:
             self._model_status_label.setText("Will download on first use")
             self._model_status_label.setStyleSheet("color: orange;")
+
+    def _on_model_changed(self) -> None:
+        name = self._model_combo.currentData()
+        if name:
+            self._config.set("whisper_model_size", name)
+            self._config.save()
+        self._refresh_model_status()
