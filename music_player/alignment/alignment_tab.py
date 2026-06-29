@@ -179,3 +179,15 @@ class AlignmentTab(QWidget):
         self._refresh_model_status()
 
     # -- File browsing --
+
+    def _browse_audio(self) -> None:
+        last_dir = self._config.get("last_directory", "")
+        exts = " ".join(f"*{e}" for e in SUPPORTED_EXTENSIONS)
+        path, _ = QFileDialog.getOpenFileName(
+            self, "Select Audio File", last_dir, f"Audio Files ({exts})"
+        )
+        if path:
+            self._audio_path = path
+            self._audio_label.setText(path)
+            self._config.set("last_directory", str(Path(path).parent))
+            self._config.save()
