@@ -230,3 +230,9 @@ class AlignmentTab(QWidget):
                 f"Fetched lyrics from lrclib.net for '{title}'"
                 + (f" by {artist}" if artist else "")
             )
+
+        except Exception as e:
+            self._status_label.setText(f"Failed to fetch lyrics: {e}")
+        finally:
+            self._btn_auto_fetch.setEnabled(True)
+            self._btn_auto_fetch.setText("Auto-fetch Lyrics")
