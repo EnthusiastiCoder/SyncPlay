@@ -151,3 +151,13 @@ class AlignmentTab(QWidget):
         layout.addWidget(output_group)
 
         layout.addStretch()
+
+    def _connect_signals(self) -> None:
+        self._btn_browse_audio.clicked.connect(self._browse_audio)
+        self._btn_browse_transcript.clicked.connect(self._browse_transcript)
+        self._btn_clear_transcript.clicked.connect(self._transcript_edit.clear)
+        self._btn_auto_fetch.clicked.connect(self._auto_fetch_lyrics)
+        self._btn_align.clicked.connect(self._start_alignment)
+        self._btn_cancel.clicked.connect(self._cancel_alignment)
+        self._btn_open_in_player.clicked.connect(self._on_open_in_player)
+        self._model_combo.currentIndexChanged.connect(self._on_model_changed)
