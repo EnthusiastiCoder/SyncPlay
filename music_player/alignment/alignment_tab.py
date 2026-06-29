@@ -208,3 +208,10 @@ class AlignmentTab(QWidget):
             artist = meta.get("artist", "")
             album = meta.get("album", "")
             duration = meta.get("duration_sec", 0.0)
+
+            if not title:
+                QMessageBox.warning(
+                    self, "No Metadata",
+                    "Could not read track metadata from file. Please fill in the transcript manually."
+                )
+                return
