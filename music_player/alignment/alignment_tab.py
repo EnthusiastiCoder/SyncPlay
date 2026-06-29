@@ -191,3 +191,9 @@ class AlignmentTab(QWidget):
             self._audio_label.setText(path)
             self._config.set("last_directory", str(Path(path).parent))
             self._config.save()
+
+    def _auto_fetch_lyrics(self) -> None:
+        """Fetch lyrics from lrclib.net using the loaded audio file's metadata."""
+        if not self._audio_path:
+            QMessageBox.warning(self, "No Audio File", "Please select an audio file first.")
+            return
