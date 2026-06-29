@@ -269,3 +269,8 @@ class AlignmentTab(QWidget):
         return " ".join(lines)
 
     # -- Alignment --
+
+    def _start_alignment(self) -> None:
+        if not self._audio_path:
+            QMessageBox.warning(self, "Missing Input", "Please select an audio file.")
+            return
