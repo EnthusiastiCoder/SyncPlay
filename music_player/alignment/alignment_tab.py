@@ -197,3 +197,8 @@ class AlignmentTab(QWidget):
         if not self._audio_path:
             QMessageBox.warning(self, "No Audio File", "Please select an audio file first.")
             return
+
+        self._btn_auto_fetch.setEnabled(False)
+        self._btn_auto_fetch.setText("Fetching...")
+        try:
+            from music_player.alignment.lrclib_client import extract_audio_metadata, fetch_lyrics
