@@ -217,3 +217,10 @@ class AlignmentTab(QWidget):
                 return
 
             result = fetch_lyrics(title, artist, album, duration)
+
+            if result is None or not result.get("plainLyrics"):
+                self._status_label.setText(
+                    f"No lyrics found on lrclib.net for '{title}'"
+                    + (f" by {artist}" if artist else "")
+                )
+                return
