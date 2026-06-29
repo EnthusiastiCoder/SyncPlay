@@ -149,3 +149,5 @@ class AlignmentTab(QWidget):
         output_layout.addWidget(self._output_label, stretch=1)
         output_layout.addWidget(self._btn_open_in_player)
         layout.addWidget(output_group)
+
+        layout.addStretch()
