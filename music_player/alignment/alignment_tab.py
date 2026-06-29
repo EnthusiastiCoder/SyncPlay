@@ -202,3 +202,9 @@ class AlignmentTab(QWidget):
         self._btn_auto_fetch.setText("Fetching...")
         try:
             from music_player.alignment.lrclib_client import extract_audio_metadata, fetch_lyrics
+
+            meta = extract_audio_metadata(self._audio_path)
+            title = meta.get("title", "")
+            artist = meta.get("artist", "")
+            album = meta.get("album", "")
+            duration = meta.get("duration_sec", 0.0)
