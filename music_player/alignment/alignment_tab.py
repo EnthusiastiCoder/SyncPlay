@@ -132,3 +132,8 @@ class AlignmentTab(QWidget):
         action_layout.addWidget(self._progress_bar, stretch=1)
         action_layout.addStretch()
         layout.addLayout(action_layout)
+
+        # -- Status / output --
+        self._status_label = QLabel("")
+        self._status_label.setWordWrap(True)
+        layout.addWidget(self._status_label)
