@@ -177,3 +177,5 @@ class AlignmentTab(QWidget):
             self._config.set("whisper_model_size", name)
             self._config.save()
         self._refresh_model_status()
+
+    # -- File browsing --
