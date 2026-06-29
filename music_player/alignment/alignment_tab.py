@@ -215,3 +215,5 @@ class AlignmentTab(QWidget):
                     "Could not read track metadata from file. Please fill in the transcript manually."
                 )
                 return
+
+            result = fetch_lyrics(title, artist, album, duration)
