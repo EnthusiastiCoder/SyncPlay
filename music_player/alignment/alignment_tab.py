@@ -224,3 +224,9 @@ class AlignmentTab(QWidget):
                     + (f" by {artist}" if artist else "")
                 )
                 return
+
+            self._transcript_edit.setPlainText(result["plainLyrics"])
+            self._status_label.setText(
+                f"Fetched lyrics from lrclib.net for '{title}'"
+                + (f" by {artist}" if artist else "")
+            )
