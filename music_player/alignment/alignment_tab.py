@@ -236,3 +236,17 @@ class AlignmentTab(QWidget):
         finally:
             self._btn_auto_fetch.setEnabled(True)
             self._btn_auto_fetch.setText("Auto-fetch Lyrics")
+
+    def _browse_transcript(self) -> None:
+        last_dir = self._config.get("last_directory", "")
+        path, _ = QFileDialog.getOpenFileName(
+            self, "Select Transcript File", last_dir, "Text Files (*.txt *.lrc *.srt);;All Files (*)"
+        )
+        if path:
+            try:
+                raw = Path(path).read_text(encoding="utf-8")
+                if path.lower().endswith(".srt"):
+                    raw = self._parse_srt_to_text(raw)
+                self._transcript_edit.setPlainText(raw)
+            except Exception as e:
+                QMessageBox.warning(self, "Error", f"Failed to read file: {e}")
