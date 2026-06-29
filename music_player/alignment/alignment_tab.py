@@ -250,3 +250,20 @@ class AlignmentTab(QWidget):
                 self._transcript_edit.setPlainText(raw)
             except Exception as e:
                 QMessageBox.warning(self, "Error", f"Failed to read file: {e}")
+
+    @staticmethod
+    def _parse_srt_to_text(srt_content: str) -> str:
+        """Extract plain text from SRT subtitle format."""
+        lines = []
+        for line in srt_content.splitlines():
+            line = line.strip()
+            if not line:
+                continue
+            if line.isdigit():
+                continue
+            if "-->" in line:
+                continue
+            if line.startswith("[") and line.endswith("]"):
+                continue
+            lines.append(line)
+        return " ".join(lines)
