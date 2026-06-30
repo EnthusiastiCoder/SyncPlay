@@ -279,3 +279,6 @@ class AlignmentTab(QWidget):
         if not transcript:
             QMessageBox.warning(self, "Missing Input", "Please provide a transcript.")
             return
+
+        model_name = self._model_combo.currentData()
+        language = self._lang_combo.currentData() or self._lang_combo.currentText().strip()
