@@ -274,3 +274,8 @@ class AlignmentTab(QWidget):
         if not self._audio_path:
             QMessageBox.warning(self, "Missing Input", "Please select an audio file.")
             return
+
+        transcript = self._transcript_edit.toPlainText().strip()
+        if not transcript:
+            QMessageBox.warning(self, "Missing Input", "Please provide a transcript.")
+            return
