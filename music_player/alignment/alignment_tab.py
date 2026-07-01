@@ -295,3 +295,12 @@ class AlignmentTab(QWidget):
             audio_stem = Path(self._audio_path).stem
             default_name = f"{audio_stem}_aligned.wlrc"
             default_dir = str(Path(self._audio_path).parent / default_name)
+            
+            output_path, _ = QFileDialog.getSaveFileName(
+                self,
+                "Save Aligned Lyrics",
+                default_dir,
+                "WLRC Files (*.wlrc);;All Files (*)",
+            )
+            if not output_path:
+                return  # User cancelled
