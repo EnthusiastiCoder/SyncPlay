@@ -304,3 +304,7 @@ class AlignmentTab(QWidget):
             )
             if not output_path:
                 return  # User cancelled
+
+        # Save language preference
+        self._config.set("alignment_language", language)
+        self._config.save()
