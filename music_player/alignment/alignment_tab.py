@@ -345,3 +345,12 @@ class AlignmentTab(QWidget):
                 embed_wlrc_in_mp3(self._audio_path, wlrc)
                 self._output_label.setText(f"WLRC embedded in: {self._audio_path}")
                 self._status_label.setText("Alignment complete! WLRC embedded in MP3.")
+                
+                # Delete the sidecar .wlrc file
+                Path(output_path).unlink(missing_ok=True)
+            except Exception as e:
+                self._output_label.setText(f"Output: {output_path}")
+                self._status_label.setText(f"Alignment complete! (Embed failed: {e})")
+        else:
+            self._output_label.setText(f"Output: {output_path}")
+            self._status_label.setText("Alignment complete!")
