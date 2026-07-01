@@ -331,3 +331,6 @@ class AlignmentTab(QWidget):
             self._worker.wait(3000)
             self._status_label.setText("Alignment cancelled.")
             self._set_running_state(False)
+
+    def _on_progress(self, msg: str) -> None:
+        self._status_label.setText(msg)
