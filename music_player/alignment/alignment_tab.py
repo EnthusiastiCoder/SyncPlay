@@ -354,3 +354,7 @@ class AlignmentTab(QWidget):
         else:
             self._output_label.setText(f"Output: {output_path}")
             self._status_label.setText("Alignment complete!")
+        
+        self._btn_open_in_player.setEnabled(True)
+        self._set_running_state(False)
+        self._refresh_model_status()
