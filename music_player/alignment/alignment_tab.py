@@ -323,3 +323,11 @@ class AlignmentTab(QWidget):
 
         self._set_running_state(True)
         self._worker.start()
+
+    def _cancel_alignment(self) -> None:
+        if self._worker and self._worker.isRunning():
+            self._worker.cancel()
+            self._worker.quit()
+            self._worker.wait(3000)
+            self._status_label.setText("Alignment cancelled.")
+            self._set_running_state(False)
