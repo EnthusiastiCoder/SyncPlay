@@ -337,3 +337,11 @@ class AlignmentTab(QWidget):
 
     def _on_finished(self, output_path: str) -> None:
         self._output_path = output_path
+        
+        # If audio is MP3, embed WLRC data directly into the file
+        if self._audio_path and self._audio_path.lower().endswith('.mp3'):
+            try:
+                wlrc = load_wlrc(output_path)
+                embed_wlrc_in_mp3(self._audio_path, wlrc)
+                self._output_label.setText(f"WLRC embedded in: {self._audio_path}")
+                self._status_label.setText("Alignment complete! WLRC embedded in MP3.")
