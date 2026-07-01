@@ -282,3 +282,6 @@ class AlignmentTab(QWidget):
 
         model_name = self._model_combo.currentData()
         language = self._lang_combo.currentData() or self._lang_combo.currentText().strip()
+        
+        # For MP3 files, WLRC gets embedded directly — use a temp sidecar path
+        is_mp3 = self._audio_path.lower().endswith('.mp3')
