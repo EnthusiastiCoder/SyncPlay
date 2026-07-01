@@ -308,3 +308,15 @@ class AlignmentTab(QWidget):
         # Save language preference
         self._config.set("alignment_language", language)
         self._config.save()
+
+        self._worker = AlignmentWorker(
+            audio_path=self._audio_path,
+            transcript=transcript,
+            model_name=model_name,
+            language=language,
+            output_path=output_path,
+            parent=self,
+        )
+        self._worker.progress.connect(self._on_progress)
+        self._worker.finished_ok.connect(self._on_finished)
+        self._worker.failed.connect(self._on_failed)
