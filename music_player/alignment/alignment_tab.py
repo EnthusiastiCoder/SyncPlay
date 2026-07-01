@@ -320,3 +320,6 @@ class AlignmentTab(QWidget):
         self._worker.progress.connect(self._on_progress)
         self._worker.finished_ok.connect(self._on_finished)
         self._worker.failed.connect(self._on_failed)
+
+        self._set_running_state(True)
+        self._worker.start()
