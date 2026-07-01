@@ -371,3 +371,7 @@ class AlignmentTab(QWidget):
         self._btn_browse_audio.setEnabled(not running)
         self._btn_browse_transcript.setEnabled(not running)
         self._model_combo.setEnabled(not running)
+
+    def _on_open_in_player(self) -> None:
+        if self._audio_path and self._output_path:
+            self.open_in_player_requested.emit(self._audio_path, self._output_path)
