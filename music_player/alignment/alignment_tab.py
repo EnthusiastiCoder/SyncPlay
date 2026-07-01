@@ -285,3 +285,13 @@ class AlignmentTab(QWidget):
         
         # For MP3 files, WLRC gets embedded directly — use a temp sidecar path
         is_mp3 = self._audio_path.lower().endswith('.mp3')
+        
+        if is_mp3:
+            # Temporary sidecar path (will be deleted after embedding)
+            audio_stem = Path(self._audio_path).stem
+            output_path = str(Path(self._audio_path).parent / f"{audio_stem}_aligned.wlrc")
+        else:
+            # Non-MP3: show Save As dialog
+            audio_stem = Path(self._audio_path).stem
+            default_name = f"{audio_stem}_aligned.wlrc"
+            default_dir = str(Path(self._audio_path).parent / default_name)
