@@ -358,3 +358,8 @@ class AlignmentTab(QWidget):
         self._btn_open_in_player.setEnabled(True)
         self._set_running_state(False)
         self._refresh_model_status()
+
+    def _on_failed(self, error: str) -> None:
+        self._status_label.setText(f"Error: {error}")
+        self._set_running_state(False)
+        QMessageBox.critical(self, "Alignment Failed", error)
