@@ -334,3 +334,6 @@ class AlignmentTab(QWidget):
 
     def _on_progress(self, msg: str) -> None:
         self._status_label.setText(msg)
+
+    def _on_finished(self, output_path: str) -> None:
+        self._output_path = output_path
