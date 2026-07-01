@@ -363,3 +363,11 @@ class AlignmentTab(QWidget):
         self._status_label.setText(f"Error: {error}")
         self._set_running_state(False)
         QMessageBox.critical(self, "Alignment Failed", error)
+
+    def _set_running_state(self, running: bool) -> None:
+        self._btn_align.setEnabled(not running)
+        self._btn_cancel.setEnabled(running)
+        self._progress_bar.setVisible(running)
+        self._btn_browse_audio.setEnabled(not running)
+        self._btn_browse_transcript.setEnabled(not running)
+        self._model_combo.setEnabled(not running)
