@@ -43,3 +43,13 @@ from PyQt6.QtWidgets import QApplication, QMainWindow, QTabWidget, QMessageBox, 
 from PyQt6.QtGui import QShortcut, QKeySequence, QIcon, QAction
 
 from pathlib import Path
+
+from music_player.config import ConfigManager
+from music_player.player.player_tab import PlayerTab
+from music_player.overlay.overlay_window import OverlayWindow
+from music_player.alignment.alignment_tab import AlignmentTab
+from music_player.themes.app_theme_manager import AppThemeManager
+from music_player.models.wlrc import load_wlrc
+from music_player.player.settings_dialog import SettingsDialog
+from music_player.themes.theme_tab import ThemeTab
+from music_player.subtitle.subtitle_viewer_tab import SubtitleViewerTab
