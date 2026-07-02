@@ -38,3 +38,6 @@ try:
     import torch  # noqa: F401
 except ImportError:
     pass
+
+from PyQt6.QtWidgets import QApplication, QMainWindow, QTabWidget, QMessageBox, QSystemTrayIcon, QMenu
+from PyQt6.QtGui import QShortcut, QKeySequence, QIcon, QAction
