@@ -55,3 +55,7 @@ from music_player.themes.theme_tab import ThemeTab
 from music_player.subtitle.subtitle_viewer_tab import SubtitleViewerTab
 
 log = logging.getLogger(__name__)
+
+
+class MainWindow(QMainWindow):
+    """Main application window with tabbed interface."""
