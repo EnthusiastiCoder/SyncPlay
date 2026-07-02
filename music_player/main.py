@@ -53,3 +53,5 @@ from music_player.models.wlrc import load_wlrc
 from music_player.player.settings_dialog import SettingsDialog
 from music_player.themes.theme_tab import ThemeTab
 from music_player.subtitle.subtitle_viewer_tab import SubtitleViewerTab
+
+log = logging.getLogger(__name__)
