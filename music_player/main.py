@@ -23,3 +23,9 @@ if sys.stderr is None:
 # Torch / ffmpeg may spawn subprocesses that pop up a blank terminal.
 # Override the default Popen flags so every subprocess is hidden.
 _original_popen_init = subprocess.Popen.__init__
+
+def _patched_popen_init(self, *args, **kwargs):
+    if sys.platform == "win32":
+        kwargs.setdefault("creationflags", 0)
+        kwargs["creationflags"] |= subprocess.CREATE_NO_WINDOW
+    _original_popen_init(self, *args, **kwargs)
