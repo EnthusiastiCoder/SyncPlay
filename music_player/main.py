@@ -31,3 +31,10 @@ def _patched_popen_init(self, *args, **kwargs):
     _original_popen_init(self, *args, **kwargs)
 
 subprocess.Popen.__init__ = _patched_popen_init
+
+# Preload torch before Qt Multimedia to avoid DLL conflicts on Windows.
+# Qt Multimedia bundles its own FFmpeg; if torch loads after, c10.dll fails.
+try:
+    import torch  # noqa: F401
+except ImportError:
+    pass
