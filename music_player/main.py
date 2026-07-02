@@ -18,3 +18,8 @@ if sys.stdout is None:
     sys.stdout = open(os.devnull, "w")
 if sys.stderr is None:
     sys.stderr = open(os.devnull, "w")
+
+# --- Suppress extra console windows on Windows -------------------------
+# Torch / ffmpeg may spawn subprocesses that pop up a blank terminal.
+# Override the default Popen flags so every subprocess is hidden.
+_original_popen_init = subprocess.Popen.__init__
