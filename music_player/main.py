@@ -59,3 +59,9 @@ log = logging.getLogger(__name__)
 
 class MainWindow(QMainWindow):
     """Main application window with tabbed interface."""
+
+    def __init__(self, config: ConfigManager):
+        super().__init__()
+        self._config = config
+        self.setWindowTitle("SyncPlay")
+        self.setMinimumSize(800, 500)
