@@ -41,3 +41,5 @@ except ImportError:
 
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTabWidget, QMessageBox, QSystemTrayIcon, QMenu
 from PyQt6.QtGui import QShortcut, QKeySequence, QIcon, QAction
+
+from pathlib import Path
