@@ -120,3 +120,8 @@ class MainWindow(QMainWindow):
 
         # System tray
         self._setup_tray_icon()
+
+    def _setup_tray_icon(self) -> None:
+        """Create system tray icon with playback controls."""
+        icon_path = Path(__file__).parent / "resources" / "icon.ico"
+        tray_icon = QIcon(str(icon_path)) if icon_path.exists() else QIcon()
