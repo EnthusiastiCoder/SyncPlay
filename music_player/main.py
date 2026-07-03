@@ -101,3 +101,6 @@ class MainWindow(QMainWindow):
         
         # Connect theme changes
         self._theme_tab.theme_changed.connect(lambda theme: self._overlay.update())
+        
+        # Connect subtitle viewer load-in-player
+        self._subtitle_tab.load_in_player_requested.connect(self._load_from_subtitle_viewer)
