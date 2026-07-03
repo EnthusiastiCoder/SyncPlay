@@ -131,3 +131,8 @@ class MainWindow(QMainWindow):
         
         # Tray menu
         tray_menu = QMenu()
+        
+        # Play/Pause action
+        self._tray_play_pause_action = QAction("Play", self)
+        self._tray_play_pause_action.triggered.connect(self._player_tab._toggle_play_pause)
+        tray_menu.addAction(self._tray_play_pause_action)
