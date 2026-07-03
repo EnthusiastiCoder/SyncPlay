@@ -117,3 +117,6 @@ class MainWindow(QMainWindow):
         QShortcut(QKeySequence("Ctrl+,"), self, self._show_settings)
         QShortcut(QKeySequence("Ctrl+Right"), self, self._player_tab._next_track)
         QShortcut(QKeySequence("Ctrl+Left"), self, self._player_tab._prev_track)
+
+        # System tray
+        self._setup_tray_icon()
