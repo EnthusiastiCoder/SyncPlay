@@ -128,3 +128,6 @@ class MainWindow(QMainWindow):
         
         self._tray_icon = QSystemTrayIcon(tray_icon, self)
         self._tray_icon.setToolTip("SyncPlay")
+        
+        # Tray menu
+        tray_menu = QMenu()
