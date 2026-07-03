@@ -98,3 +98,6 @@ class MainWindow(QMainWindow):
 
         # Connect player wlrc loading
         self._player_tab.wlrc_loaded.connect(self._on_wlrc_loaded)
+        
+        # Connect theme changes
+        self._theme_tab.theme_changed.connect(lambda theme: self._overlay.update())
