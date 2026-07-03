@@ -74,3 +74,13 @@ class MainWindow(QMainWindow):
         # Central tab widget
         self._tabs = QTabWidget()
         self.setCentralWidget(self._tabs)
+
+        # Add tabs
+        self._player_tab = PlayerTab(config, self)
+        self._alignment_tab = AlignmentTab(config, self)
+        self._theme_tab = ThemeTab(config, self)
+        self._subtitle_tab = SubtitleViewerTab(config, self)
+        self._tabs.addTab(self._player_tab, "Player")
+        self._tabs.addTab(self._alignment_tab, "Alignment Tool")
+        self._tabs.addTab(self._theme_tab, "Themes")
+        self._tabs.addTab(self._subtitle_tab, "Subtitle Viewer")
