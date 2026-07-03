@@ -70,3 +70,7 @@ class MainWindow(QMainWindow):
         icon_path = Path(__file__).parent / "resources" / "icon.ico"
         if icon_path.exists():
             self.setWindowIcon(QIcon(str(icon_path)))
+
+        # Central tab widget
+        self._tabs = QTabWidget()
+        self.setCentralWidget(self._tabs)
