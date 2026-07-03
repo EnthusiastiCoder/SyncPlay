@@ -65,3 +65,8 @@ class MainWindow(QMainWindow):
         self._config = config
         self.setWindowTitle("SyncPlay")
         self.setMinimumSize(800, 500)
+        
+        # Set window icon
+        icon_path = Path(__file__).parent / "resources" / "icon.ico"
+        if icon_path.exists():
+            self.setWindowIcon(QIcon(str(icon_path)))
