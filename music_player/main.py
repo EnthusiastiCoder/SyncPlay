@@ -141,3 +141,7 @@ class MainWindow(QMainWindow):
         prev_action = QAction("Previous", self)
         prev_action.triggered.connect(self._player_tab._prev_track)
         tray_menu.addAction(prev_action)
+        
+        next_action = QAction("Next", self)
+        next_action.triggered.connect(self._player_tab._next_track)
+        tray_menu.addAction(next_action)
