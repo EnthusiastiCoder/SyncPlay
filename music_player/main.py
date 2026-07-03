@@ -145,3 +145,5 @@ class MainWindow(QMainWindow):
         next_action = QAction("Next", self)
         next_action.triggered.connect(self._player_tab._next_track)
         tray_menu.addAction(next_action)
+        
+        tray_menu.addSeparator()
