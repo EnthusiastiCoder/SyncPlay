@@ -84,3 +84,8 @@ class MainWindow(QMainWindow):
         self._tabs.addTab(self._alignment_tab, "Alignment Tool")
         self._tabs.addTab(self._theme_tab, "Themes")
         self._tabs.addTab(self._subtitle_tab, "Subtitle Viewer")
+
+        # Overlay window
+        self._overlay = OverlayWindow(config)
+        self._overlay.hide_requested.connect(self._hide_overlay)
+        self._overlay.settings_requested.connect(self._show_settings)
