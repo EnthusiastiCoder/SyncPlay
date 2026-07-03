@@ -125,3 +125,6 @@ class MainWindow(QMainWindow):
         """Create system tray icon with playback controls."""
         icon_path = Path(__file__).parent / "resources" / "icon.ico"
         tray_icon = QIcon(str(icon_path)) if icon_path.exists() else QIcon()
+        
+        self._tray_icon = QSystemTrayIcon(tray_icon, self)
+        self._tray_icon.setToolTip("SyncPlay")
