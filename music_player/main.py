@@ -92,3 +92,6 @@ class MainWindow(QMainWindow):
 
         # Connect player overlay toggle
         self._player_tab.overlay_toggle_requested.connect(self._toggle_overlay)
+
+        # Connect alignment tab open-in-player
+        self._alignment_tab.open_in_player_requested.connect(self._open_aligned_in_player)
