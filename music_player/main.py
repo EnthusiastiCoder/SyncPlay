@@ -104,3 +104,7 @@ class MainWindow(QMainWindow):
         
         # Connect subtitle viewer load-in-player
         self._subtitle_tab.load_in_player_requested.connect(self._load_from_subtitle_viewer)
+
+        # Connect playback clock to overlay
+        self._player_tab.clock.position_updated.connect(self._overlay.update_time)
+        self._player_tab.engine.state_changed.connect(self._on_playback_state_changed)
