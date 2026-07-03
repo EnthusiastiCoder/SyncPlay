@@ -95,3 +95,6 @@ class MainWindow(QMainWindow):
 
         # Connect alignment tab open-in-player
         self._alignment_tab.open_in_player_requested.connect(self._open_aligned_in_player)
+
+        # Connect player wlrc loading
+        self._player_tab.wlrc_loaded.connect(self._on_wlrc_loaded)
