@@ -89,3 +89,6 @@ class MainWindow(QMainWindow):
         self._overlay = OverlayWindow(config)
         self._overlay.hide_requested.connect(self._hide_overlay)
         self._overlay.settings_requested.connect(self._show_settings)
+
+        # Connect player overlay toggle
+        self._player_tab.overlay_toggle_requested.connect(self._toggle_overlay)
