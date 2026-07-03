@@ -108,3 +108,12 @@ class MainWindow(QMainWindow):
         # Connect playback clock to overlay
         self._player_tab.clock.position_updated.connect(self._overlay.update_time)
         self._player_tab.engine.state_changed.connect(self._on_playback_state_changed)
+
+        # Keyboard shortcuts
+        QShortcut(QKeySequence("Space"), self, self._player_tab._toggle_play_pause)
+        QShortcut(QKeySequence("Ctrl+O"), self, self._player_tab._open_file)
+        QShortcut(QKeySequence("Ctrl+L"), self, self._toggle_overlay)
+        QShortcut(QKeySequence("Ctrl+D"), self, self._overlay.toggle_edit_mode)
+        QShortcut(QKeySequence("Ctrl+,"), self, self._show_settings)
+        QShortcut(QKeySequence("Ctrl+Right"), self, self._player_tab._next_track)
+        QShortcut(QKeySequence("Ctrl+Left"), self, self._player_tab._prev_track)
