@@ -193,3 +193,10 @@ class MainWindow(QMainWindow):
         
         # Update play/pause text based on state
         self._player_tab.engine.state_changed.connect(self._update_tray_play_pause)
+
+    def _update_tray_play_pause(self, state: str) -> None:
+        """Update tray play/pause action text based on playback state."""
+        if state == "playing":
+            self._tray_play_pause_action.setText("Pause")
+        else:
+            self._tray_play_pause_action.setText("Play")
