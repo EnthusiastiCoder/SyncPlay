@@ -174,3 +174,5 @@ class MainWindow(QMainWindow):
         
         # Update tray text when edit mode changes
         self._overlay.edit_mode_changed.connect(self._on_overlay_edit_mode_changed)
+        
+        tray_menu.addSeparator()
