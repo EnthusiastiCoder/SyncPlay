@@ -164,3 +164,5 @@ class MainWindow(QMainWindow):
         repeat_menu.addAction(self._repeat_all_action)
         repeat_menu.addAction(self._repeat_one_action)
         tray_menu.addMenu(repeat_menu)
+        
+        tray_menu.addSeparator()
