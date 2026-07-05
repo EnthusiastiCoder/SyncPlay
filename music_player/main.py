@@ -166,3 +166,8 @@ class MainWindow(QMainWindow):
         tray_menu.addMenu(repeat_menu)
         
         tray_menu.addSeparator()
+        
+        # Overlay edit mode
+        self._tray_edit_overlay_action = QAction("Edit Overlay Position", self)
+        self._tray_edit_overlay_action.triggered.connect(self._overlay.toggle_edit_mode)
+        tray_menu.addAction(self._tray_edit_overlay_action)
