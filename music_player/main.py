@@ -171,3 +171,6 @@ class MainWindow(QMainWindow):
         self._tray_edit_overlay_action = QAction("Edit Overlay Position", self)
         self._tray_edit_overlay_action.triggered.connect(self._overlay.toggle_edit_mode)
         tray_menu.addAction(self._tray_edit_overlay_action)
+        
+        # Update tray text when edit mode changes
+        self._overlay.edit_mode_changed.connect(self._on_overlay_edit_mode_changed)
