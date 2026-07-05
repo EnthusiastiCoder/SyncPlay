@@ -190,3 +190,6 @@ class MainWindow(QMainWindow):
         self._tray_icon.setContextMenu(tray_menu)
         self._tray_icon.activated.connect(self._on_tray_activated)
         self._tray_icon.show()
+        
+        # Update play/pause text based on state
+        self._player_tab.engine.state_changed.connect(self._update_tray_play_pause)
