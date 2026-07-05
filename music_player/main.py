@@ -153,3 +153,9 @@ class MainWindow(QMainWindow):
         self._repeat_off_action = QAction("Off", self, checkable=True, checked=True)
         self._repeat_all_action = QAction("All", self, checkable=True)
         self._repeat_one_action = QAction("One", self, checkable=True)
+        
+        # Wire up repeat actions
+        from music_player.player.player_tab import RepeatMode
+        self._repeat_off_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.OFF))
+        self._repeat_all_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.ALL))
+        self._repeat_one_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.ONE))
