@@ -181,3 +181,8 @@ class MainWindow(QMainWindow):
         show_action = QAction("Show Window", self)
         show_action.triggered.connect(self._show_from_tray)
         tray_menu.addAction(show_action)
+        
+        # Quit
+        quit_action = QAction("Quit", self)
+        quit_action.triggered.connect(self._quit_app)
+        tray_menu.addAction(quit_action)
