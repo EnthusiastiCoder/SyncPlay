@@ -176,3 +176,8 @@ class MainWindow(QMainWindow):
         self._overlay.edit_mode_changed.connect(self._on_overlay_edit_mode_changed)
         
         tray_menu.addSeparator()
+        
+        # Show window
+        show_action = QAction("Show Window", self)
+        show_action.triggered.connect(self._show_from_tray)
+        tray_menu.addAction(show_action)
