@@ -147,3 +147,9 @@ class MainWindow(QMainWindow):
         tray_menu.addAction(next_action)
         
         tray_menu.addSeparator()
+        
+        # Repeat submenu
+        repeat_menu = QMenu("Repeat", self)
+        self._repeat_off_action = QAction("Off", self, checkable=True, checked=True)
+        self._repeat_all_action = QAction("All", self, checkable=True)
+        self._repeat_one_action = QAction("One", self, checkable=True)
