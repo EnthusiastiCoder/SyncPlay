@@ -159,3 +159,8 @@ class MainWindow(QMainWindow):
         self._repeat_off_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.OFF))
         self._repeat_all_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.ALL))
         self._repeat_one_action.triggered.connect(lambda: self._set_repeat_mode(RepeatMode.ONE))
+        
+        repeat_menu.addAction(self._repeat_off_action)
+        repeat_menu.addAction(self._repeat_all_action)
+        repeat_menu.addAction(self._repeat_one_action)
+        tray_menu.addMenu(repeat_menu)
