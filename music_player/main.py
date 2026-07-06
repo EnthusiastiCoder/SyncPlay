@@ -373,3 +373,8 @@ def main():
 
     app = QApplication(sys.argv)
     app.setApplicationName("SyncPlay")
+    
+    # Set application icon
+    icon_path = Path(__file__).parent / "resources" / "icon.ico"
+    if icon_path.exists():
+        app.setWindowIcon(QIcon(str(icon_path)))
