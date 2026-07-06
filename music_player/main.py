@@ -262,3 +262,14 @@ class MainWindow(QMainWindow):
     def _hide_overlay(self) -> None:
         self._overlay.hide()
         self._player_tab._overlay_toggle.setChecked(False)
+
+    def _on_playback_state_changed(self, state: str) -> None:
+        """Handle overlay visibility and animations based on playback state."""
+        if state == "playing":
+            if not self._overlay.isVisible():
+                self._overlay.show()
+            self._overlay.on_playback_resumed()
+        elif state == "paused":
+            self._overlay.on_playback_paused()
+        elif state == "stopped":
+            self._overlay.on_playback_stopped()
