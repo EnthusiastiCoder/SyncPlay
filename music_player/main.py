@@ -286,3 +286,11 @@ class MainWindow(QMainWindow):
         """Load aligned audio + lyrics into the player."""
         try:
             from music_player.models.wlrc_embed import extract_wlrc_from_mp3
+            
+            wlrc = None
+            # Try loading sidecar .wlrc file first
+            if Path(wlrc_path).exists():
+                wlrc = load_wlrc(wlrc_path)
+            # Fall back to embedded WLRC in MP3
+            elif audio_path.lower().endswith('.mp3'):
+                wlrc = extract_wlrc_from_mp3(audio_path)
