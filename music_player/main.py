@@ -258,3 +258,7 @@ class MainWindow(QMainWindow):
         else:
             self._overlay.hide()
         self._player_tab._overlay_toggle.setChecked(visible)
+
+    def _hide_overlay(self) -> None:
+        self._overlay.hide()
+        self._player_tab._overlay_toggle.setChecked(False)
