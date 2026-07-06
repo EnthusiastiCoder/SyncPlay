@@ -211,3 +211,12 @@ class MainWindow(QMainWindow):
         self.show()
         self.raise_()
         self.activateWindow()
+
+    def _set_repeat_mode(self, mode) -> None:
+        """Set repeat mode from tray menu."""
+        self._player_tab.set_repeat_mode(mode)
+        # Update checkmarks
+        from music_player.player.player_tab import RepeatMode
+        self._repeat_off_action.setChecked(mode == RepeatMode.OFF)
+        self._repeat_all_action.setChecked(mode == RepeatMode.ALL)
+        self._repeat_one_action.setChecked(mode == RepeatMode.ONE)
