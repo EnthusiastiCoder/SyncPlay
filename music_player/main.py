@@ -363,3 +363,10 @@ def main():
         format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     )
     sys.excepthook = _global_exception_handler
+
+    # Single-instance guard
+    mutex_handle = _acquire_single_instance_lock()
+    if mutex_handle is None:
+        # Another instance is already running — just exit silently
+        print("SyncPlay is already running.")
+        sys.exit(0)
