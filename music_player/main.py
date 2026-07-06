@@ -345,3 +345,13 @@ def _acquire_single_instance_lock():
     """
     if sys.platform != "win32":
         return True
+    
+    import ctypes
+    kernel32 = ctypes.windll.kernel32
+    mutex_name = "Global\\SyncPlayMusicPlayer_SingleInstance"
+    handle = kernel32.CreateMutexW(None, True, mutex_name)
+    ERROR_ALREADY_EXISTS = 183
+    if kernel32.GetLastError() == ERROR_ALREADY_EXISTS:
+        kernel32.CloseHandle(handle)
+        return None
+    return handle
