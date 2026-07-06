@@ -281,3 +281,8 @@ class MainWindow(QMainWindow):
         else:
             self._overlay.set_wlrc(None)
             self._overlay.set_display_text("", "No lyrics loaded", "")
+
+    def _open_aligned_in_player(self, audio_path: str, wlrc_path: str) -> None:
+        """Load aligned audio + lyrics into the player."""
+        try:
+            from music_player.models.wlrc_embed import extract_wlrc_from_mp3
