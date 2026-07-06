@@ -236,3 +236,17 @@ class MainWindow(QMainWindow):
         self._tray_icon.hide()
         self._force_quit = True
         QApplication.quit()
+
+    def closeEvent(self, event) -> None:
+        """Minimize to tray instead of quitting (unless force-quit)."""
+        if getattr(self, '_force_quit', False):
+            event.accept()
+            return
+        event.ignore()
+        self.hide()
+        self._tray_icon.showMessage(
+            "SyncPlay",
+            "Application minimized to system tray",
+            QSystemTrayIcon.MessageIcon.Information,
+            2000
+        )
