@@ -205,3 +205,9 @@ class MainWindow(QMainWindow):
         """Handle tray icon activation (double-click to show window)."""
         if reason == QSystemTrayIcon.ActivationReason.DoubleClick:
             self._show_from_tray()
+
+    def _show_from_tray(self) -> None:
+        """Show and raise the main window."""
+        self.show()
+        self.raise_()
+        self.activateWindow()
