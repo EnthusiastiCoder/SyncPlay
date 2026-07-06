@@ -391,3 +391,5 @@ def main():
 
     window = MainWindow(config)
     window.show()
+
+    sys.exit(app.exec())
