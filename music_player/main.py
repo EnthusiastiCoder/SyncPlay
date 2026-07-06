@@ -250,3 +250,11 @@ class MainWindow(QMainWindow):
             QSystemTrayIcon.MessageIcon.Information,
             2000
         )
+
+    def _toggle_overlay(self) -> None:
+        visible = not self._overlay.isVisible()
+        if visible:
+            self._overlay.show()
+        else:
+            self._overlay.hide()
+        self._player_tab._overlay_toggle.setChecked(visible)
