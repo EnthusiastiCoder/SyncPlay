@@ -355,3 +355,11 @@ def _acquire_single_instance_lock():
         kernel32.CloseHandle(handle)
         return None
     return handle
+
+
+def main():
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    )
+    sys.excepthook = _global_exception_handler
