@@ -297,3 +297,12 @@ class MainWindow(QMainWindow):
             
             if wlrc is None:
                 raise FileNotFoundError("No WLRC data found (sidecar or embedded)")
+            
+            self._overlay.set_wlrc(wlrc)
+            self._player_tab.load_file_and_play(audio_path)
+            if not self._overlay.isVisible():
+                self._overlay.show()
+            self._tabs.setCurrentWidget(self._player_tab)
+        except Exception as e:
+            log.exception("Failed to load alignment")
+            QMessageBox.critical(self, "Error", f"Failed to load alignment: {e}")
