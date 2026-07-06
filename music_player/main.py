@@ -336,3 +336,7 @@ def _global_exception_handler(exc_type, exc_value, exc_tb):
         QMessageBox.critical(None, "Unexpected Error", f"An unexpected error occurred:\n\n{msg[:1000]}")
     except Exception:
         pass
+
+
+def _acquire_single_instance_lock():
+    """Prevent multiple instances using a Windows named mutex.
