@@ -273,3 +273,11 @@ class MainWindow(QMainWindow):
             self._overlay.on_playback_paused()
         elif state == "stopped":
             self._overlay.on_playback_stopped()
+
+    def _on_wlrc_loaded(self, wlrc) -> None:
+        """Handle wlrc auto-detection from player tab."""
+        if wlrc is not None:
+            self._overlay.set_wlrc(wlrc)
+        else:
+            self._overlay.set_wlrc(None)
+            self._overlay.set_display_text("", "No lyrics loaded", "")
