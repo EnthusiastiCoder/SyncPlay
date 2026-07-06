@@ -322,3 +322,7 @@ class MainWindow(QMainWindow):
     def _show_settings(self) -> None:
         dialog = SettingsDialog(self._config, self)
         dialog.exec()
+
+    @property
+    def overlay(self) -> OverlayWindow:
+        return self._overlay
