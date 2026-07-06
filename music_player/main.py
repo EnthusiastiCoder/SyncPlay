@@ -200,3 +200,8 @@ class MainWindow(QMainWindow):
             self._tray_play_pause_action.setText("Pause")
         else:
             self._tray_play_pause_action.setText("Play")
+
+    def _on_tray_activated(self, reason: QSystemTrayIcon.ActivationReason) -> None:
+        """Handle tray icon activation (double-click to show window)."""
+        if reason == QSystemTrayIcon.ActivationReason.DoubleClick:
+            self._show_from_tray()
