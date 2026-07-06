@@ -326,3 +326,13 @@ class MainWindow(QMainWindow):
     @property
     def overlay(self) -> OverlayWindow:
         return self._overlay
+
+
+def _global_exception_handler(exc_type, exc_value, exc_tb):
+    """Catch unhandled exceptions and show a dialog instead of crashing silently."""
+    log.critical("Unhandled exception", exc_info=(exc_type, exc_value, exc_tb))
+    msg = "".join(traceback.format_exception(exc_type, exc_value, exc_tb))
+    try:
+        QMessageBox.critical(None, "Unexpected Error", f"An unexpected error occurred:\n\n{msg[:1000]}")
+    except Exception:
+        pass
