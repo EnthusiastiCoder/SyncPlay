@@ -227,3 +227,12 @@ class MainWindow(QMainWindow):
             self._tray_edit_overlay_action.setText("Lock Overlay Position")
         else:
             self._tray_edit_overlay_action.setText("Edit Overlay Position")
+
+    def _quit_app(self) -> None:
+        """Actually quit the application — stop playback, close overlay, terminate."""
+        self._player_tab.engine.stop()
+        self._player_tab.engine.cleanup()
+        self._overlay.close()
+        self._tray_icon.hide()
+        self._force_quit = True
+        QApplication.quit()
