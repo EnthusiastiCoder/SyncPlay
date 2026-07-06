@@ -388,3 +388,6 @@ def main():
     _theme = _app_theme_mgr.get_theme_by_name(saved_theme_name) or _app_theme_mgr.get_theme_by_name("Catppuccin Dark")
     if _theme:
         _app_theme_mgr.apply_theme(_theme)
+
+    window = MainWindow(config)
+    window.show()
