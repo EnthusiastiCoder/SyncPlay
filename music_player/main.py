@@ -340,3 +340,8 @@ def _global_exception_handler(exc_type, exc_value, exc_tb):
 
 def _acquire_single_instance_lock():
     """Prevent multiple instances using a Windows named mutex.
+    
+    Returns the mutex handle if lock acquired, None if another instance is running.
+    """
+    if sys.platform != "win32":
+        return True
