@@ -378,3 +378,6 @@ def main():
     icon_path = Path(__file__).parent / "resources" / "icon.ico"
     if icon_path.exists():
         app.setWindowIcon(QIcon(str(icon_path)))
+    
+    config = ConfigManager()
+    config.save()  # Ensure config file exists on first run
