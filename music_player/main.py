@@ -370,3 +370,6 @@ def main():
         # Another instance is already running — just exit silently
         print("SyncPlay is already running.")
         sys.exit(0)
+
+    app = QApplication(sys.argv)
+    app.setApplicationName("SyncPlay")
