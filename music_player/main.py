@@ -318,3 +318,7 @@ class MainWindow(QMainWindow):
         except Exception as e:
             log.exception("Failed to load from subtitle viewer")
             QMessageBox.critical(self, "Error", f"Failed to load: {e}")
+
+    def _show_settings(self) -> None:
+        dialog = SettingsDialog(self._config, self)
+        dialog.exec()
