@@ -294,3 +294,6 @@ class MainWindow(QMainWindow):
             # Fall back to embedded WLRC in MP3
             elif audio_path.lower().endswith('.mp3'):
                 wlrc = extract_wlrc_from_mp3(audio_path)
+            
+            if wlrc is None:
+                raise FileNotFoundError("No WLRC data found (sidecar or embedded)")
