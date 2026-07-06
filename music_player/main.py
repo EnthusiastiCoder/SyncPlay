@@ -306,3 +306,15 @@ class MainWindow(QMainWindow):
         except Exception as e:
             log.exception("Failed to load alignment")
             QMessageBox.critical(self, "Error", f"Failed to load alignment: {e}")
+    
+    def _load_from_subtitle_viewer(self, audio_path: str, wlrc_data) -> None:
+        """Load audio and WLRC data from subtitle viewer."""
+        try:
+            self._overlay.set_wlrc(wlrc_data)
+            self._player_tab.load_file_and_play(audio_path)
+            if not self._overlay.isVisible():
+                self._overlay.show()
+            self._tabs.setCurrentWidget(self._player_tab)
+        except Exception as e:
+            log.exception("Failed to load from subtitle viewer")
+            QMessageBox.critical(self, "Error", f"Failed to load: {e}")
