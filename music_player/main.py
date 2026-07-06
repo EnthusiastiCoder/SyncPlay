@@ -220,3 +220,10 @@ class MainWindow(QMainWindow):
         self._repeat_off_action.setChecked(mode == RepeatMode.OFF)
         self._repeat_all_action.setChecked(mode == RepeatMode.ALL)
         self._repeat_one_action.setChecked(mode == RepeatMode.ONE)
+
+    def _on_overlay_edit_mode_changed(self, editing: bool) -> None:
+        """Update tray menu text when overlay edit mode changes."""
+        if editing:
+            self._tray_edit_overlay_action.setText("Lock Overlay Position")
+        else:
+            self._tray_edit_overlay_action.setText("Edit Overlay Position")
