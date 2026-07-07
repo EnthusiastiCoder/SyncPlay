@@ -50,3 +50,11 @@ def make_sample_wlrc() -> WlrcData:
             ),
         ],
     )
+
+
+class TestWlrcWord:
+    def test_valid_word(self):
+        w = WlrcWord("hello", 100, 200)
+        assert w.text == "hello"
+        assert w.start_ms == 100
+        assert w.end_ms == 200
