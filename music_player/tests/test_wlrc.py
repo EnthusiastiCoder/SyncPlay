@@ -9,3 +9,44 @@ from music_player.models.wlrc import (
     WlrcWord, WlrcLine, WlrcMetadata, WlrcData,
     save_wlrc, load_wlrc,
 )
+
+
+def make_sample_wlrc() -> WlrcData:
+    """Create a sample WlrcData for testing."""
+    return WlrcData(
+        version=1,
+        metadata=WlrcMetadata(
+            title="Test Song",
+            artist="Test Artist",
+            audio_file="test.mp3",
+            duration_ms=10000,
+        ),
+        lines=[
+            WlrcLine(
+                start_ms=1000,
+                end_ms=3000,
+                words=[
+                    WlrcWord("Hello", 1000, 1500),
+                    WlrcWord("world", 1600, 2800),
+                ],
+            ),
+            WlrcLine(
+                start_ms=3500,
+                end_ms=5000,
+                words=[
+                    WlrcWord("This", 3500, 3800),
+                    WlrcWord("is", 3900, 4100),
+                    WlrcWord("a", 4200, 4300),
+                    WlrcWord("test", 4400, 5000),
+                ],
+            ),
+            WlrcLine(
+                start_ms=6000,
+                end_ms=8000,
+                words=[
+                    WlrcWord("Final", 6000, 6500),
+                    WlrcWord("line", 6600, 8000),
+                ],
+            ),
+        ],
+    )
