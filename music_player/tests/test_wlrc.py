@@ -91,3 +91,9 @@ class TestWlrcLine:
             words=[WlrcWord("test", 0, 1000)]
         )
         assert line.has_word_timing
+
+
+class TestWlrcData:
+    def test_get_current_line_index_empty(self):
+        data = WlrcData()
+        assert data.get_current_line_index(0) == -1
