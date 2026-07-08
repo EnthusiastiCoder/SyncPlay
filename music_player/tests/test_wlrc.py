@@ -196,3 +196,7 @@ class TestSaveLoadWlrc:
         path = str(tmp_path / "subdir" / "test.wlrc")
         save_wlrc(data, path)
         assert Path(path).exists()
+
+    def test_load_nonexistent_raises(self):
+        with pytest.raises(FileNotFoundError):
+            load_wlrc("nonexistent.wlrc")
