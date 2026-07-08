@@ -97,3 +97,8 @@ class TestWlrcData:
     def test_get_current_line_index_empty(self):
         data = WlrcData()
         assert data.get_current_line_index(0) == -1
+
+    def test_get_current_line_index_before_first(self):
+        data = make_sample_wlrc()
+        assert data.get_current_line_index(0) == -1
+        assert data.get_current_line_index(999) == -1
