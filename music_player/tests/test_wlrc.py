@@ -70,3 +70,12 @@ class TestWlrcWord:
     def test_zero_duration_word(self):
         w = WlrcWord("ok", 100, 100)
         assert w.start_ms == w.end_ms
+
+
+class TestWlrcLine:
+    def test_text_property(self):
+        line = WlrcLine(
+            start_ms=0, end_ms=1000,
+            words=[WlrcWord("Hello", 0, 500), WlrcWord("world", 600, 1000)]
+        )
+        assert line.text == "Hello world"
