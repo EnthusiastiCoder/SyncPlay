@@ -123,3 +123,11 @@ class TestWlrcData:
     def test_get_current_line_index_after_last(self):
         data = make_sample_wlrc()
         assert data.get_current_line_index(99999) == 2
+
+    def test_get_display_lines_before_first(self):
+        data = make_sample_wlrc()
+        prev, curr, nxt = data.get_display_lines(500)
+        assert prev is None
+        assert curr is None
+        assert nxt is not None
+        assert nxt.text == "Hello world"
