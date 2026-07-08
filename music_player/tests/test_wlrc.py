@@ -190,3 +190,9 @@ class TestSaveLoadWlrc:
                 assert load_word.text == orig_word.text
                 assert load_word.start_ms == orig_word.start_ms
                 assert load_word.end_ms == orig_word.end_ms
+
+    def test_save_creates_file(self, tmp_path):
+        data = make_sample_wlrc()
+        path = str(tmp_path / "subdir" / "test.wlrc")
+        save_wlrc(data, path)
+        assert Path(path).exists()
