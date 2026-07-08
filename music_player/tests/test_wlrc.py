@@ -111,3 +111,7 @@ class TestWlrcData:
         data = make_sample_wlrc()
         # Between line 0 (ends 3000) and line 1 (starts 3500)
         assert data.get_current_line_index(3200) == 0
+
+    def test_get_current_line_index_at_second_line(self):
+        data = make_sample_wlrc()
+        assert data.get_current_line_index(3500) == 1
