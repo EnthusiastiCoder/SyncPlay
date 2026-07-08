@@ -66,3 +66,7 @@ class TestWlrcWord:
     def test_end_before_start_raises(self):
         with pytest.raises(ValueError, match="end_ms"):
             WlrcWord("bad", 200, 100)
+
+    def test_zero_duration_word(self):
+        w = WlrcWord("ok", 100, 100)
+        assert w.start_ms == w.end_ms
