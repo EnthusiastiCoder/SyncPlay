@@ -150,3 +150,12 @@ class TestWlrcData:
         assert curr.text == "This is a test"
         assert nxt is not None
         assert nxt.text == "Final line"
+
+    def test_get_display_lines_at_last(self):
+        data = make_sample_wlrc()
+        prev, curr, nxt = data.get_display_lines(7000)
+        assert prev is not None
+        assert prev.text == "This is a test"
+        assert curr is not None
+        assert curr.text == "Final line"
+        assert nxt is None
