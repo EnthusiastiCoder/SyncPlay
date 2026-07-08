@@ -131,3 +131,12 @@ class TestWlrcData:
         assert curr is None
         assert nxt is not None
         assert nxt.text == "Hello world"
+
+    def test_get_display_lines_at_first(self):
+        data = make_sample_wlrc()
+        prev, curr, nxt = data.get_display_lines(1000)
+        assert prev is None
+        assert curr is not None
+        assert curr.text == "Hello world"
+        assert nxt is not None
+        assert nxt.text == "This is a test"
