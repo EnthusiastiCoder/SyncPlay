@@ -174,3 +174,10 @@ class TestSaveLoadWlrc:
         path = str(tmp_path / "test.wlrc")
         save_wlrc(original, path)
         loaded = load_wlrc(path)
+
+        assert loaded.version == original.version
+        assert loaded.metadata.title == original.metadata.title
+        assert loaded.metadata.artist == original.metadata.artist
+        assert loaded.metadata.audio_file == original.metadata.audio_file
+        assert loaded.metadata.duration_ms == original.metadata.duration_ms
+        assert len(loaded.lines) == len(original.lines)
