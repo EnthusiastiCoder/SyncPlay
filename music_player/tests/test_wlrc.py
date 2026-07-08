@@ -181,3 +181,12 @@ class TestSaveLoadWlrc:
         assert loaded.metadata.audio_file == original.metadata.audio_file
         assert loaded.metadata.duration_ms == original.metadata.duration_ms
         assert len(loaded.lines) == len(original.lines)
+
+        for orig_line, load_line in zip(original.lines, loaded.lines):
+            assert load_line.start_ms == orig_line.start_ms
+            assert load_line.end_ms == orig_line.end_ms
+            assert len(load_line.words) == len(orig_line.words)
+            for orig_word, load_word in zip(orig_line.words, load_line.words):
+                assert load_word.text == orig_word.text
+                assert load_word.start_ms == orig_word.start_ms
+                assert load_word.end_ms == orig_word.end_ms
