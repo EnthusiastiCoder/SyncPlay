@@ -84,3 +84,10 @@ class TestWlrcLine:
         line = WlrcLine(start_ms=0, end_ms=1000, words=[])
         assert line.text == ""
         assert not line.has_word_timing
+
+    def test_has_word_timing(self):
+        line = WlrcLine(
+            start_ms=0, end_ms=1000,
+            words=[WlrcWord("test", 0, 1000)]
+        )
+        assert line.has_word_timing
