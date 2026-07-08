@@ -58,3 +58,7 @@ class TestWlrcWord:
         assert w.text == "hello"
         assert w.start_ms == 100
         assert w.end_ms == 200
+
+    def test_negative_start_raises(self):
+        with pytest.raises(ValueError, match="start_ms"):
+            WlrcWord("bad", -1, 100)
