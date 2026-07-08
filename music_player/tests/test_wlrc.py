@@ -166,3 +166,11 @@ class TestWlrcData:
         data.add_line(line)
         assert len(data.lines) == 1
         assert data.get_current_line_index(500) == 0
+
+
+class TestSaveLoadWlrc:
+    def test_round_trip(self, tmp_path):
+        original = make_sample_wlrc()
+        path = str(tmp_path / "test.wlrc")
+        save_wlrc(original, path)
+        loaded = load_wlrc(path)
