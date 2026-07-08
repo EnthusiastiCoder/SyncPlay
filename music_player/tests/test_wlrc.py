@@ -62,3 +62,7 @@ class TestWlrcWord:
     def test_negative_start_raises(self):
         with pytest.raises(ValueError, match="start_ms"):
             WlrcWord("bad", -1, 100)
+
+    def test_end_before_start_raises(self):
+        with pytest.raises(ValueError, match="end_ms"):
+            WlrcWord("bad", 200, 100)
