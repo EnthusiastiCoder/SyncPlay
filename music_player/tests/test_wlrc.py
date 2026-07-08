@@ -159,3 +159,10 @@ class TestWlrcData:
         assert curr is not None
         assert curr.text == "Final line"
         assert nxt is None
+
+    def test_add_line(self):
+        data = WlrcData()
+        line = WlrcLine(start_ms=0, end_ms=1000, words=[WlrcWord("test", 0, 1000)])
+        data.add_line(line)
+        assert len(data.lines) == 1
+        assert data.get_current_line_index(500) == 0
