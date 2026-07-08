@@ -102,3 +102,7 @@ class TestWlrcData:
         data = make_sample_wlrc()
         assert data.get_current_line_index(0) == -1
         assert data.get_current_line_index(999) == -1
+
+    def test_get_current_line_index_at_first(self):
+        data = make_sample_wlrc()
+        assert data.get_current_line_index(1000) == 0
