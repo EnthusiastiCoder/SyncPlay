@@ -79,3 +79,8 @@ class TestWlrcLine:
             words=[WlrcWord("Hello", 0, 500), WlrcWord("world", 600, 1000)]
         )
         assert line.text == "Hello world"
+
+    def test_empty_words(self):
+        line = WlrcLine(start_ms=0, end_ms=1000, words=[])
+        assert line.text == ""
+        assert not line.has_word_timing
