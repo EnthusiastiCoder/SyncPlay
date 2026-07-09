@@ -216,3 +216,11 @@ class TestSaveLoadWlrc:
         assert d["version"] == 1
         assert len(d["lines"]) == 3
         assert d["lines"][0]["words"][0]["text"] == "Hello"
+
+    def test_empty_wlrc_round_trip(self, tmp_path):
+        original = WlrcData()
+        path = str(tmp_path / "empty.wlrc")
+        save_wlrc(original, path)
+        loaded = load_wlrc(path)
+        assert len(loaded.lines) == 0
+        assert loaded.metadata.title == ""
