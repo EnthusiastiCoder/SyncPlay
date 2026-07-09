@@ -224,3 +224,10 @@ class TestSaveLoadWlrc:
         loaded = load_wlrc(path)
         assert len(loaded.lines) == 0
         assert loaded.metadata.title == ""
+
+    def test_get_current_line_after_load(self, tmp_path):
+        """Binary search index works correctly after load."""
+        original = make_sample_wlrc()
+        path = str(tmp_path / "test.wlrc")
+        save_wlrc(original, path)
+        loaded = load_wlrc(path)
