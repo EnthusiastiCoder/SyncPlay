@@ -17,3 +17,10 @@ app = QApplication.instance() or QApplication([])
 # -- ModelManager tests --
 
 class TestModelManager:
+
+    def test_available_models(self):
+        models = ModelManager.available_models()
+        assert "tiny" in models
+        assert "base" in models
+        assert "small" in models
+        assert "medium" in models
