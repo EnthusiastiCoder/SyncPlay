@@ -12,3 +12,6 @@ from music_player.alignment.aligner import AlignmentWorker
 from music_player.models.wlrc import load_wlrc, WlrcData
 
 app = QApplication.instance() or QApplication([])
+
+
+# -- ModelManager tests --
