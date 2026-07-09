@@ -206,3 +206,13 @@ class TestSaveLoadWlrc:
         path.write_text("NOT JSON", encoding="utf-8")
         with pytest.raises(json.JSONDecodeError):
             load_wlrc(str(path))
+
+    def test_saved_json_is_readable(self, tmp_path):
+        data = make_sample_wlrc()
+        path = str(tmp_path / "test.wlrc")
+        save_wlrc(data, path)
+        with open(path, "r", encoding="utf-8") as f:
+            d = json.load(f)
+        assert d["version"] == 1
+        assert len(d["lines"]) == 3
+        assert d["lines"][0]["words"][0]["text"] == "Hello"
