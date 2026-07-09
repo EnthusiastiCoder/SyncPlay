@@ -15,3 +15,5 @@ app = QApplication.instance() or QApplication([])
 
 
 # -- ModelManager tests --
+
+class TestModelManager:
