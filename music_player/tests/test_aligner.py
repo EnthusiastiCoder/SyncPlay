@@ -29,3 +29,7 @@ class TestModelManager:
         info = ModelManager.model_info("base")
         assert "size_mb" in info
         assert "params" in info
+
+    def test_model_info_unknown(self):
+        info = ModelManager.model_info("nonexistent")
+        assert info == {}
