@@ -24,3 +24,8 @@ class TestModelManager:
         assert "base" in models
         assert "small" in models
         assert "medium" in models
+
+    def test_model_info(self):
+        info = ModelManager.model_info("base")
+        assert "size_mb" in info
+        assert "params" in info
