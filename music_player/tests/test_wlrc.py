@@ -231,3 +231,8 @@ class TestSaveLoadWlrc:
         path = str(tmp_path / "test.wlrc")
         save_wlrc(original, path)
         loaded = load_wlrc(path)
+
+        assert loaded.get_current_line_index(0) == -1
+        assert loaded.get_current_line_index(1000) == 0
+        assert loaded.get_current_line_index(4000) == 1
+        assert loaded.get_current_line_index(7000) == 2
