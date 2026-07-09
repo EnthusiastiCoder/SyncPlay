@@ -200,3 +200,9 @@ class TestSaveLoadWlrc:
     def test_load_nonexistent_raises(self):
         with pytest.raises(FileNotFoundError):
             load_wlrc("nonexistent.wlrc")
+
+    def test_load_invalid_json_raises(self, tmp_path):
+        path = tmp_path / "bad.wlrc"
+        path.write_text("NOT JSON", encoding="utf-8")
+        with pytest.raises(json.JSONDecodeError):
+            load_wlrc(str(path))
