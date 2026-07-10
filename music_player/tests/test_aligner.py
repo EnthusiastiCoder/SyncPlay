@@ -37,3 +37,8 @@ class TestModelManager:
     def test_is_model_cached_false(self, tmp_path):
         mm = ModelManager(cache_dir=tmp_path)
         assert not mm.is_model_cached("base")
+
+    def test_is_model_cached_true(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        (tmp_path / "base.pt").write_bytes(b"fake model data")
+        assert mm.is_model_cached("base")
