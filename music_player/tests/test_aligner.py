@@ -86,3 +86,19 @@ class MockSegment:
 class MockResult:
     def __init__(self, segments):
         self.segments = segments
+
+
+def make_mock_result():
+    """Create a mock stable-ts alignment result."""
+    return MockResult([
+        MockSegment([
+            MockWord("Hello", 1.0, 1.5),
+            MockWord("world", 1.6, 2.8),
+        ]),
+        MockSegment([
+            MockWord("This", 3.5, 3.8),
+            MockWord("is", 3.9, 4.1),
+            MockWord("a", 4.2, 4.3),
+            MockWord("test", 4.4, 5.0),
+        ]),
+    ])
