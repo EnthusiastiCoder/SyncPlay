@@ -61,3 +61,9 @@ class TestModelManager:
     def test_delete_model_not_found(self, tmp_path):
         mm = ModelManager(cache_dir=tmp_path)
         assert not mm.delete_model("base")
+
+    def test_cache_size(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        (tmp_path / "base.pt").write_bytes(b"x" * 1048576)  # 1 MB
+        size = mm.cache_size_mb()
+        assert abs(size - 1.0) < 0.1
