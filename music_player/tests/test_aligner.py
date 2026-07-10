@@ -105,3 +105,8 @@ def make_mock_result():
 
 
 class TestAlignmentWorker:
+
+    def test_result_to_wlrc_conversion(self, tmp_path):
+        """Test that mock stable-ts result converts to valid WLRC."""
+        audio_path = str(tmp_path / "test.mp3")
+        Path(audio_path).write_bytes(b"fake audio")
