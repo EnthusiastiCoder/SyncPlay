@@ -33,3 +33,7 @@ class TestModelManager:
     def test_model_info_unknown(self):
         info = ModelManager.model_info("nonexistent")
         assert info == {}
+
+    def test_is_model_cached_false(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        assert not mm.is_model_cached("base")
