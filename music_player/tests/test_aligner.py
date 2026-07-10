@@ -57,3 +57,7 @@ class TestModelManager:
         (tmp_path / "base.pt").write_bytes(b"fake")
         assert mm.delete_model("base")
         assert not mm.is_model_cached("base")
+
+    def test_delete_model_not_found(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        assert not mm.delete_model("base")
