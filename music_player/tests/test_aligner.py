@@ -67,3 +67,6 @@ class TestModelManager:
         (tmp_path / "base.pt").write_bytes(b"x" * 1048576)  # 1 MB
         size = mm.cache_size_mb()
         assert abs(size - 1.0) < 0.1
+
+
+# -- AlignmentWorker tests (mocked stable-ts) --
