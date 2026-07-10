@@ -81,3 +81,8 @@ class MockWord:
 class MockSegment:
     def __init__(self, words):
         self.words = words
+
+
+class MockResult:
+    def __init__(self, segments):
+        self.segments = segments
