@@ -70,3 +70,9 @@ class TestModelManager:
 
 
 # -- AlignmentWorker tests (mocked stable-ts) --
+
+class MockWord:
+    def __init__(self, word, start, end):
+        self.word = word
+        self.start = start
+        self.end = end
