@@ -102,3 +102,6 @@ def make_mock_result():
             MockWord("test", 4.4, 5.0),
         ]),
     ])
+
+
+class TestAlignmentWorker:
