@@ -51,3 +51,9 @@ class TestModelManager:
         assert "tiny" in cached
         assert "base" in cached
         assert "small" not in cached
+
+    def test_delete_model(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        (tmp_path / "base.pt").write_bytes(b"fake")
+        assert mm.delete_model("base")
+        assert not mm.is_model_cached("base")
