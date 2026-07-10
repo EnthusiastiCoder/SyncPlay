@@ -42,3 +42,12 @@ class TestModelManager:
         mm = ModelManager(cache_dir=tmp_path)
         (tmp_path / "base.pt").write_bytes(b"fake model data")
         assert mm.is_model_cached("base")
+
+    def test_cached_models(self, tmp_path):
+        mm = ModelManager(cache_dir=tmp_path)
+        (tmp_path / "tiny.pt").write_bytes(b"fake")
+        (tmp_path / "base.pt").write_bytes(b"fake")
+        cached = mm.cached_models()
+        assert "tiny" in cached
+        assert "base" in cached
+        assert "small" not in cached
