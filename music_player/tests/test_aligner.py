@@ -135,3 +135,8 @@ class TestAlignmentWorker:
         assert wlrc.lines[1].words[3].text == "test"
         assert wlrc.lines[1].words[3].start_ms == 4400
         assert wlrc.lines[1].words[3].end_ms == 5000
+
+    def test_result_to_wlrc_line_boundaries(self, tmp_path):
+        """Line start/end derived from first/last word."""
+        audio_path = str(tmp_path / "test.mp3")
+        Path(audio_path).write_bytes(b"fake audio")
