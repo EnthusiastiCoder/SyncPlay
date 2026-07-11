@@ -182,3 +182,8 @@ class TestAlignmentWorker:
     def test_full_run_mocked(self, tmp_path):
         """Full alignment run with mocked stable-ts produces valid .wlrc file."""
         import sys
+
+        mock_stable_whisper = MagicMock()
+        mock_model = MagicMock()
+        mock_model.align.return_value = make_mock_result()
+        mock_stable_whisper.load_model.return_value = mock_model
