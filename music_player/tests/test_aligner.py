@@ -126,3 +126,8 @@ class TestAlignmentWorker:
         assert len(wlrc.lines) == 2
         assert len(wlrc.lines[0].words) == 2
         assert len(wlrc.lines[1].words) == 4
+
+        # Check word timestamps
+        assert wlrc.lines[0].words[0].text == "Hello"
+        assert wlrc.lines[0].words[0].start_ms == 1000
+        assert wlrc.lines[0].words[0].end_ms == 1500
