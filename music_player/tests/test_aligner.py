@@ -165,3 +165,10 @@ class TestAlignmentWorker:
         ])
         wlrc = worker._result_to_wlrc(result)
         assert len(wlrc.lines[0].words) == 2
+
+    def test_default_output_path(self, tmp_path):
+        worker = AlignmentWorker(
+            audio_path=str(tmp_path / "song.mp3"),
+            transcript="text",
+        )
+        assert worker.output_path == str(tmp_path / "song.wlrc")
