@@ -121,3 +121,8 @@ class TestAlignmentWorker:
 
         result = make_mock_result()
         wlrc = worker._result_to_wlrc(result)
+
+        assert isinstance(wlrc, WlrcData)
+        assert len(wlrc.lines) == 2
+        assert len(wlrc.lines[0].words) == 2
+        assert len(wlrc.lines[1].words) == 4
