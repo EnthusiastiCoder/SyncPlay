@@ -131,3 +131,7 @@ class TestAlignmentWorker:
         assert wlrc.lines[0].words[0].text == "Hello"
         assert wlrc.lines[0].words[0].start_ms == 1000
         assert wlrc.lines[0].words[0].end_ms == 1500
+
+        assert wlrc.lines[1].words[3].text == "test"
+        assert wlrc.lines[1].words[3].start_ms == 4400
+        assert wlrc.lines[1].words[3].end_ms == 5000
