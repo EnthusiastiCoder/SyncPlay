@@ -187,3 +187,7 @@ class TestAlignmentWorker:
         mock_model = MagicMock()
         mock_model.align.return_value = make_mock_result()
         mock_stable_whisper.load_model.return_value = mock_model
+
+        audio_path = str(tmp_path / "test.mp3")
+        Path(audio_path).write_bytes(b"fake audio")
+        output_path = str(tmp_path / "test.wlrc")
