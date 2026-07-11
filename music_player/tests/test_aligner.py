@@ -154,3 +154,14 @@ class TestAlignmentWorker:
         """Words with empty text after strip are skipped."""
         audio_path = str(tmp_path / "test.mp3")
         Path(audio_path).write_bytes(b"fake audio")
+
+        worker = AlignmentWorker(audio_path=audio_path, transcript="x", model_name="base")
+        result = MockResult([
+            MockSegment([
+                MockWord("Hello", 1.0, 1.5),
+                MockWord("  ", 1.6, 1.7),  # whitespace-only, should be skipped
+                MockWord("world", 1.8, 2.0),
+            ])
+        ])
+        wlrc = worker._result_to_wlrc(result)
+        assert len(wlrc.lines[0].words) == 2
