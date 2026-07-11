@@ -118,3 +118,6 @@ class TestAlignmentWorker:
             language="en",
             output_path=str(tmp_path / "test.wlrc"),
         )
+
+        result = make_mock_result()
+        wlrc = worker._result_to_wlrc(result)
