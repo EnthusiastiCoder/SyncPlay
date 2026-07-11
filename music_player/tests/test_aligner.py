@@ -140,3 +140,7 @@ class TestAlignmentWorker:
         """Line start/end derived from first/last word."""
         audio_path = str(tmp_path / "test.mp3")
         Path(audio_path).write_bytes(b"fake audio")
+
+        worker = AlignmentWorker(audio_path=audio_path, transcript="x", model_name="base")
+        result = make_mock_result()
+        wlrc = worker._result_to_wlrc(result)
