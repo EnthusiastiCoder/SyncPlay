@@ -178,3 +178,7 @@ class TestAlignmentWorker:
         assert not worker._cancelled
         worker.cancel()
         assert worker._cancelled
+
+    def test_full_run_mocked(self, tmp_path):
+        """Full alignment run with mocked stable-ts produces valid .wlrc file."""
+        import sys
