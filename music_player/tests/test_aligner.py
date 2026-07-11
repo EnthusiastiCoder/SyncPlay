@@ -144,3 +144,8 @@ class TestAlignmentWorker:
         worker = AlignmentWorker(audio_path=audio_path, transcript="x", model_name="base")
         result = make_mock_result()
         wlrc = worker._result_to_wlrc(result)
+
+        assert wlrc.lines[0].start_ms == 1000
+        assert wlrc.lines[0].end_ms == 2800
+        assert wlrc.lines[1].start_ms == 3500
+        assert wlrc.lines[1].end_ms == 5000
