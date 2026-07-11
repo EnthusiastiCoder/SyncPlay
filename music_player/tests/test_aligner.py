@@ -110,3 +110,11 @@ class TestAlignmentWorker:
         """Test that mock stable-ts result converts to valid WLRC."""
         audio_path = str(tmp_path / "test.mp3")
         Path(audio_path).write_bytes(b"fake audio")
+
+        worker = AlignmentWorker(
+            audio_path=audio_path,
+            transcript="Hello world This is a test",
+            model_name="base",
+            language="en",
+            output_path=str(tmp_path / "test.wlrc"),
+        )
