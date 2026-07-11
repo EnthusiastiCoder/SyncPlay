@@ -149,3 +149,8 @@ class TestAlignmentWorker:
         assert wlrc.lines[0].end_ms == 2800
         assert wlrc.lines[1].start_ms == 3500
         assert wlrc.lines[1].end_ms == 5000
+
+    def test_result_to_wlrc_empty_words_skipped(self, tmp_path):
+        """Words with empty text after strip are skipped."""
+        audio_path = str(tmp_path / "test.mp3")
+        Path(audio_path).write_bytes(b"fake audio")
