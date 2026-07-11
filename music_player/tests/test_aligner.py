@@ -172,3 +172,9 @@ class TestAlignmentWorker:
             transcript="text",
         )
         assert worker.output_path == str(tmp_path / "song.wlrc")
+
+    def test_cancel_flag(self):
+        worker = AlignmentWorker(audio_path="x.mp3", transcript="text")
+        assert not worker._cancelled
+        worker.cancel()
+        assert worker._cancelled
