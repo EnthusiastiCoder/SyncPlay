@@ -28,3 +28,6 @@ def _ok(payload: dict) -> FakeHTTPResponse:
 
 def _search_ok(results: list) -> FakeHTTPResponse:
     return FakeHTTPResponse(json.dumps(results).encode("utf-8"))
+
+
+class TestFetchLyrics(unittest.TestCase):
