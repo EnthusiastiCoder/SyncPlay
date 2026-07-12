@@ -11,3 +11,6 @@ from music_player.alignment.lrclib_client import fetch_lyrics, extract_audio_met
 class FakeHTTPResponse:
     def __init__(self, data: bytes):
         self._data = data
+
+    def read(self):
+        return self._data
