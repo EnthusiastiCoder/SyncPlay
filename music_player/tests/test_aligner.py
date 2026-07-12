@@ -191,3 +191,11 @@ class TestAlignmentWorker:
         audio_path = str(tmp_path / "test.mp3")
         Path(audio_path).write_bytes(b"fake audio")
         output_path = str(tmp_path / "test.wlrc")
+
+        worker = AlignmentWorker(
+            audio_path=audio_path,
+            transcript="Hello world This is a test",
+            model_name="base",
+            language="en",
+            output_path=output_path,
+        )
