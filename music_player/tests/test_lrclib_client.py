@@ -31,3 +31,12 @@ def _search_ok(results: list) -> FakeHTTPResponse:
 
 
 class TestFetchLyrics(unittest.TestCase):
+
+    def test_returns_plain_lyrics_on_success(self):
+        payload = {"plainLyrics": "Hello world\nSecond line", "syncedLyrics": "[00:01.00] Hello world"}
+        with patch("urllib.request.urlopen", return_value=_ok(payload)):
+            result = fetch_lyrics("Hello", "Artist", "Album", 180.0)
+        self.assertIsNotNone(result)
+        self.assertEqual(result["plainLyrics"], "Hello world\nSecond line")
+        # syncedLyrics must NOT be in the result
+        self.assertNotIn("syncedLyrics", result)
