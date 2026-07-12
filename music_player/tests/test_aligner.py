@@ -203,3 +203,9 @@ class TestAlignmentWorker:
         results = {"finished": [], "failed": []}
         worker.finished_ok.connect(lambda p: results["finished"].append(p))
         worker.failed.connect(lambda e: results["failed"].append(e))
+
+        # Inject mock into sys.modules so `import stable_whisper` inside run() uses it
+        # Also patch torch.cuda.is_available so device selection is deterministic
+        with patch.dict(sys.modules, {"stable_whisper": mock_stable_whisper}), \
+             patch("torch.cuda.is_available", return_value=False):
+            worker.run()  # Run directly (not in thread) for testing
