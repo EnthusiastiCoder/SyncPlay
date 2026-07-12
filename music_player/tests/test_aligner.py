@@ -209,3 +209,7 @@ class TestAlignmentWorker:
         with patch.dict(sys.modules, {"stable_whisper": mock_stable_whisper}), \
              patch("torch.cuda.is_available", return_value=False):
             worker.run()  # Run directly (not in thread) for testing
+
+        assert len(results["finished"]) == 1
+        assert len(results["failed"]) == 0
+        assert Path(output_path).exists()
