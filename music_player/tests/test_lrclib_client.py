@@ -40,3 +40,10 @@ class TestFetchLyrics(unittest.TestCase):
         self.assertEqual(result["plainLyrics"], "Hello world\nSecond line")
         # syncedLyrics must NOT be in the result
         self.assertNotIn("syncedLyrics", result)
+
+    def test_empty_title_returns_none_without_request(self):
+        """Empty track name must return None immediately (no HTTP call)."""
+        with patch("urllib.request.urlopen") as mock_open:
+            result = fetch_lyrics("", "Queen", "", 354.0)
+        self.assertIsNone(result)
+        mock_open.assert_not_called()
