@@ -24,3 +24,7 @@ class FakeHTTPResponse:
 
 def _ok(payload: dict) -> FakeHTTPResponse:
     return FakeHTTPResponse(json.dumps(payload).encode("utf-8"))
+
+
+def _search_ok(results: list) -> FakeHTTPResponse:
+    return FakeHTTPResponse(json.dumps(results).encode("utf-8"))
