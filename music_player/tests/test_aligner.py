@@ -199,3 +199,7 @@ class TestAlignmentWorker:
             language="en",
             output_path=output_path,
         )
+
+        results = {"finished": [], "failed": []}
+        worker.finished_ok.connect(lambda p: results["finished"].append(p))
+        worker.failed.connect(lambda e: results["failed"].append(e))
