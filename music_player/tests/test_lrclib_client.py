@@ -20,3 +20,7 @@ class FakeHTTPResponse:
 
     def __exit__(self, *args):
         pass
+
+
+def _ok(payload: dict) -> FakeHTTPResponse:
+    return FakeHTTPResponse(json.dumps(payload).encode("utf-8"))
