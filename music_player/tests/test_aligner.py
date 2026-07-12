@@ -218,3 +218,8 @@ class TestAlignmentWorker:
         mock_model.align.assert_called_once()
         call_kwargs = mock_model.align.call_args
         assert call_kwargs.kwargs["language"] == "en"
+
+        # Verify output is valid WLRC
+        wlrc = load_wlrc(output_path)
+        assert len(wlrc.lines) == 2
+        assert wlrc.lines[0].words[0].text == "Hello"
