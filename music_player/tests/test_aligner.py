@@ -213,3 +213,8 @@ class TestAlignmentWorker:
         assert len(results["finished"]) == 1
         assert len(results["failed"]) == 0
         assert Path(output_path).exists()
+
+        # Verify model.align was called with language
+        mock_model.align.assert_called_once()
+        call_kwargs = mock_model.align.call_args
+        assert call_kwargs.kwargs["language"] == "en"
