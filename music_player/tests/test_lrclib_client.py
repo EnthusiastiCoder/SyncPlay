@@ -47,3 +47,9 @@ class TestFetchLyrics(unittest.TestCase):
             result = fetch_lyrics("", "Queen", "", 354.0)
         self.assertIsNone(result)
         mock_open.assert_not_called()
+
+    def test_whitespace_only_title_returns_none(self):
+        with patch("urllib.request.urlopen") as mock_open:
+            result = fetch_lyrics("   ", "Artist", "", 0.0)
+        self.assertIsNone(result)
+        mock_open.assert_not_called()
