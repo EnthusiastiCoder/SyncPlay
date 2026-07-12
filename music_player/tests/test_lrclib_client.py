@@ -14,3 +14,6 @@ class FakeHTTPResponse:
 
     def read(self):
         return self._data
+
+    def __enter__(self):
+        return self
