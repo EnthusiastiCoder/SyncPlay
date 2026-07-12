@@ -53,3 +53,8 @@ class TestFetchLyrics(unittest.TestCase):
             result = fetch_lyrics("   ", "Artist", "", 0.0)
         self.assertIsNone(result)
         mock_open.assert_not_called()
+
+    def test_400_treated_as_not_found_falls_through_to_search(self):
+        """Stage 1 returning 400 should not raise; search fallback should succeed."""
+        err_400 = urllib.error.HTTPError(url="", code=400, msg="Bad Request", hdrs=None, fp=None)
+        search_payload = [{"plainLyrics": "Found via search", "syncedLyrics": ""}]
