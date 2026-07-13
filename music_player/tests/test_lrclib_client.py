@@ -58,3 +58,5 @@ class TestFetchLyrics(unittest.TestCase):
         """Stage 1 returning 400 should not raise; search fallback should succeed."""
         err_400 = urllib.error.HTTPError(url="", code=400, msg="Bad Request", hdrs=None, fp=None)
         search_payload = [{"plainLyrics": "Found via search", "syncedLyrics": ""}]
+
+        call_count = [0]
