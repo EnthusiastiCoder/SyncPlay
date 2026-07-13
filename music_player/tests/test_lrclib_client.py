@@ -149,3 +149,7 @@ class TestFetchLyrics(unittest.TestCase):
 
         with patch("urllib.request.urlopen", side_effect=fake_urlopen):
             result = fetch_lyrics("Track", "Artist", "", 0.0)
+
+        get_calls = [u for u in call_log if "api/get" in u]
+        self.assertEqual(len(get_calls), 1, "Stage 2 should be skipped when no album/duration")
+        self.assertIsNotNone(result)
