@@ -124,3 +124,7 @@ class TestFetchLyrics(unittest.TestCase):
     def test_duration_zero_not_sent(self):
         captured_urls = []
         payload = {"plainLyrics": "lyrics", "syncedLyrics": ""}
+
+        def fake_urlopen(req, timeout=None):
+            captured_urls.append(req.full_url)
+            return _ok(payload)
