@@ -153,3 +153,7 @@ class TestFetchLyrics(unittest.TestCase):
         get_calls = [u for u in call_log if "api/get" in u]
         self.assertEqual(len(get_calls), 1, "Stage 2 should be skipped when no album/duration")
         self.assertIsNotNone(result)
+
+    def test_url_includes_track_name(self):
+        payload = {"plainLyrics": "lyrics", "syncedLyrics": ""}
+        captured_urls = []
