@@ -120,3 +120,7 @@ class TestFetchLyrics(unittest.TestCase):
             result = fetch_lyrics("Instrumental", "Artist", "", 120.0)
         self.assertIsNotNone(result)
         self.assertEqual(result["plainLyrics"], "Real lyrics here")
+
+    def test_duration_zero_not_sent(self):
+        captured_urls = []
+        payload = {"plainLyrics": "lyrics", "syncedLyrics": ""}
