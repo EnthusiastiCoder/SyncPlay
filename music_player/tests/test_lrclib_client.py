@@ -69,3 +69,6 @@ class TestFetchLyrics(unittest.TestCase):
 
         with patch("urllib.request.urlopen", side_effect=fake_urlopen):
             result = fetch_lyrics("Track", "Artist", "Album", 180.0)
+
+        self.assertIsNotNone(result)
+        self.assertEqual(result["plainLyrics"], "Found via search")
