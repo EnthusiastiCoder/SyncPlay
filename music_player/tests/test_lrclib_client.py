@@ -99,3 +99,9 @@ class TestFetchLyrics(unittest.TestCase):
         with patch("urllib.request.urlopen", side_effect=fake_urlopen):
             result = fetch_lyrics("zzz_nonexistent", "zzz_artist", "", 0.0)
         self.assertIsNone(result)
+
+    def test_raises_on_500_server_error(self):
+        err_500 = urllib.error.HTTPError(url="", code=500, msg="Server Error", hdrs=None, fp=None)
+        with patch("urllib.request.urlopen", side_effect=err_500):
+            with self.assertRaises(urllib.error.HTTPError):
+                fetch_lyrics("Track", "", "", 0.0)
