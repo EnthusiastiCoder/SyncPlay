@@ -115,3 +115,8 @@ class TestFetchLyrics(unittest.TestCase):
             if "api/search" in req.full_url:
                 return _search_ok(search_payload)
             return _ok(stage1_payload)
+
+        with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            result = fetch_lyrics("Instrumental", "Artist", "", 120.0)
+        self.assertIsNotNone(result)
+        self.assertEqual(result["plainLyrics"], "Real lyrics here")
