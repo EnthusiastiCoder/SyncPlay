@@ -128,3 +128,6 @@ class TestFetchLyrics(unittest.TestCase):
         def fake_urlopen(req, timeout=None):
             captured_urls.append(req.full_url)
             return _ok(payload)
+
+        with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            fetch_lyrics("Track", "", "", 0.0)
