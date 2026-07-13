@@ -157,3 +157,7 @@ class TestFetchLyrics(unittest.TestCase):
     def test_url_includes_track_name(self):
         payload = {"plainLyrics": "lyrics", "syncedLyrics": ""}
         captured_urls = []
+
+        def fake_urlopen(req, timeout=None):
+            captured_urls.append(req.full_url)
+            return _ok(payload)
