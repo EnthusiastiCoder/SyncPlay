@@ -60,3 +60,9 @@ class TestFetchLyrics(unittest.TestCase):
         search_payload = [{"plainLyrics": "Found via search", "syncedLyrics": ""}]
 
         call_count = [0]
+
+        def fake_urlopen(req, timeout=None):
+            call_count[0] += 1
+            if "api/search" in req.full_url:
+                return _search_ok(search_payload)
+            raise err_400
