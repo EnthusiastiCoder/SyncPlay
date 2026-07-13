@@ -131,3 +131,6 @@ class TestFetchLyrics(unittest.TestCase):
 
         with patch("urllib.request.urlopen", side_effect=fake_urlopen):
             fetch_lyrics("Track", "", "", 0.0)
+
+        self.assertTrue(len(captured_urls) > 0)
+        self.assertNotIn("duration", captured_urls[0])
