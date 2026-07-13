@@ -185,3 +185,7 @@ class TestExtractAudioMetadata(unittest.TestCase):
         meta = extract_audio_metadata("/nonexistent/file.mp3")
         self.assertIsNotNone(meta)
         self.assertEqual(meta["title"], "file")
+
+
+if __name__ == "__main__":
+    unittest.main()
