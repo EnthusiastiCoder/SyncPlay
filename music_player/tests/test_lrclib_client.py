@@ -180,3 +180,8 @@ class TestExtractAudioMetadata(unittest.TestCase):
         self.assertIn("artist", meta)
         self.assertIn("album", meta)
         self.assertIn("duration_sec", meta)
+
+    def test_does_not_raise_on_nonexistent_file(self):
+        meta = extract_audio_metadata("/nonexistent/file.mp3")
+        self.assertIsNotNone(meta)
+        self.assertEqual(meta["title"], "file")
