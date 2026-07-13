@@ -134,3 +134,9 @@ class TestFetchLyrics(unittest.TestCase):
 
         self.assertTrue(len(captured_urls) > 0)
         self.assertNotIn("duration", captured_urls[0])
+
+    def test_stage2_skipped_when_no_album_or_duration(self):
+        """Without album or duration, stage 2 is redundant so only 2 calls (get + search)."""
+        payload = {"plainLyrics": None, "syncedLyrics": ""}
+        search_payload = [{"plainLyrics": "search hit", "syncedLyrics": ""}]
+        call_log = []
