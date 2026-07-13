@@ -76,3 +76,8 @@ class TestFetchLyrics(unittest.TestCase):
     def test_404_falls_through_to_search(self):
         err_404 = urllib.error.HTTPError(url="", code=404, msg="Not Found", hdrs=None, fp=None)
         search_payload = [{"plainLyrics": "Search result lyrics", "syncedLyrics": ""}]
+
+        def fake_urlopen(req, timeout=None):
+            if "api/search" in req.full_url:
+                return _search_ok(search_payload)
+            raise err_404
