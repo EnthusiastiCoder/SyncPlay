@@ -81,3 +81,6 @@ class TestFetchLyrics(unittest.TestCase):
             if "api/search" in req.full_url:
                 return _search_ok(search_payload)
             raise err_404
+
+        with patch("urllib.request.urlopen", side_effect=fake_urlopen):
+            result = fetch_lyrics("Unknown Track", "Artist", "", 0.0)
