@@ -105,3 +105,8 @@ class TestFetchLyrics(unittest.TestCase):
         with patch("urllib.request.urlopen", side_effect=err_500):
             with self.assertRaises(urllib.error.HTTPError):
                 fetch_lyrics("Track", "", "", 0.0)
+
+    def test_null_plain_lyrics_skipped_uses_search(self):
+        """If stage 1 returns null plainLyrics, should fall through to search."""
+        stage1_payload = {"plainLyrics": None, "syncedLyrics": "[00:01.00] line"}
+        search_payload = [{"plainLyrics": "Real lyrics here", "syncedLyrics": ""}]
