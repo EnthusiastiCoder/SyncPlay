@@ -72,3 +72,7 @@ class TestFetchLyrics(unittest.TestCase):
 
         self.assertIsNotNone(result)
         self.assertEqual(result["plainLyrics"], "Found via search")
+
+    def test_404_falls_through_to_search(self):
+        err_404 = urllib.error.HTTPError(url="", code=404, msg="Not Found", hdrs=None, fp=None)
+        search_payload = [{"plainLyrics": "Search result lyrics", "syncedLyrics": ""}]
