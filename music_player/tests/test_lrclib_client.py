@@ -90,3 +90,8 @@ class TestFetchLyrics(unittest.TestCase):
 
     def test_all_stages_fail_returns_none(self):
         err_404 = urllib.error.HTTPError(url="", code=404, msg="Not Found", hdrs=None, fp=None)
+
+        def fake_urlopen(req, timeout=None):
+            if "api/search" in req.full_url:
+                return _search_ok([])  # empty search results
+            raise err_404
