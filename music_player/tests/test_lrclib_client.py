@@ -166,3 +166,6 @@ class TestFetchLyrics(unittest.TestCase):
             fetch_lyrics("My Song", "Some Artist", "", 200.0)
 
         self.assertTrue(any("track_name" in u for u in captured_urls))
+
+
+class TestExtractAudioMetadata(unittest.TestCase):
