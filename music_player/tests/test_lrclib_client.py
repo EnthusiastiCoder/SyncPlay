@@ -87,3 +87,6 @@ class TestFetchLyrics(unittest.TestCase):
 
         self.assertIsNotNone(result)
         self.assertEqual(result["plainLyrics"], "Search result lyrics")
+
+    def test_all_stages_fail_returns_none(self):
+        err_404 = urllib.error.HTTPError(url="", code=404, msg="Not Found", hdrs=None, fp=None)
