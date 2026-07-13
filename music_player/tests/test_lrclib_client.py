@@ -169,3 +169,7 @@ class TestFetchLyrics(unittest.TestCase):
 
 
 class TestExtractAudioMetadata(unittest.TestCase):
+
+    def test_falls_back_to_filename_when_no_tags(self):
+        meta = extract_audio_metadata("/fake/path/my_song.mp3")
+        self.assertEqual(meta["title"], "my_song")
