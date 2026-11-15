@@ -1,0 +1,6 @@
+PyQt6>=6.6.0
+mutagen>=1.47.0
+stable-ts>=2.16.0
+openai-whisper>=20231117
+pytest>=7.4.0
+pyinstaller>=6.0.0
